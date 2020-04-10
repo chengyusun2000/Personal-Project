@@ -12,7 +12,11 @@ public class playerMovement : MonoBehaviour
     public Transform target;
     public Vector3Int playerMapPosition;
     public Vector3 PlayerCenterPos;
+
+
     public pathfinding pathfinding;
+    public Load load;
+
     public List<node> Path;
 
     [Header("the movement is finished")]
@@ -32,6 +36,7 @@ public class playerMovement : MonoBehaviour
     public float Percent;
     public Vector3Int NextStepVector;
     public bool reach = true;
+    public bool Pause = false;
     
 
     public Tile tile;
@@ -39,11 +44,12 @@ public class playerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        load = tilemap.GetComponent<Load>();
         playerMapPosition = tilemap.WorldToCell(transform.position);
         PlayerCenterPos = tilemap.CellToWorld(playerMapPosition);
         transform.position = PlayerCenterPos;
         //GetMmovementDistance();
-        
+
     }
 
     // Update is called once per frame
@@ -51,11 +57,14 @@ public class playerMovement : MonoBehaviour
     {
 
         Path = pathfinding.PathTest;
-
+        if (Input.GetKeyDown("space"))
+        {
+            Pause = true;
+        }
 
 
         WalkOnPath();
-
+        DisPlayMovementRange();
 
 
 
@@ -70,7 +79,7 @@ public class playerMovement : MonoBehaviour
         if(Path.Count!=0)
         {
             PathFinished = false;
-            if (reach )
+            if (reach&&!Pause)
             {
                 NextStep = Path[0];
 
@@ -89,11 +98,23 @@ public class playerMovement : MonoBehaviour
 
             }
             
+            //else if(PlayerCenterPos != TargetMovement&&Pause)
+            //{
+            //    transform.position = Vector3.MoveTowards(PlayerCenterPos, TargetMovement, 0.03f);
+            //    for (int i = 0; i < Path.Count; i++)
+            //    {
+            //        Path.RemoveAt(i);
+            //    }
+            //    reach = false;
+               
+                
+            //}
             else
             {
                 
                 reach = true;
                 Path.RemoveAt(0);
+                
                 
             }
             
@@ -102,9 +123,26 @@ public class playerMovement : MonoBehaviour
         else
         {
             PathFinished = true;
+            Pause = false;
         }
        
        
+    }
+    public void DisPlayMovementRange()
+    {
+        if(PathFinished)
+        {
+            playerMapPosition = tilemap.WorldToCell(transform.position);
+            GetMmovementDistance();
+        }
+        else
+        {
+            foreach (Vector3Int vector in PositionsInRange)
+            {
+                HighlightTilemap.SetTile(vector, null);
+            }
+            //PositionsInRange = null;
+        }
     }
 
 
@@ -214,7 +252,15 @@ public class playerMovement : MonoBehaviour
 
         foreach (Vector3Int vector in PositionsInRange)
         {
-            HighlightTilemap.SetTile(vector, tile);
+            if(tilemap.GetTile(vector)!= null&&tilemap.GetTile(vector) !=load.tiles[0] )
+            {
+                HighlightTilemap.SetTile(vector, tile);
+            }
+            //else
+            //{
+            //    PositionsInRange.Remove(vector);
+            //}
+            
         }
 
     }

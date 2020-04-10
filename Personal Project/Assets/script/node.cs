@@ -26,7 +26,7 @@ public class node
     {
         get
         {
-            return Gcost + (int)(Hcost*weight);
+            return Gcost + (int)(Hcost * weight);
         }
     }
     

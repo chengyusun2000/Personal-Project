@@ -19,7 +19,7 @@ public class Load : MonoBehaviour
     {
         nodes = Loading();
         insVector = new Vector3Int(0, 0, 0);
-        sizeOfMap = (int)Mathf.Sqrt(nodes.Count + 1);
+        sizeOfMap = ((int)Mathf.Sqrt(nodes.Count + 1))-1;
         
         for (int i = 0; i < nodes.Count - 1; i++)
         {

@@ -19,7 +19,7 @@ public class pathfinding : MonoBehaviour
     public List<node> testlist;
     public List<node> openset;
     public List<node> PathTest;
-    public List<node> Closed;
+    public HashSet<node> Closed;
     public playerMovement playerMovement;
     public bool end = false;
     //List<node> openset = new List<node>();
@@ -75,18 +75,17 @@ public class pathfinding : MonoBehaviour
         StartNode.Hcost = GetDistance(StartNode, EndNode);
         StartNode.weight = 1;
         openset = new List<node>();
-         Closed = new List<node>();
+         Closed = new HashSet<node>();
         
         openset.Add(StartNode);
         
-        while (openset.Count >0/*&&!end*/)
+        while (openset.Count >0)
         {
             node currentNode = openset[0];
            
             for (int i = 1; i <openset.Count; i++)
             {
-                //if (openset[i].position[0]!=EndNode.position[0]&&openset[i].position[1]!=EndNode.position[1]&&openset[i].position[2]!=EndNode.position[2])
-                //{
+                
                     if (openset[i].Fcost < currentNode.Fcost)
                     {
 
@@ -97,8 +96,16 @@ public class pathfinding : MonoBehaviour
 
 
                     }
-                   
-                }
+                    else if (openset[i].Fcost == currentNode.Fcost)
+                    {
+                    if(openset[i].Hcost < currentNode.Hcost)
+                    {
+                        currentNode = openset[i];
+                    }
+                    }
+
+
+            }
                 
                     
                 
@@ -154,10 +161,10 @@ public class pathfinding : MonoBehaviour
                         openset.Add(neighbour);
 
                     }
-                    else
-                    {
-                        continue;
-                    }
+                    //else
+                    //{
+                    //    continue;
+                    //}
 
 
 
@@ -187,12 +194,9 @@ public class pathfinding : MonoBehaviour
         int distanceX = Mathf.Abs(A.position[0] - B.position[0]);
         int distanceY = Mathf.Abs(A.position[1] - B.position[1]);
 
+
         return distanceX * distanceX + distanceY * distanceY;
-        
-        
-        
-            
-        
+
 
     }
 }
