@@ -8,17 +8,20 @@ public class playerMovement : MonoBehaviour
     public Rigidbody2D rg;
     public Vector2 PlayerMove;
     public Tilemap tilemap;
+    public Tilemap HighlightTilemap;
     public Transform target;
     public Vector3Int playerMapPosition;
     public Vector3 PlayerCenterPos;
     public pathfinding pathfinding;
     public List<node> Path;
 
+    [Header("the movement is finished")]
+    public bool PathFinished=false;
 
 
 
     public List<Vector3Int> PositionsInRange;
-    public int Radius;
+    public int Radius = 2;
 
     public node NextStep;
     [Header("test step")]
@@ -28,8 +31,8 @@ public class playerMovement : MonoBehaviour
     public Vector3 Direction;
     public float Percent;
     public Vector3Int NextStepVector;
-    private bool reach = true;
-    public int i = 0;
+    public bool reach = true;
+    
 
     public Tile tile;
 
@@ -39,7 +42,7 @@ public class playerMovement : MonoBehaviour
         playerMapPosition = tilemap.WorldToCell(transform.position);
         PlayerCenterPos = tilemap.CellToWorld(playerMapPosition);
         transform.position = PlayerCenterPos;
-        GetMmovementDistance();
+        //GetMmovementDistance();
         
     }
 
@@ -49,51 +52,66 @@ public class playerMovement : MonoBehaviour
 
         Path = pathfinding.PathTest;
 
-        
 
-        //WalkOnPath();
-        
-        
-        
-            
-     
-        
-       
 
-        
+        WalkOnPath();
+
+
+
+
+
+
+
+
+
     }
     public void WalkOnPath()
     {
-        if (reach&&i<Path.Count)
+        if(Path.Count!=0)
         {
-            NextStep = Path[i];
+            PathFinished = false;
+            if (reach )
+            {
+                NextStep = Path[0];
 
-            NextStepVector = new Vector3Int(NextStep.position[0], NextStep.position[1], NextStep.position[2]);
+                NextStepVector = new Vector3Int(NextStep.position[0], NextStep.position[1], NextStep.position[2]);
 
-            TargetMovement = tilemap.CellToWorld(NextStepVector);
-            reach = false;
-        }
+                TargetMovement = tilemap.CellToWorld(NextStepVector);
+                reach = false;
+                
+            }
 
 
-        if (PlayerCenterPos != TargetMovement && reach == false)
-        {
-            //transform.position = Vector3.Lerp(PlayerCenterPos, TargetMovement, Time.deltaTime * speed);
-            transform.position = Vector3.MoveTowards(PlayerCenterPos, TargetMovement, 0.03f);
+            if (PlayerCenterPos != TargetMovement && reach == false)
+            {
+                //transform.position = Vector3.Lerp(PlayerCenterPos, TargetMovement, Time.deltaTime * speed);
+                transform.position = Vector3.MoveTowards(PlayerCenterPos, TargetMovement, 0.03f);
 
+            }
+            
+            else
+            {
+                
+                reach = true;
+                Path.RemoveAt(0);
+                
+            }
+            
+            PlayerCenterPos = transform.position;
         }
         else
         {
-            reach = true;
-            i++;
+            PathFinished = true;
         }
-        PlayerCenterPos = transform.position;
+       
+       
     }
 
 
     public void GetMmovementDistance()
     {
         PositionsInRange = new List<Vector3Int>();
-        Radius = 5;
+        
         int DivisionNumDown = Radius / 2;
         int DivisionNumUp = Radius / 2;
 
@@ -192,65 +210,11 @@ public class playerMovement : MonoBehaviour
             }
         }
     
-        //if(playerMapPosition.y%2==0||playerMapPosition.y==0)
-        //{
-        //    for (int y = -Radius; y <= 0; y++)
-        //    {
-        //        if(y%2==0||y==0)
-        //        {
-        //            for (int x = Mathf.Max(-Radius, y - Radius); x <= Mathf.Min(Radius, y + Radius); x++)
-        //            {
-
-        //                PositionsInRange.Add(new Vector3Int(playerMapPosition.x + x+1, playerMapPosition.y + y, playerMapPosition.z));
-        //            }
-
-        //        }
-        //        else
-        //        {
-        //            for (int x = Mathf.Max(-Radius, y - Radius); x <= Mathf.Min(Radius, y + Radius); x++)
-        //            {
-
-        //                PositionsInRange.Add(new Vector3Int(playerMapPosition.x + x, playerMapPosition.y + y, playerMapPosition.z));
-        //            }
-        //            //for (int x = Mathf.Max(-Radius, -y - Radius); x <= Mathf.Min(Radius, -y + Radius); x++)
-        //            //{
-        //            //    PositionsInRange.Add(new Vector3Int(playerMapPosition.x + x, playerMapPosition.y + y, playerMapPosition.z));
-        //            //}
-        //        }
-
-        //    }
-        //    //for(int y=Radius;y>0;y--)
-        //    //{
-        //    //    for (int x = Mathf.Max(-Radius, -y - Radius); x <= Mathf.Min(Radius, -y + Radius); x++)
-        //    //    {
-        //    //        PositionsInRange.Add(new Vector3Int(playerMapPosition.x + x, playerMapPosition.y + y, playerMapPosition.z));
-        //    //    }
-        //    //}
-        //}
-        //else
-        //{
-        //    for (int y = -Radius; y <= 0; y++)
-        //    {
-        //        for (int x = Mathf.Max(-Radius, -y - Radius); x <= Mathf.Min(Radius, -y + Radius); x++)
-        //        {
-        //            PositionsInRange.Add(new Vector3Int(playerMapPosition.x + x, playerMapPosition.y + y, playerMapPosition.z));
-        //        }
-        //    }
-        //    for (int y = Radius; y > 0; y--)
-        //    {
-        //        for (int x = Mathf.Max(-Radius, y - Radius); x <= Mathf.Min(Radius, y + Radius); x++)
-        //        {
-
-        //            PositionsInRange.Add(new Vector3Int(playerMapPosition.x + x, playerMapPosition.y + y, playerMapPosition.z));
-        //        }
-        //    }
-
-        //}
-
+        
 
         foreach (Vector3Int vector in PositionsInRange)
         {
-            tilemap.SetTile(vector, tile);
+            HighlightTilemap.SetTile(vector, tile);
         }
 
     }

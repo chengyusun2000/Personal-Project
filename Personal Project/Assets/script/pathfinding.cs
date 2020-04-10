@@ -20,7 +20,7 @@ public class pathfinding : MonoBehaviour
     public List<node> openset;
     public List<node> PathTest;
     public List<node> Closed;
-
+    public playerMovement playerMovement;
     public bool end = false;
     //List<node> openset = new List<node>();
     //HashSet<node> Closed = new HashSet<node>();
@@ -31,14 +31,28 @@ public class pathfinding : MonoBehaviour
         load = GetComponent<Load>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
         target = GameObject.FindGameObjectWithTag("Target").transform;
-        
-        FinDAPath(player.position, target.position);
+        playerMovement = player.GetComponent<playerMovement>();
+
 
 
     }
 
     void Update()
     {
+        if(playerMovement.PathFinished)
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                target.position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                FinDAPath(player.position, target.position);
+            }
+        }
+        else
+        {
+
+        }
+       
+
         
         //Test = load.GetStartNode(PlayerMapPosition);
 
@@ -83,39 +97,23 @@ public class pathfinding : MonoBehaviour
 
 
                     }
-                    else if(openset[i].Fcost == currentNode.Fcost)
-                    {
-                        if(openset[i].weight < currentNode.weight)
-                        {
-                            currentNode = openset[i];
-                        }
-                    }
+                   
                 }
-                //else
-                //{
-                //    currentNode = openset[i];
-                //}
+                
                     
                 
-            //}
+            
             
             
             
             if ((currentNode.position[0] == EndNode.position[0])&& currentNode.position[1] == EndNode.position[1]&& currentNode.position[2] == EndNode.position[2])
             {
-                //node PathFindNode = currentNode;
-                //while(!(currentNode.position[0] == StartNode.position[0]) || !(currentNode.position[1] == StartNode.position[1]))
-                //{
-                //    PathTest.Add(currentNode);
-                //    currentNode = currentNode.parent;
-
-                //}
-                //PathTest.Reverse();
+                
                 retracePath(StartNode, currentNode);
 
-                Debug.Log("final node" + currentNode.position[0] + " " + currentNode.position[1] + " " + currentNode.position[2] + currentNode.Gcost+"PARENT"+currentNode.parent.position[0]+"" + currentNode.parent.position[1] + ""  + currentNode.parent.position[2] + "" + currentNode.parent.Gcost);
-                Debug.Log("parent parent" + currentNode.parent.parent.position[0] + "" + currentNode.parent.parent.position[1] + "" + currentNode.parent.parent.position[2] + "" + currentNode.parent.parent.Gcost);
-                Debug.Log("parent parent parent" + currentNode.parent.parent.parent.position[0] + "" + currentNode.parent.parent.parent.position[1] + "" + currentNode.parent.parent.parent.position[2] + "" + currentNode.parent.parent.parent.Gcost);
+                //Debug.Log("final node" + currentNode.position[0] + " " + currentNode.position[1] + " " + currentNode.position[2] + currentNode.Gcost+"PARENT"+currentNode.parent.position[0]+"" + currentNode.parent.position[1] + ""  + currentNode.parent.position[2] + "" + currentNode.parent.Gcost);
+                //Debug.Log("parent parent" + currentNode.parent.parent.position[0] + "" + currentNode.parent.parent.position[1] + "" + currentNode.parent.parent.position[2] + "" + currentNode.parent.parent.Gcost);
+                //Debug.Log("parent parent parent" + currentNode.parent.parent.parent.position[0] + "" + currentNode.parent.parent.parent.position[1] + "" + currentNode.parent.parent.parent.position[2] + "" + currentNode.parent.parent.parent.Gcost);
                 
 
                 
@@ -142,7 +140,7 @@ public class pathfinding : MonoBehaviour
                     continue;
                 }
                 int MovementcostToNewNeighbour = currentNode.Gcost + GetDistance(currentNode, neighbour);
-                //Debug.Log("number" + MovementcostToNewNeighbour);
+                
                 if (MovementcostToNewNeighbour < neighbour.Gcost || !Closed.Contains(neighbour))
                 {
                     
@@ -152,8 +150,7 @@ public class pathfinding : MonoBehaviour
                     
                     if (!openset.Contains(neighbour))
                     {
-                        //testlist.Add(neighbour);
-                        //Test = neighbour;
+                        
                         openset.Add(neighbour);
 
                     }
