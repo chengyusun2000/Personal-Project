@@ -47,10 +47,7 @@ public class pathfinding : MonoBehaviour
                 FinDAPath(player.position, target.position);
             }
         }
-        else
-        {
-
-        }
+        
        
 
         

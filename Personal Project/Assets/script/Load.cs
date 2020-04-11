@@ -13,6 +13,7 @@ public class Load : MonoBehaviour
     //public node currentNode;
     public int sizeOfMap;
     public List<node> TestNei;
+    public Tilemap Colliders;
     // Start is called before the first frame update
     
     void Start()
@@ -30,6 +31,7 @@ public class Load : MonoBehaviour
             if (nodes[i].type == "water")
             {
                 tilemap.SetTile(insVector, tiles[0]);
+                Colliders.SetTile(insVector, tiles[0]);
             }
             else if (nodes[i].type == "grass")
             {

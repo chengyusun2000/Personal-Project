@@ -37,7 +37,8 @@ public class playerMovement : MonoBehaviour
     public Vector3Int NextStepVector;
     public bool reach = true;
     public bool Pause = false;
-    
+
+    public LayerMask lineMask;
 
     public Tile tile;
 
@@ -48,13 +49,22 @@ public class playerMovement : MonoBehaviour
         playerMapPosition = tilemap.WorldToCell(transform.position);
         PlayerCenterPos = tilemap.CellToWorld(playerMapPosition);
         transform.position = PlayerCenterPos;
-        //GetMmovementDistance();
+        
 
     }
 
     // Update is called once per frame
     void Update()
     {
+        
+        if(Physics2D.Linecast(transform.position, target.position,lineMask))
+        {
+            Debug.Log("collider exists");
+        }
+        else
+        {
+            Debug.Log("no collider");
+        }
 
         Path = pathfinding.PathTest;
         if (Input.GetKeyDown("space"))
@@ -254,7 +264,13 @@ public class playerMovement : MonoBehaviour
         {
             if(tilemap.GetTile(vector)!= null&&tilemap.GetTile(vector) !=load.tiles[0] )
             {
-                HighlightTilemap.SetTile(vector, tile);
+                Vector3 CellWorldPosition = tilemap.CellToWorld(vector);
+                //Debug.DrawLine(transform.position, CellWorldPosition, Color.black);
+                if (!Physics2D.Linecast(transform.position,CellWorldPosition,lineMask ))
+                {
+                    HighlightTilemap.SetTile(vector, tile);
+                }
+                
             }
             //else
             //{
