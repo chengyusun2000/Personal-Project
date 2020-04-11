@@ -86,8 +86,11 @@
     <Compile Include="Assets\GracesGames\SimpleFileBrowser\Scripts\UI\PortraitUserInterface.cs" />
     <Compile Include="Assets\GracesGames\SimpleFileBrowser\Scripts\UI\UserInterface.cs" />
     <Compile Include="Assets\script\CameraFollow.cs" />
+    <Compile Include="Assets\script\Enemy Scripts\EnemyTracking.cs" />
+    <Compile Include="Assets\script\Enemy Scripts\Enemys.cs" />
     <Compile Include="Assets\script\GetnodeData.cs" />
     <Compile Include="Assets\script\Load.cs" />
+    <Compile Include="Assets\script\NextTurn.cs" />
     <Compile Include="Assets\script\PathFind.cs" />
     <Compile Include="Assets\script\PathFind2.cs" />
     <Compile Include="Assets\script\Rec Test\Node.cs" />

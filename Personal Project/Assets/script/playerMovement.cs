@@ -25,8 +25,9 @@ public class playerMovement : MonoBehaviour
 
 
     public List<Vector3Int> PositionsInRange;
-    public int Radius = 2;
-
+    public int MaxRadius = 3;
+    public int Radius;
+    public int StepCount = 0;
     public node NextStep;
     [Header("test step")]
     public float timer = 0;
@@ -37,11 +38,13 @@ public class playerMovement : MonoBehaviour
     public Vector3Int NextStepVector;
     public bool reach = true;
     public bool Pause = false;
+    public bool ClickInRange = false;
+    public bool NextTurn = false;
 
     public LayerMask lineMask;
 
     public Tile tile;
-
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -56,15 +59,41 @@ public class playerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-        if(Physics2D.Linecast(transform.position, target.position,lineMask))
+        if (PathFinished)
         {
-            Debug.Log("collider exists");
+            if (Input.GetMouseButtonDown(0))
+            {
+                
+                foreach (Vector3Int vector in PositionsInRange)
+                {
+                    if(tilemap.WorldToCell( Camera.main.ScreenToWorldPoint(Input.mousePosition)) == vector)
+                    {
+                        ClickInRange = true;
+                        break;
+                    }
+                    else
+                    {
+                        ClickInRange =false;
+                        
+                    }
+                }
+                if(ClickInRange)
+                {
+                    target.position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                    pathfinding.FinDAPath(transform.position, target.position);
+                }
+                
+            }
         }
-        else
-        {
-            Debug.Log("no collider");
-        }
+
+        //if(Physics2D.Linecast(transform.position, target.position,lineMask))
+        //{
+        //    Debug.Log("collider exists");
+        //}
+        //else
+        //{
+        //    Debug.Log("no collider");
+        //}
 
         Path = pathfinding.PathTest;
         if (Input.GetKeyDown("space"))
@@ -72,10 +101,10 @@ public class playerMovement : MonoBehaviour
             Pause = true;
         }
 
-
-        WalkOnPath();
         DisPlayMovementRange();
-
+        WalkOnPath();
+        
+        
 
 
 
@@ -92,6 +121,7 @@ public class playerMovement : MonoBehaviour
             if (reach&&!Pause)
             {
                 NextStep = Path[0];
+                StepCount++;
 
                 NextStepVector = new Vector3Int(NextStep.position[0], NextStep.position[1], NextStep.position[2]);
 
@@ -105,24 +135,18 @@ public class playerMovement : MonoBehaviour
             {
                 //transform.position = Vector3.Lerp(PlayerCenterPos, TargetMovement, Time.deltaTime * speed);
                 transform.position = Vector3.MoveTowards(PlayerCenterPos, TargetMovement, 0.03f);
-
+                
             }
             
-            //else if(PlayerCenterPos != TargetMovement&&Pause)
-            //{
-            //    transform.position = Vector3.MoveTowards(PlayerCenterPos, TargetMovement, 0.03f);
-            //    for (int i = 0; i < Path.Count; i++)
-            //    {
-            //        Path.RemoveAt(i);
-            //    }
-            //    reach = false;
+           
                
                 
-            //}
+            
             else
             {
                 
                 reach = true;
+                
                 Path.RemoveAt(0);
                 
                 
@@ -151,13 +175,14 @@ public class playerMovement : MonoBehaviour
             {
                 HighlightTilemap.SetTile(vector, null);
             }
-            //PositionsInRange = null;
+            
         }
     }
 
 
     public void GetMmovementDistance()
     {
+        Radius = MaxRadius - StepCount;
         PositionsInRange = new List<Vector3Int>();
         
         int DivisionNumDown = Radius / 2;
@@ -193,11 +218,11 @@ public class playerMovement : MonoBehaviour
                 if (y % 2 == 0 || y == 0)
                 {
 
-                    for (int x = -(Radius - DivisionNumUp)+1; x < Radius - DivisionNumUp; x++)
+                    for (int x = -(Radius - DivisionNumUp) ; x < Radius + DivisionNumUp-1 ; x++)
                     {
                         PositionsInRange.Add(new Vector3Int(playerMapPosition.x + x, playerMapPosition.y + y, playerMapPosition.z));
                     }
-                    
+                    DivisionNumUp = DivisionNumUp - 1;
                 }
                 else
                 {
@@ -205,7 +230,7 @@ public class playerMovement : MonoBehaviour
                     {
                         PositionsInRange.Add(new Vector3Int(playerMapPosition.x + x, playerMapPosition.y + y, playerMapPosition.z));
                     }
-                    DivisionNumUp = DivisionNumUp - 1;
+                    
                 }
             }
         }

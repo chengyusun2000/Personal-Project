@@ -39,14 +39,18 @@ public class pathfinding : MonoBehaviour
 
     void Update()
     {
-        if(playerMovement.PathFinished)
-        {
-            if (Input.GetMouseButtonDown(0))
-            {
-                target.position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                FinDAPath(player.position, target.position);
-            }
-        }
+        //if(playerMovement.PathFinished)
+        //{
+        //    if (Input.GetMouseButtonDown(0))
+        //    {
+        //        foreach(Vector3 vector in playerMovement.PositionsInRange)
+        //        {
+                    
+        //        }
+        //        target.position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        //        FinDAPath(player.position, target.position);
+        //    }
+        //}
         
        
 
