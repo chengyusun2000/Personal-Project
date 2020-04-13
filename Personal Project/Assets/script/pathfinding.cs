@@ -6,20 +6,18 @@ using Unity.Collections;
 public class pathfinding : MonoBehaviour
 {
     public Load load;
+
     
-    public Transform player;
 
-    public Transform target;
 
-    public List<node> Path;
 
-    public node Test;
-    public node newnode;
-    public int testnumber;
-    public List<node> testlist;
-    public List<node> openset;
-    public List<node> PathTest;
-    public HashSet<node> Closed;
+    //public node Test;
+    //public node newnode;
+    //public int testnumber;
+    //public List<node> testlist;
+
+
+
     public playerMovement playerMovement;
     public bool end = false;
     //List<node> openset = new List<node>();
@@ -29,9 +27,8 @@ public class pathfinding : MonoBehaviour
     void Start()
     {
         load = GetComponent<Load>();
-        player = GameObject.FindGameObjectWithTag("Player").transform;
-        target = GameObject.FindGameObjectWithTag("Target").transform;
-        playerMovement = player.GetComponent<playerMovement>();
+       
+        playerMovement = GameObject.FindGameObjectWithTag("Player").transform.GetComponent<playerMovement>();
 
 
 
@@ -66,17 +63,16 @@ public class pathfinding : MonoBehaviour
 
         //}
     }
-    public void FinDAPath(Vector3 StartPoint, Vector3 EndPoint)
+    public List<node> FinDAPath(Vector3 StartPoint, Vector3 EndPoint)
     {
         node StartNode = load.GetStartNode(StartPoint);
-        
         
         node EndNode = load.GetEndNode(EndPoint);
         StartNode.Gcost = 0;
         StartNode.Hcost = GetDistance(StartNode, EndNode);
         StartNode.weight = 1;
-        openset = new List<node>();
-         Closed = new HashSet<node>();
+        List<node> openset = new List<node>();
+        HashSet<node> Closed = new HashSet<node>();
         
         openset.Add(StartNode);
         
@@ -116,24 +112,22 @@ public class pathfinding : MonoBehaviour
             
             if ((currentNode.position[0] == EndNode.position[0])&& currentNode.position[1] == EndNode.position[1]&& currentNode.position[2] == EndNode.position[2])
             {
-                
-                retracePath(StartNode, currentNode);
+
+
 
                 //Debug.Log("final node" + currentNode.position[0] + " " + currentNode.position[1] + " " + currentNode.position[2] + currentNode.Gcost+"PARENT"+currentNode.parent.position[0]+"" + currentNode.parent.position[1] + ""  + currentNode.parent.position[2] + "" + currentNode.parent.Gcost);
                 //Debug.Log("parent parent" + currentNode.parent.parent.position[0] + "" + currentNode.parent.parent.position[1] + "" + currentNode.parent.parent.position[2] + "" + currentNode.parent.parent.Gcost);
                 //Debug.Log("parent parent parent" + currentNode.parent.parent.parent.position[0] + "" + currentNode.parent.parent.parent.position[1] + "" + currentNode.parent.parent.parent.position[2] + "" + currentNode.parent.parent.parent.Gcost);
                 
 
-                
-                Debug.Log("FOUND");
+                return retracePath(StartNode, currentNode);
 
                 
-                break;
+
+
+
             }
-            else
-            {
-                
-            }
+            
             openset.Remove(currentNode);
             Debug.Log("count" + openset.Count);
             Closed.Add(currentNode);
@@ -174,11 +168,14 @@ public class pathfinding : MonoBehaviour
             }
 
         }
+
+       
+            return null;
         
     }
-    public void retracePath(node StartNode, node currentNode)
+    public List<node> retracePath(node StartNode, node currentNode)
     {
-        PathTest = new List<node>();
+         List<node> PathTest = new List<node>();
         node PathFindNode = currentNode;
         while (!(currentNode.position[0] == StartNode.position[0]) || !(currentNode.position[1] == StartNode.position[1]))
         {
@@ -187,7 +184,7 @@ public class pathfinding : MonoBehaviour
 
         }
         PathTest.Reverse();
-
+        return PathTest;
     }
     int GetDistance(node A, node B)
     {

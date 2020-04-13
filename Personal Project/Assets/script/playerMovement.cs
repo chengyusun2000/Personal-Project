@@ -80,7 +80,7 @@ public class playerMovement : MonoBehaviour
                 if(ClickInRange)
                 {
                     target.position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                    pathfinding.FinDAPath(transform.position, target.position);
+                    Path = pathfinding.FinDAPath(transform.position, target.position);
                 }
                 
             }
@@ -95,7 +95,7 @@ public class playerMovement : MonoBehaviour
         //    Debug.Log("no collider");
         //}
 
-        Path = pathfinding.PathTest;
+        
         if (Input.GetKeyDown("space"))
         {
             Pause = true;
@@ -200,7 +200,11 @@ public class playerMovement : MonoBehaviour
                     
                     for(int x=-(Radius-DivisionNumDown);x<=Radius-DivisionNumDown;x++)
                     {
-                        PositionsInRange.Add(new Vector3Int(playerMapPosition.x + x, playerMapPosition.y + y, playerMapPosition.z));
+                        if (!Physics2D.Linecast(transform.position, tilemap.CellToWorld( new Vector3Int( playerMapPosition.x + x, playerMapPosition.y + y, playerMapPosition.z)), lineMask))
+                        {
+                            PositionsInRange.Add(new Vector3Int(playerMapPosition.x + x, playerMapPosition.y + y, playerMapPosition.z));
+                        }
+                        
                     }
                     DivisionNumDown = DivisionNumDown - 1;
                 }
@@ -208,7 +212,11 @@ public class playerMovement : MonoBehaviour
                 {
                     for(int x = -(Radius - DivisionNumDown); x < Radius - DivisionNumDown; x++)
                     {
-                        PositionsInRange.Add(new Vector3Int(playerMapPosition.x + x, playerMapPosition.y + y, playerMapPosition.z));
+                        if (!Physics2D.Linecast(transform.position, tilemap.CellToWorld(new Vector3Int(playerMapPosition.x + x, playerMapPosition.y + y, playerMapPosition.z)), lineMask))
+                        {
+                            PositionsInRange.Add(new Vector3Int(playerMapPosition.x + x, playerMapPosition.y + y, playerMapPosition.z));
+                        }
+                       
                     }
                 }
             }
@@ -220,7 +228,11 @@ public class playerMovement : MonoBehaviour
 
                     for (int x = -(Radius - DivisionNumUp) ; x < Radius + DivisionNumUp-1 ; x++)
                     {
-                        PositionsInRange.Add(new Vector3Int(playerMapPosition.x + x, playerMapPosition.y + y, playerMapPosition.z));
+                        if (!Physics2D.Linecast(transform.position, tilemap.CellToWorld(new Vector3Int(playerMapPosition.x + x, playerMapPosition.y + y, playerMapPosition.z)), lineMask))
+                        {
+                            PositionsInRange.Add(new Vector3Int(playerMapPosition.x + x, playerMapPosition.y + y, playerMapPosition.z));
+                        }
+                        
                     }
                     DivisionNumUp = DivisionNumUp - 1;
                 }
@@ -228,7 +240,11 @@ public class playerMovement : MonoBehaviour
                 {
                     for (int x = -(Radius - DivisionNumUp); x < Radius - DivisionNumUp; x++)
                     {
-                        PositionsInRange.Add(new Vector3Int(playerMapPosition.x + x, playerMapPosition.y + y, playerMapPosition.z));
+                        if (!Physics2D.Linecast(transform.position, tilemap.CellToWorld(new Vector3Int(playerMapPosition.x + x, playerMapPosition.y + y, playerMapPosition.z)), lineMask))
+                        {
+                            PositionsInRange.Add(new Vector3Int(playerMapPosition.x + x, playerMapPosition.y + y, playerMapPosition.z));
+                        }
+                        
                     }
                     
                 }
@@ -244,7 +260,11 @@ public class playerMovement : MonoBehaviour
                 {
                     for (int x = -(Radius - DivisionNumDown); x <= Radius - DivisionNumDown; x++)
                     {
-                        PositionsInRange.Add(new Vector3Int(playerMapPosition.x + x, playerMapPosition.y + y, playerMapPosition.z));
+                        if (!Physics2D.Linecast(transform.position, tilemap.CellToWorld(new Vector3Int(playerMapPosition.x + x, playerMapPosition.y + y, playerMapPosition.z)), lineMask))
+                        {
+                            PositionsInRange.Add(new Vector3Int(playerMapPosition.x + x, playerMapPosition.y + y, playerMapPosition.z));
+                        }
+                        
                     }
                     DivisionNumDown = DivisionNumDown - 1;
                 }
@@ -253,7 +273,11 @@ public class playerMovement : MonoBehaviour
 
                     for (int x = -(Radius-DivisionNumDown)+1 ; x <= Radius-DivisionNumDown; x++)
                     {
-                        PositionsInRange.Add(new Vector3Int(playerMapPosition.x + x, playerMapPosition.y + y, playerMapPosition.z));
+                        if (!Physics2D.Linecast(transform.position, tilemap.CellToWorld(new Vector3Int(playerMapPosition.x + x, playerMapPosition.y + y, playerMapPosition.z)), lineMask))
+                        {
+                            PositionsInRange.Add(new Vector3Int(playerMapPosition.x + x, playerMapPosition.y + y, playerMapPosition.z));
+                        }
+                        
                     }
                     
 
@@ -266,7 +290,10 @@ public class playerMovement : MonoBehaviour
                 {
                     for (int x = -(Radius - DivisionNumUp); x <= Radius - DivisionNumUp; x++)
                     {
-                        PositionsInRange.Add(new Vector3Int(playerMapPosition.x + x, playerMapPosition.y + y, playerMapPosition.z));
+                        if (!Physics2D.Linecast(transform.position, tilemap.CellToWorld(new Vector3Int(playerMapPosition.x + x, playerMapPosition.y + y, playerMapPosition.z)), lineMask))
+                        {
+                            PositionsInRange.Add(new Vector3Int(playerMapPosition.x + x, playerMapPosition.y + y, playerMapPosition.z));
+                        }
                     }
                     DivisionNumUp = DivisionNumUp - 1;
                 }
@@ -275,7 +302,10 @@ public class playerMovement : MonoBehaviour
 
                     for (int x = -(Radius - DivisionNumUp) + 1; x <= Radius - DivisionNumUp; x++)
                     {
-                        PositionsInRange.Add(new Vector3Int(playerMapPosition.x + x, playerMapPosition.y + y, playerMapPosition.z));
+                        if (!Physics2D.Linecast(transform.position, tilemap.CellToWorld(new Vector3Int(playerMapPosition.x + x, playerMapPosition.y + y, playerMapPosition.z)), lineMask))
+                        {
+                            PositionsInRange.Add(new Vector3Int(playerMapPosition.x + x, playerMapPosition.y + y, playerMapPosition.z));
+                        }
                     }
 
                    
@@ -291,10 +321,9 @@ public class playerMovement : MonoBehaviour
             {
                 Vector3 CellWorldPosition = tilemap.CellToWorld(vector);
                 //Debug.DrawLine(transform.position, CellWorldPosition, Color.black);
-                if (!Physics2D.Linecast(transform.position,CellWorldPosition,lineMask ))
-                {
+               
                     HighlightTilemap.SetTile(vector, tile);
-                }
+                
                 
             }
             //else
