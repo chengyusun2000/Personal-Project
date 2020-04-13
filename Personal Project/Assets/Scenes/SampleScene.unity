@@ -958,7 +958,7 @@ GameObject:
   - component: {fileID: 535178286}
   m_Layer: 0
   m_Name: Highlight
-  m_TagString: Untagged
+  m_TagString: HighLight
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1490,27 +1490,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   load: {fileID: 0}
-  player: {fileID: 1145370047}
-  target: {fileID: 0}
-  Path: []
-  Test:
-    position: 
-    walkable: 0
-    type: 
-    Gcost: 0
-    Hcost: 0
-    weight: 0
-  newnode:
-    position: 
-    walkable: 0
-    type: 
-    Gcost: 0
-    Hcost: 0
-    weight: 0
-  testnumber: 0
-  testlist: []
-  openset: []
-  PathTest: []
   playerMovement: {fileID: 0}
   end: 0
 --- !u!114 &1165967317
@@ -4272,13 +4251,24 @@ MonoBehaviour:
   tilemap: {fileID: 0}
   pathfinding: {fileID: 0}
   Player: {fileID: 0}
+  NextTurn: {fileID: 0}
+  HighLight: {fileID: 0}
+  tile: {fileID: 11400000, guid: 93f97f72d49f72c419a2c66d40bff5d0, type: 2}
+  load: {fileID: 0}
   DetectRadius: 3
-  MoveRadius: 0
+  MoveRadius: 2
   EnemyMapPosition: {x: 0, y: 0, z: 0}
   EnemySight: []
   EnemyMoveRange: []
+  EnemyToPlayer: []
+  Tem: []
   PlayerIsDetected: 0
-  NextTurn: {fileID: 0}
+  PathFinished: 0
+  NextStep: {x: 0, y: 0, z: 0}
+  RandonNumber: 0
+  linemask:
+    serializedVersion: 2
+    m_Bits: 310
 --- !u!50 &2038463992
 Rigidbody2D:
   serializedVersion: 4

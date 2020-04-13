@@ -8,6 +8,7 @@ TagManager:
   - tilemap
   - Enemy
   - Grid
+  - HighLight
   layers:
   - Default
   - TransparentFX
