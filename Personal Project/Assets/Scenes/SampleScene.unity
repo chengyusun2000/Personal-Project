@@ -1956,6 +1956,7 @@ MonoBehaviour:
   playerMovement: {fileID: 0}
   NextTurnButton: {fileID: 0}
   EnemyTurn: 0
+  OnlyOnce: 0
 --- !u!114 &1775374445
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4263,12 +4264,14 @@ MonoBehaviour:
   EnemyToPlayer: []
   Tem: []
   PlayerIsDetected: 0
-  PathFinished: 0
+  PathFinished: 1
+  reach: 1
   NextStep: {x: 0, y: 0, z: 0}
   RandonNumber: 0
   linemask:
     serializedVersion: 2
     m_Bits: 310
+  Path: []
 --- !u!50 &2038463992
 Rigidbody2D:
   serializedVersion: 4
@@ -4374,7 +4377,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2038463990}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.31, y: 2.21, z: 0}
+  m_LocalPosition: {x: 1.24, y: 1.74, z: 0}
   m_LocalScale: {x: 1, y: 0.7580086, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

@@ -111,19 +111,23 @@ public class EnemyTracking : MonoBehaviour
         {
             if(PlayerIsDetected)
             {
-                EnemyToPlayer= pathfinding.FinDAPath(tilemap.CellToWorld( EnemyMapPosition), Player.position);
-                for (int i=0;i<EnemyToPlayer.Count;i++)
+                if( !NextTurn.OnlyOnce)
                 {
-                    for(int x=0;i<EnemyMoveRange.Count;x++)
+                    EnemyToPlayer = pathfinding.FinDAPath(tilemap.CellToWorld(EnemyMapPosition), Player.position);
+                    for (int i = 0; i < EnemyToPlayer.Count; i++)
                     {
-                        if(new Vector3Int(EnemyToPlayer[i].position[0], EnemyToPlayer[i].position[1], EnemyToPlayer[i].position[2])==EnemyMoveRange[x])
+                        for (int x = 0; x < EnemyMoveRange.Count; x++)
                         {
-                            Tem.Add(EnemyMoveRange[x]);
+                            if (new Vector3Int(EnemyToPlayer[i].position[0], EnemyToPlayer[i].position[1], EnemyToPlayer[i].position[2]) == EnemyMoveRange[x])
+                            {
+                                Tem.Add(EnemyMoveRange[x]);
+                            }
                         }
                     }
+
+                    NextTurn.OnlyOnce = true;
+                    
                 }
-
-
                 EnemyMove();
             }
             else
@@ -217,13 +221,13 @@ public class EnemyTracking : MonoBehaviour
             }
 
 
-            if (EnemyMapPosition !=NextStep && reach == false)
+           
+            if (transform.position != tilemap.CellToWorld(NextStep) && reach == false)
             {
                 //transform.position = Vector3.Lerp(PlayerCenterPos, TargetMovement, Time.deltaTime * speed);
-                transform.position = Vector3.MoveTowards(EnemyMapPosition, NextStep, 0.03f);
+                transform.position = Vector3.MoveTowards(transform.position, tilemap.CellToWorld(NextStep), 0.03f);
 
             }
-
 
 
 
@@ -244,6 +248,7 @@ public class EnemyTracking : MonoBehaviour
         {
             PathFinished = true;
             NextTurn.EnemyTurn = false;
+            NextTurn.OnlyOnce = false;
             
         }
     }
