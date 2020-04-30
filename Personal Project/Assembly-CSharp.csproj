@@ -85,6 +85,7 @@
     <Compile Include="Assets\GracesGames\SimpleFileBrowser\Scripts\UI\LandscapeUserInterface.cs" />
     <Compile Include="Assets\GracesGames\SimpleFileBrowser\Scripts\UI\PortraitUserInterface.cs" />
     <Compile Include="Assets\GracesGames\SimpleFileBrowser\Scripts\UI\UserInterface.cs" />
+    <Compile Include="Assets\script\BattleSceneScript\Interaction.cs" />
     <Compile Include="Assets\script\BattleSceneScript\PlayerMove.cs" />
     <Compile Include="Assets\script\CameraFollow.cs" />
     <Compile Include="Assets\script\Enemy Scripts\EnemyTracking.cs" />

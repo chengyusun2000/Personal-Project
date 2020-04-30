@@ -9,6 +9,7 @@ TagManager:
   - Enemy
   - Grid
   - HighLight
+  - Box
   layers:
   - Default
   - TransparentFX
