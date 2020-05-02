@@ -55,7 +55,7 @@ public class Load : MonoBehaviour
     }
     public static List<node> Loading()
     {
-        string path = "C:/Users/22167/Desktop/unity project/tank/project/Personal Project/Assets/script" + "/map_data";
+        string path = Application.persistentDataPath + "/map_data"; 
         if (File.Exists(path))
         {
             BinaryFormatter formatter = new BinaryFormatter();
