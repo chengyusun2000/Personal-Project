@@ -6,14 +6,14 @@ public class Interaction : MonoBehaviour
 {
     public LayerMask rayMask;
    
-    private PlayerMove PlayerMove;
+    [SerializeField]private PlayerMove PlayerMove;
     [SerializeField] private Vector2 direction;
     [SerializeField] private Vector2 Movement;
     [SerializeField] private Text InteractText;
     // Start is called before the first frame update
     void Start()
     {
-        PlayerMove = transform.GetComponent<PlayerMove>();
+        PlayerMove = transform.GetComponentInParent<PlayerMove>();
         direction = transform.right;
         foreach(Transform transform in GameObject.FindGameObjectWithTag("Canvas").GetComponentsInChildren<Transform>())
         {
@@ -51,9 +51,11 @@ public class Interaction : MonoBehaviour
 
 
         RaycastHit2D Hit2D = Physics2D.Raycast(transform.position, direction,1f, rayMask);
+        
         Debug.DrawRay(transform.position, direction,Color.black);
         if(Hit2D.collider != null)
         {
+            Debug.Log(Hit2D.transform.tag);
             if (Hit2D.transform.tag == "Box")
             {
                 InteractText.gameObject.SetActive(true);
