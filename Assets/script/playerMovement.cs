@@ -255,7 +255,7 @@ public class playerMovement : MonoBehaviour
             for (int y = -Radius; y <= 0; y++)
             {
 
-                Debug.Log("division" + DivisionNumDown);
+                //Debug.Log("division" + DivisionNumDown);
                 if (y % 2 == 0 || y == 0)
                 {
                     for (int x = -(Radius - DivisionNumDown); x <= Radius - DivisionNumDown; x++)
