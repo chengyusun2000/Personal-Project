@@ -10,6 +10,7 @@ TagManager:
   - Grid
   - HighLight
   - Box
+  - Canvas
   layers:
   - Default
   - TransparentFX
@@ -20,7 +21,7 @@ TagManager:
   - 
   - 
   - TileCollider
-  - 
+  - InteractionIgnore
   - 
   - 
   - 

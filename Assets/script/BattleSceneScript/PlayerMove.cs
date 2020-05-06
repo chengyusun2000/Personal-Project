@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerMove : MonoBehaviour
 {
     public float speed = 5f;
-    public Vector2 Movement;
+    [SerializeField]private Vector2 Movement;
     private Rigidbody2D PlayerRigi;
     // Start is called before the first frame update
     void Start()
@@ -22,6 +22,8 @@ public class PlayerMove : MonoBehaviour
         {
             PlayerRigi.AddForce(Movement);
         }
+       
+        
     }
     private void FixedUpdate()
     {
@@ -29,5 +31,9 @@ public class PlayerMove : MonoBehaviour
 
 
    
+    }
+    public Vector2 OutputMovement()
+    {
+        return Movement;
     }
 }
