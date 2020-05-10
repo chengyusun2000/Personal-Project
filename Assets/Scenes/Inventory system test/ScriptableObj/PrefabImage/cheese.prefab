@@ -11,6 +11,9 @@ GameObject:
   - component: {fileID: 9079766407984329485}
   - component: {fileID: 9079766407984329483}
   - component: {fileID: 9079766407984329484}
+  - component: {fileID: 6125444506671407492}
+  - component: {fileID: -8615829443917545058}
+  - component: {fileID: 6284729135103040759}
   m_Layer: 5
   m_Name: cheese
   m_TagString: Untagged
@@ -74,3 +77,44 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &6125444506671407492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9079766407984329486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 614918195c3f09f41ba404867f8571a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObjTransform: {fileID: 0}
+  SlotX: 0
+  SlotY: 0
+  inventory: {fileID: 0}
+--- !u!225 &-8615829443917545058
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9079766407984329486}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
+--- !u!114 &6284729135103040759
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9079766407984329486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a120589f627d4de49a328191a5b81de0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ItemObj: {fileID: 11400000, guid: 7bad7e48c094e4a44b5b2592679806d3, type: 2}
