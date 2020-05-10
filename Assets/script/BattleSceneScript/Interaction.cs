@@ -64,7 +64,7 @@ public class Interaction : MonoBehaviour
         Debug.DrawRay(transform.position, direction,Color.black);
         if(Hit2D.collider != null)
         {
-            Debug.Log(Hit2D.transform.tag);
+            
             if (Hit2D.transform.tag == "Box")
             {
                 InteractText.gameObject.SetActive(true);

@@ -6,10 +6,17 @@ public class DragAndDrop : MonoBehaviour,IPointerDownHandler,IBeginDragHandler,I
 {
     [SerializeField] private RectTransform ObjTransform;
     private CanvasGroup canvasGroup;
+    private float DropX;
+    private float DropY;
+    [SerializeField] private int SlotX;
+    [SerializeField] private int SlotY;
+    [SerializeField] private Inventory inventory;
+
     private void Awake()
     {
         ObjTransform = transform.GetComponent<RectTransform>();
         canvasGroup = transform.GetComponent<CanvasGroup>();
+       
     }
 
 
@@ -33,6 +40,19 @@ public class DragAndDrop : MonoBehaviour,IPointerDownHandler,IBeginDragHandler,I
 
     public void OnDrag(PointerEventData eventData)
     {
-        ObjTransform.anchoredPosition += eventData.delta;
+
+        ObjTransform.anchoredPosition += eventData.delta/5;
+        DropX = eventData.position.x;
+        DropY = eventData.position.y;
+        SlotX = (int)((DropX - 69.19995) / 80);
+        SlotY = (int)((DropY - 262.7) / 80);
+        if ((DropX - 69.19995 - 80 * SlotX) % 80 >= 40)
+        {
+            SlotX++;
+        }
+        if ((DropY - 262.7 - 80 * SlotY) % 80 >= 40)
+        {
+            SlotY++;
+        }
     }
 }
