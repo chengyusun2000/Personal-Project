@@ -33,17 +33,17 @@ public class Inventory : MonoBehaviour
             }
         }
         //AddItem(6, 6, food);
-        PickUpObject(food);
-        PickUpObject(food);
-        PickUpObject(Potion);
-        PickUpObject(food);
-        PickUpObject(Potion);
-        PickUpObject(food);
-        PickUpObject(food);
-        PickUpObject(food);
-        PickUpObject(Potion);
-        PickUpObject(food);
-        PickUpObject(Potion);
+        //PickUpObject(food);
+        //PickUpObject(food);
+        //PickUpObject(Potion);
+        //PickUpObject(food);
+        //PickUpObject(Potion);
+        //PickUpObject(food);
+        //PickUpObject(food);
+        //PickUpObject(food);
+        //PickUpObject(Potion);
+        //PickUpObject(food);
+        //PickUpObject(Potion);
         //AddItem(x + 160, y + 160, food);
         //AddItem(x + 160, y + 160, food);
 
@@ -114,6 +114,10 @@ public class Inventory : MonoBehaviour
                 }
                
             }
+        }
+        if(!PickedUp)
+        {
+            Debug.Log("Inventory full");
         }
         PickedUp = false;
 
