@@ -10,6 +10,8 @@ public class Interaction : MonoBehaviour
     [SerializeField] private Vector2 direction;
     [SerializeField] private Vector2 Movement;
     [SerializeField] private Text InteractText;
+    [SerializeField] private Inventory inventory;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +22,13 @@ public class Interaction : MonoBehaviour
             if(transform.name=="InteractText")
             {
                 InteractText = transform.GetComponent<Text>();
+            }
+        }
+        foreach(Transform transform in GameObject.FindGameObjectWithTag("Canvas").GetComponentsInChildren<Transform>())
+        {
+            if(transform.tag=="InventoryPanel")
+            {
+                inventory = transform.GetComponent<Inventory>();
             }
         }
         InteractText.gameObject.SetActive(false);
@@ -62,7 +71,19 @@ public class Interaction : MonoBehaviour
                 InteractText.text = "Open box";
 
             }
-            
+            else if (Hit2D.transform.tag == "Item")
+            {
+                GetItemData getItemData = Hit2D.transform.GetComponent<GetItemData>();
+
+                InteractText.gameObject.SetActive(true);
+                InteractText.text = "PickUp Item";
+                if(Input.GetKeyDown(KeyCode.E))
+                {
+                    inventory.PickUpObject(getItemData.GetItemObj());
+                }
+
+            }
+
         }
         else
         {

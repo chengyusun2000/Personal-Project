@@ -16,4 +16,8 @@ public class GetItemData : MonoBehaviour
     {
         
     }
+    public ItemObj GetItemObj()
+    {
+        return ItemObj;
+    }
 }

@@ -11,6 +11,8 @@ TagManager:
   - HighLight
   - Box
   - Canvas
+  - Item
+  - InventoryPanel
   layers:
   - Default
   - TransparentFX
