@@ -17,18 +17,18 @@ public class SlotDrop : MonoBehaviour, IDropHandler
         DragAndDrop dragAndDrop = eventData.pointerDrag.GetComponent<DragAndDrop>();
         DropX = eventData.position.x;
         DropY = eventData.position.y;
-        SlotX = (int)((DropX - 69.19995) / 80);
-        SlotY = (int)((DropY - 262.7) / 80);
-        if ((DropX - 69.19995 - 80 * SlotX) % 80 >= 40)
+        SlotX = (int)((DropX - inventory.x-80 ) / 80);
+        SlotY = (int)((DropY - inventory.y-80) / 80);
+        if ((DropX - inventory.x - 80 * SlotX) % 80 >= 40)
         {
             SlotX++;
         }
-        if ((DropY - 262.7 - 80 * SlotY) % 80 >= 40)
+        if ((DropY - inventory.y - 80 * SlotY) % 80 >= 40)
         {
             SlotY++;
         }
 
-        Debug.Log(SlotX + "," + SlotY);
+        Debug.Log(SlotX + "," + SlotY+"setPos");
 
 
         if ((inventory.Width -SlotX  <itemObj.width) || (inventory.length - SlotY < itemObj.height))
@@ -65,23 +65,23 @@ public class SlotDrop : MonoBehaviour, IDropHandler
             Debug.Log("www" + (FloatWidth - 1) / 2);
             if (inventory.OddOrEven(itemObj.width) == 0)
             {
-                PositionX = (float)(69.19995 + 80 * (FloatWidth / 4) + 80 * SlotX);
+                PositionX = (float)(inventory.x+80 + 80 * (FloatWidth / 4) + 80 * SlotX);
                 Debug.Log("sss" + PositionX);
             }
             else
             {
-                PositionX = (float)(69.19995 + 80 * ((FloatWidth - 1) / 2) + 80 * SlotX);
+                PositionX = (float)(inventory.x + 80 + 80 * ((FloatWidth - 1) / 2) + 80 * SlotX);
                 Debug.Log("sss" + PositionX);
             }
 
 
             if (inventory.OddOrEven(itemObj.height) == 0)
             {
-                PositionY = (float)(262.7 + 80 * (FloatHeight / 4) + 80 * SlotY);
+                PositionY = (float)(inventory.y + 80 + 80 * (FloatHeight / 4) + 80 * SlotY);
             }
             else
             {
-                PositionY = (float)(262.7 + 80 * ((FloatHeight - 1) / 2) + 80 * SlotY);
+                PositionY = (float)(inventory.y + 80 + 80 * ((FloatHeight - 1) / 2) + 80 * SlotY);
             }
 
 
@@ -97,15 +97,7 @@ public class SlotDrop : MonoBehaviour, IDropHandler
                 }
             }
 
-
-
-
-
-
-
-
-
-
+            
         }
         
     
@@ -145,8 +137,8 @@ public class SlotDrop : MonoBehaviour, IDropHandler
             PositionY = (float)(DropY - 80 * ((FloatHeight - 1) / 2));
         }
 
-        SlotX = (int)((PositionX - 69.19995) / 80);
-        SlotY = (int)((PositionY - 262.7) / 80);
+        SlotX = (int)((PositionX - inventory.x-80) / 80);
+        SlotY = (int)((PositionY - inventory.y-80) / 80);
         SetToOriginal = true;
         for (int x = SlotX; x < itemObj.width + SlotX; x++)
         {
