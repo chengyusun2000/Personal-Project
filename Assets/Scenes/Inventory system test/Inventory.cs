@@ -187,8 +187,9 @@ public class Inventory : MonoBehaviour
             {
                 for (int CheckY = y; CheckY < items.height + y; CheckY++)
                 {
-                    Debug.Log(CheckX + " " + CheckY);
+                    
                     slots[CheckX, CheckY].Occupied = true;
+                    Debug.Log(CheckX + " " + CheckY + " " + slots[CheckX, CheckY].Occupied);
 
                 }
             }

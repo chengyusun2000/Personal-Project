@@ -11,9 +11,18 @@ public class DragAndDrop : MonoBehaviour,IPointerDownHandler,IBeginDragHandler,I
     [SerializeField] private int SlotX;
     [SerializeField] private int SlotY;
     [SerializeField] private Inventory inventory;
+    public Vector2 OriginalPosition;
 
     private void Awake()
     {
+        foreach(Transform child in GameObject.FindGameObjectWithTag("Canvas").GetComponentsInChildren<Transform>())
+        {
+            if (child.tag=="InventoryPanel")
+            {
+                inventory = child.GetComponent<Inventory>();
+            }
+        }
+
         ObjTransform = transform.GetComponent<RectTransform>();
         canvasGroup = transform.GetComponent<CanvasGroup>();
        
@@ -22,7 +31,9 @@ public class DragAndDrop : MonoBehaviour,IPointerDownHandler,IBeginDragHandler,I
 
     public void OnPointerDown(PointerEventData eventData)
     {
-       
+
+        OriginalPosition = transform.position;
+        SetSlotsNoOccupied();
         canvasGroup.alpha = 0.7f;
         canvasGroup.blocksRaycasts = false;
 
@@ -42,17 +53,57 @@ public class DragAndDrop : MonoBehaviour,IPointerDownHandler,IBeginDragHandler,I
     {
 
         ObjTransform.anchoredPosition += eventData.delta/5;
-        DropX = eventData.position.x;
-        DropY = eventData.position.y;
-        SlotX = (int)((DropX - 69.19995) / 80);
-        SlotY = (int)((DropY - 262.7) / 80);
-        if ((DropX - 69.19995 - 80 * SlotX) % 80 >= 40)
+
+    }
+    public void SetSlotsNoOccupied()
+    {
+
+        ItemObj itemObj = transform.GetComponent<GetItemData>().GetItemObj();
+        float PositionX;
+        float PositionY;
+        float FloatWidth = itemObj.width;
+        float FloatHeight = itemObj.height;
+        DropX = transform.position.x;
+        DropY = transform.position.y;
+        if (inventory.OddOrEven(itemObj.width) == 0)
         {
-            SlotX++;
+            PositionX = (float)(DropX - 80 * (FloatWidth / 4) );
+            Debug.Log("sss" + PositionX);
         }
-        if ((DropY - 262.7 - 80 * SlotY) % 80 >= 40)
+        else
         {
-            SlotY++;
+            PositionX = (float)(DropX - 80 * ((FloatWidth - 1) / 2) );
+            Debug.Log("sss" + PositionX);
         }
+
+
+        if (inventory.OddOrEven(itemObj.height) == 0)
+        {
+            PositionY = (float)(DropY - 80 * (FloatHeight / 4));
+        }
+        else
+        {
+            PositionY = (float)(DropY - 80 * ((FloatHeight - 1) / 2) );
+        }
+
+        SlotX = (int)((PositionX - 69.19995) / 80);
+        SlotY = (int)((PositionY - 262.7) / 80);
+        Debug.Log(SlotX + "," + SlotY + "bug");
+        for (int CheckX = SlotX; CheckX < itemObj.width + SlotX; CheckX++)
+        {
+            for (int CheckY = SlotY; CheckY < itemObj.height + SlotY; CheckY++)
+            {
+                if (inventory.slots[CheckX, CheckY].Occupied)
+                {
+                    inventory.slots[CheckX, CheckY].Occupied = false;
+                    Debug.Log(CheckX + " " + CheckY + " " + inventory.slots[CheckX, CheckY].Occupied);
+                }
+
+                
+
+            }
+        }
+
+        
     }
 }
