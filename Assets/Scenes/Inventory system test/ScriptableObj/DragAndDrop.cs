@@ -86,8 +86,8 @@ public class DragAndDrop : MonoBehaviour,IPointerDownHandler,IBeginDragHandler,I
             PositionY = (float)(DropY - 80 * ((FloatHeight - 1) / 2) );
         }
 
-        SlotX = (int)((PositionX - 69.19995) / 80);
-        SlotY = (int)((PositionY - 262.7) / 80);
+        SlotX = (int)((PositionX - inventory.x - 80) / 80);
+        SlotY = (int)((PositionY - inventory.y-  80) / 80);
         Debug.Log(SlotX + "," + SlotY + "bug");
         for (int CheckX = SlotX; CheckX < itemObj.width + SlotX; CheckX++)
         {

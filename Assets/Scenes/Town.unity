@@ -11148,11 +11148,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Sslots: []
-  test: {fileID: 4322988370739887352, guid: 10e1f694b3fdbb64cb6d2ab74b0c7013, type: 3}
-  test1: {fileID: 0}
   Parent: {fileID: 0}
   x: 0
   y: 0
+  RectTransform: {fileID: 0}
   food: {fileID: 0}
   Potion: {fileID: 0}
   Width: 12
@@ -11577,11 +11576,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Sslots: []
-  test: {fileID: 4322988370739887352, guid: 10e1f694b3fdbb64cb6d2ab74b0c7013, type: 3}
-  test1: {fileID: 0}
   Parent: {fileID: 0}
   x: 0
   y: 0
+  RectTransform: {fileID: 0}
   food: {fileID: 0}
   Potion: {fileID: 0}
   Width: 12
@@ -11676,11 +11674,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Sslots: []
-  test: {fileID: 4322988370739887352, guid: 10e1f694b3fdbb64cb6d2ab74b0c7013, type: 3}
-  test1: {fileID: 0}
   Parent: {fileID: 253441686}
   x: 0
   y: 0
+  RectTransform: {fileID: 0}
   food: {fileID: 11400000, guid: 7bad7e48c094e4a44b5b2592679806d3, type: 2}
   Potion: {fileID: 11400000, guid: 4bdcb51f6d91f274c933a750c18db16f, type: 2}
   Width: 12
@@ -11894,11 +11891,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Sslots: []
-  test: {fileID: 4322988370739887352, guid: 10e1f694b3fdbb64cb6d2ab74b0c7013, type: 3}
-  test1: {fileID: 0}
   Parent: {fileID: 0}
   x: 0
   y: 0
+  RectTransform: {fileID: 0}
   food: {fileID: 0}
   Potion: {fileID: 0}
   Width: 12
