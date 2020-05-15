@@ -12,93 +12,97 @@ public class SlotDrop : MonoBehaviour, IDropHandler
     [SerializeField] bool SetToOriginal = true;
     public void OnDrop(PointerEventData eventData)
     {
-
-        ItemObj itemObj = eventData.pointerDrag.GetComponent<GetItemData>().GetItemObj();
-        DragAndDrop dragAndDrop = eventData.pointerDrag.GetComponent<DragAndDrop>();
-        DropX = eventData.position.x;
-        DropY = eventData.position.y;
-        SlotX = (int)((DropX - inventory.x-80 ) / 80);
-        SlotY = (int)((DropY - inventory.y-80) / 80);
-        if ((DropX - inventory.x - 80 * SlotX) % 80 >= 40)
+        if (eventData.pointerDrag.tag == "Item")
         {
-            SlotX++;
-        }
-        if ((DropY - inventory.y - 80 * SlotY) % 80 >= 40)
-        {
-            SlotY++;
-        }
-
-        Debug.Log(SlotX + "," + SlotY+"setPos");
-
-
-        if ((inventory.Width -SlotX  <itemObj.width) || (inventory.length - SlotY < itemObj.height))
-        {
-            Debug.Log("out of range");
-            SetOriginal(itemObj, dragAndDrop, eventData);
-
-            return;
-        }
-        for (int CheckX = SlotX; CheckX < itemObj.width + SlotX; CheckX++)
-        {
-            for (int CheckY = SlotY; CheckY < itemObj.height + SlotY; CheckY++)
+            ItemObj itemObj = eventData.pointerDrag.GetComponent<GetItemData>().GetItemObj();
+            DragAndDrop dragAndDrop = eventData.pointerDrag.GetComponent<DragAndDrop>();
+            DropX = eventData.position.x;
+            DropY = eventData.position.y;
+            SlotX = (int)((DropX - inventory.x) / 80);
+            SlotY = (int)((DropY - inventory.y) / 80);
+            //Debug.Log(SlotX + "," + SlotY);
+            if ((DropX - inventory.x - 80 * SlotX) % 80 >= 40)
             {
-                if (inventory.slots[CheckX, CheckY].Occupied)
-                {
-                    Debug.Log("occ");
-                    
-                    SetOriginal(itemObj, dragAndDrop, eventData);
-                    return;
-                }
-
-
-
+                SlotX++;
             }
-        }
-        if (!SetToOriginal)
-        {
-            Debug.Log("233333");
-            float FloatWidth = itemObj.width;
-            float FloatHeight = itemObj.height;
-            float PositionX;
-            float PositionY;
-            Debug.Log(FloatWidth / 4);
-            Debug.Log("www" + (FloatWidth - 1) / 2);
-            if (inventory.OddOrEven(itemObj.width) == 0)
+            if ((DropY - inventory.y - 80 * SlotY) % 80 >= 40)
             {
-                PositionX = (float)(inventory.x+80 + 80 * (FloatWidth / 4) + 80 * SlotX);
-                Debug.Log("sss" + PositionX);
-            }
-            else
-            {
-                PositionX = (float)(inventory.x + 80 + 80 * ((FloatWidth - 1) / 2) + 80 * SlotX);
-                Debug.Log("sss" + PositionX);
+                SlotY++;
             }
 
+            Debug.Log(SlotX + "," + SlotY + "setPos");
 
-            if (inventory.OddOrEven(itemObj.height) == 0)
+
+            if ((inventory.Width - SlotX < itemObj.width) || (inventory.length - SlotY < itemObj.height))
             {
-                PositionY = (float)(inventory.y + 80 + 80 * (FloatHeight / 4) + 80 * SlotY);
+                Debug.Log("out of range");
+                SetOriginal(itemObj, dragAndDrop, eventData);
+
+                return;
             }
-            else
-            {
-                PositionY = (float)(inventory.y + 80 + 80 * ((FloatHeight - 1) / 2) + 80 * SlotY);
-            }
-
-
-
-            eventData.pointerDrag.GetComponent<RectTransform>().position = new Vector2(PositionX, PositionY);
             for (int CheckX = SlotX; CheckX < itemObj.width + SlotX; CheckX++)
             {
                 for (int CheckY = SlotY; CheckY < itemObj.height + SlotY; CheckY++)
                 {
-                    inventory.slots[CheckX, CheckY].Occupied = true;
-                    Debug.Log(CheckX + " " + CheckY + " " + inventory.slots[CheckX, CheckY].Occupied);
+                    if (inventory.slots[CheckX, CheckY].Occupied)
+                    {
+                        Debug.Log("occ");
+
+                        SetOriginal(itemObj, dragAndDrop, eventData);
+                        return;
+                    }
+
+
 
                 }
             }
+            if (!SetToOriginal)
+            {
 
-            
+                float FloatWidth = itemObj.width;
+                float FloatHeight = itemObj.height;
+                float PositionX;
+                float PositionY;
+                Debug.Log(FloatWidth / 4);
+                Debug.Log("www" + (FloatWidth - 1) / 2);
+                if (inventory.OddOrEven(itemObj.width) == 0)
+                {
+                    PositionX = (float)(inventory.x + 80 * (FloatWidth / 4) + 80 * SlotX);
+
+                }
+                else
+                {
+                    PositionX = (float)(inventory.x + 80 * ((FloatWidth - 1) / 2) + 80 * SlotX);
+
+                }
+
+
+                if (inventory.OddOrEven(itemObj.height) == 0)
+                {
+                    PositionY = (float)(inventory.y + 80 * (FloatHeight / 4) + 80 * SlotY);
+                }
+                else
+                {
+                    PositionY = (float)(inventory.y + 80 * ((FloatHeight - 1) / 2) + 80 * SlotY);
+                }
+
+
+
+                eventData.pointerDrag.GetComponent<RectTransform>().position = new Vector2(PositionX, PositionY);
+                for (int CheckX = SlotX; CheckX < itemObj.width + SlotX; CheckX++)
+                {
+                    for (int CheckY = SlotY; CheckY < itemObj.height + SlotY; CheckY++)
+                    {
+                        inventory.slots[CheckX, CheckY].Occupied = true;
+                        Debug.Log(CheckX + " " + CheckY + " " + inventory.slots[CheckX, CheckY].Occupied);
+
+                    }
+                }
+
+
+            }
         }
+    
         
     
         
