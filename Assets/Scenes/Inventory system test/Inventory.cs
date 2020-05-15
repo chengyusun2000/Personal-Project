@@ -20,11 +20,11 @@ public class Inventory : MonoBehaviour
     {
         RectTransform = transform.GetComponent<RectTransform>();
         
-        x = RectTransform.position.x - 520;
-        y = RectTransform.position.y - 360;
+        x = RectTransform.position.x - 440;
+        y = RectTransform.position.y - 280;
         slots = new Slots[12, 8];
-        
-       
+        //Instantiate(Potion.image,new Vector3 (x,y,0) , Quaternion.identity, Parent.transform);
+
         for (int i = 0; i < 12; i++)
         {
             for (int o = 0; o < 8; o++)
@@ -41,8 +41,8 @@ public class Inventory : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        x = RectTransform.position.x - 520;
-        y = RectTransform.position.y - 360;
+        x = RectTransform.position.x -440 /*520*/;
+        y = RectTransform.position.y -280 /*360*/;
     }
     
     public void PickUpObject(ItemObj item)
@@ -105,21 +105,21 @@ public class Inventory : MonoBehaviour
             float PositionY;
             if (OddOrEven(items.width)==0)
             {
-                 PositionX = (float)(RectTransform.position.x  - 520+80 + 80 * (FloatWidth / 4) + 80 * x);
+                 PositionX = (float)(RectTransform.position.x  -440 + 80 * (FloatWidth / 4) + 80 * x);
             }
             else
             {
-                PositionX = (float)(RectTransform.position.x- 520 +80+ 80 * ((FloatWidth-1) / 2) + 80 * x);
+                PositionX = (float)(RectTransform.position.x- 440+ 80 * ((FloatWidth-1) / 2) + 80 * x);
             }
 
 
             if(OddOrEven(items.height)==0)
             {
-                 PositionY = (float)(RectTransform.position.y - 360+80 + 80 * (FloatHeight / 4) + 80 * y);
+                 PositionY = (float)(RectTransform.position.y - 280 + 80 * (FloatHeight / 4) + 80 * y);
             }
             else
             {
-                 PositionY = (float)(RectTransform.position.y - 360 + 80+80 * ((FloatHeight-1) / 2) + 80 * y);
+                 PositionY = (float)(RectTransform.position.y - 280+80 * ((FloatHeight-1) / 2) + 80 * y);
             }
 
             

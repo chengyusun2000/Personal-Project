@@ -11469,7 +11469,6 @@ GameObject:
   - component: {fileID: 625368616}
   - component: {fileID: 625368615}
   - component: {fileID: 625368614}
-  - component: {fileID: 625368618}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Canvas
@@ -11563,28 +11562,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &625368618
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 625368613}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 626e8be02aca65241b21e992d136a310, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Sslots: []
-  Parent: {fileID: 0}
-  x: 0
-  y: 0
-  RectTransform: {fileID: 0}
-  food: {fileID: 0}
-  Potion: {fileID: 0}
-  Width: 12
-  length: 8
-  PickedUp: 0
 --- !u!1 &629819997
 GameObject:
   m_ObjectHideFlags: 0
@@ -11598,6 +11575,7 @@ GameObject:
   - component: {fileID: 629819999}
   - component: {fileID: 629820001}
   - component: {fileID: 629820002}
+  - component: {fileID: 629820003}
   m_Layer: 5
   m_Name: Panel
   m_TagString: InventoryPanel
@@ -11699,6 +11677,20 @@ MonoBehaviour:
   SlotY: 0
   inventory: {fileID: 629820001}
   SetToOriginal: 0
+--- !u!114 &629820003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 629819997}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf090bd3c55a3e641899b19b08ed95f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvas: {fileID: 0}
+  RectTransform: {fileID: 0}
 --- !u!1 &666579482
 GameObject:
   m_ObjectHideFlags: 0
