@@ -15,6 +15,7 @@ MonoBehaviour:
   Index: 0
   Finished: 0
   eventType: 0
+  QuestDestination: {x: 0, y: 0, z: 0}
   Discription: You need to talk with xxx
   Name: xxx
   Location: Village

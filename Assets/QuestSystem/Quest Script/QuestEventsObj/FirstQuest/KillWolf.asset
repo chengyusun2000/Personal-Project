@@ -15,6 +15,7 @@ MonoBehaviour:
   Index: 1
   Finished: 0
   eventType: 1
+  QuestDestination: {x: 0, y: 0, z: 0}
   Discription: You need to kill 3 wolfs
   Number: 3
   monsterType: 1
