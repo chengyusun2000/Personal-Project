@@ -20,4 +20,8 @@ public class QuestsList : MonoBehaviour
     {
         
     }
+    public List<QuestBase> GetQuestBases()
+    {
+        return questBases;
+    }
 }
