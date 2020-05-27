@@ -141,9 +141,10 @@ public class SlotDrop : MonoBehaviour, IDropHandler
             PositionY = (float)(DropY - 80 * ((FloatHeight - 1) / 2));
         }
 
-        SlotX = (int)((PositionX - inventory.x-80) / 80);
-        SlotY = (int)((PositionY - inventory.y-80) / 80);
+        SlotX = (int)((PositionX - inventory.x) / 80);
+        SlotY = (int)((PositionY - inventory.y) / 80);
         SetToOriginal = true;
+        Debug.Log(SlotX + "," + SlotY);
         for (int x = SlotX; x < itemObj.width + SlotX; x++)
         {
             for (int y = SlotY; y < itemObj.height + SlotY; y++)
