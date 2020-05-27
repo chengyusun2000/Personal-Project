@@ -14,8 +14,7 @@ public class CurrentQuests : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        AddQuest(questsList.GetQuestBases()[0]);
-        AddQuest(questsList.GetQuestBases()[0]);
+        
         AddQuestToQuestList();
     }
 
