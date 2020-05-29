@@ -828,6 +828,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1177,6 +1178,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 310
   tile: {fileID: 11400000, guid: 93f97f72d49f72c419a2c66d40bff5d0, type: 2}
+  tiles: []
 --- !u!61 &1145370045
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1193,7 +1195,7 @@ BoxCollider2D:
   m_Offset: {x: -0.0027840734, y: 0.0032238811}
   m_SpriteTilingProperty:
     border: {x: 0.45, y: 0.21, z: 0.53, w: 0.34}
-    pivot: {x: 0.47077477, y: 0.4462633}
+    pivot: {x: 0.47223857, y: 0.44772723}
     oldSize: {x: 1.25, y: 1.25}
     newSize: {x: 1.25, y: 1.25}
     adaptiveTilingThreshold: 0.5
@@ -1616,6 +1618,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   tile: {fileID: 11400000, guid: 93f97f72d49f72c419a2c66d40bff5d0, type: 2}
+  tiles: []
 --- !u!61 &1274795201
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1632,7 +1635,7 @@ BoxCollider2D:
   m_Offset: {x: -0.03988719, y: -0.0682008}
   m_SpriteTilingProperty:
     border: {x: 0.45, y: 0.21, z: 0.53, w: 0.34}
-    pivot: {x: 0.47077477, y: 0.4462633}
+    pivot: {x: 0.47223857, y: 0.44772723}
     oldSize: {x: 1.25, y: 1.25}
     newSize: {x: 1.25, y: 1.25}
     adaptiveTilingThreshold: 0.5
@@ -1758,6 +1761,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -4309,7 +4313,7 @@ BoxCollider2D:
   m_Offset: {x: -0.03988719, y: -0.0682008}
   m_SpriteTilingProperty:
     border: {x: 0.45, y: 0.21, z: 0.53, w: 0.34}
-    pivot: {x: 0.47077477, y: 0.4462633}
+    pivot: {x: 0.47223857, y: 0.44772723}
     oldSize: {x: 1.25, y: 1.25}
     newSize: {x: 1.25, y: 1.25}
     adaptiveTilingThreshold: 0.5
