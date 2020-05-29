@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2b91f484a55abac4f816aac549e63d4a, type: 3}
-  m_Name: Dialogue 1
+  m_Name: start2
   m_EditorClassIdentifier: 
-  dialogueText: welcome
-  ButtonText: 
-  NextID: 1
+  dialogueText: fuck you
+  ButtonText: no thank you
+  NextID: -1
   PreviousID: -1

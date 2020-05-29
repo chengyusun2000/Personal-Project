@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2b91f484a55abac4f816aac549e63d4a, type: 3}
-  m_Name: Dialogue
+  m_Name: Start1
   m_EditorClassIdentifier: 
-  dialogueText: 
-  ButtonText: 
-  NextID: 0
+  dialogueText: yes, you need to kill 3 slimes
+  ButtonText: 'i heard you have a job for me '
+  NextID: 1
   PreviousID: -1
