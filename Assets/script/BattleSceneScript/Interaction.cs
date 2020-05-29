@@ -53,6 +53,7 @@ public class Interaction : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         Movement = PlayerMove.OutputMovement();
 
 
@@ -111,6 +112,7 @@ public class Interaction : MonoBehaviour
                     StartCalculating = true;
                     DialoguePanel.SetActive(true);
                     currentDialogue.Current = Hit2D.transform.GetComponent<NpcDialogue>().dialogue;
+                    currentDialogue.StartDialogue();
                 }
 
             }
@@ -129,6 +131,7 @@ public class Interaction : MonoBehaviour
             if(CalculateDistance(transform, NpcTransform)>2f)
             {
                 StartCalculating = false;
+                currentDialogue.CleanDialoguePanel();
                 DialoguePanel.SetActive(false);
 
             }

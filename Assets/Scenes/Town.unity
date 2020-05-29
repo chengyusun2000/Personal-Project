@@ -13346,9 +13346,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Current:
+    StartText: 
     Name: 
     DID: 0
     dialogues: []
+  Parent: {fileID: 1401453566}
+  DialogueText: {fileID: 658670448}
+  button: {fileID: 754656749}
+  temp: {fileID: 0}
+  TempButtons: []
 --- !u!1 &1112464934
 GameObject:
   m_ObjectHideFlags: 0
@@ -13860,6 +13866,9 @@ MonoBehaviour:
   inventory: {fileID: 0}
   currentDialogue: {fileID: 0}
   DialoguePanel: {fileID: 0}
+  IsOutrange: 1
+  StartCalculating: 0
+  NpcTransform: {fileID: 0}
 --- !u!1 &1366442778
 GameObject:
   m_ObjectHideFlags: 0
@@ -14458,7 +14467,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueCombinationBases:
-  - Name: Dialogue with smith
+  - StartText: 
+    Name: Dialogue with smith
     DID: 0
     dialogues:
     - {fileID: 11400000, guid: 1a2a615a97369bc4990cdc5063b34f10, type: 2}
@@ -15202,6 +15212,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
+    StartText: welcome to the game
     Name: Smith
     DID: 0
     dialogues:
