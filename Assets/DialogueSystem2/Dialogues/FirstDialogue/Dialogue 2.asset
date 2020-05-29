@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueText: 
   ButtonText: 
-  NextID: 1
+  NextID: 2
   PreviousID: 1

@@ -15,4 +15,4 @@ MonoBehaviour:
   dialogueText: welcome
   ButtonText: 
   NextID: 1
-  PreviousID: 0
+  PreviousID: -1

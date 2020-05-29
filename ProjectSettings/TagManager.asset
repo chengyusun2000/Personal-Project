@@ -13,6 +13,8 @@ TagManager:
   - Canvas
   - Item
   - InventoryPanel
+  - NPC
+  - DialoguePanel
   layers:
   - Default
   - TransparentFX

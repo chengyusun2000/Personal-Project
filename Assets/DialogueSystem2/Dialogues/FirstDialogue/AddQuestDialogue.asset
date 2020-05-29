@@ -14,10 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueText: 
   ButtonText: 
-  NextID: 0
-  PreviousID: 0
-  questBase:
-    QuestName: 
-    Index: 0
-    questEventBases: []
-    Discription: 
+  NextID: -1
+  PreviousID: 2
+  questIndex: 0
+  QuestName: 
