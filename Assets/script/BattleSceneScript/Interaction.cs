@@ -124,25 +124,32 @@ public class Interaction : MonoBehaviour
         }
 
 
-
         if(StartCalculating)
         {
             
             if(CalculateDistance(transform, NpcTransform)>2f)
             {
-                StartCalculating = false;
-                currentDialogue.CleanDialoguePanel();
-                DialoguePanel.SetActive(false);
 
+                QuitPanel();
             }
         }
 
     }
+
+
+
     private float CalculateDistance(Transform start,Transform end)
     {
         return Vector2.Distance(start.position, end.position);
     }
 
+
+    public void QuitPanel()
+    {
+        StartCalculating = false;
+        currentDialogue.CleanDialoguePanel();
+        DialoguePanel.SetActive(false);
+    }
 
 
 }

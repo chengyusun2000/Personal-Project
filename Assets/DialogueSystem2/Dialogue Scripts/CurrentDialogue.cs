@@ -33,10 +33,14 @@ public class CurrentDialogue : MonoBehaviour
         List<Dialogue> Temp = new List<Dialogue>();
         foreach(Dialogue dialogue in Current.dialogues)
         {
-            if(dialogue.PreviousID==index)
+            if(dialogue!=null)
             {
-                Temp.Add(dialogue);
+                if (dialogue.PreviousID == index)
+                {
+                    Temp.Add(dialogue);
+                }
             }
+            
             
         }
         return Temp;

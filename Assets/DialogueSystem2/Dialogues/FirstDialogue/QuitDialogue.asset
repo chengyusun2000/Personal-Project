@@ -9,12 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 48506c89ba1841d4eb6c13c4cbba2b1a, type: 3}
-  m_Name: AddQuestDialogue
+  m_Script: {fileID: 11500000, guid: c6ede6292b9761744ac6a33fb4db1e9a, type: 3}
+  m_Name: QuitDialogue
   m_EditorClassIdentifier: 
-  dialogueText: good luck sir
-  ButtonText: i will take that
+  dialogueText: 
+  ButtonText: No thank you
   NextID: -1
-  PreviousID: 1
-  Dtype: 1
-  quest: {fileID: 11400000, guid: 320bbc7df923e2c41b4b675cb45bb0b5, type: 2}
+  PreviousID: -1
+  Dtype: 2
