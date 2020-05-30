@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 public class Inventory : MonoBehaviour
 {
+    [SerializeField] private InventoryData inventoryData;
     public List<Slots> Sslots;
     public Slots[,] slots;
     public Image Parent;
@@ -18,6 +19,7 @@ public class Inventory : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        inventoryData = GameObject.FindGameObjectWithTag("Player").GetComponent<InventoryData>();
         RectTransform = transform.GetComponent<RectTransform>();
         
         x = RectTransform.position.x - 440;
@@ -57,6 +59,7 @@ public class Inventory : MonoBehaviour
                     if (!slots[i, o].Occupied)
                     {
                         AddItem(i, o, item);
+                        inventoryData.AddItems(item);
 
                     }
                 }

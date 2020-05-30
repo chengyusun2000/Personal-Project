@@ -19,4 +19,5 @@ public abstract class Dialogue : ScriptableObject
     public int PreviousID;
     public DialogueType Dtype;
     public WholeQuestBase quest;
+    public ItemObj item;
 }

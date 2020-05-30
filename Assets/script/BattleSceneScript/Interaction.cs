@@ -5,8 +5,8 @@ using UnityEngine.UI;
 public class Interaction : MonoBehaviour
 {
     public LayerMask rayMask;
-   
-    [SerializeField]private PlayerMove PlayerMove;
+
+    [SerializeField] private PlayerMove PlayerMove;
     [SerializeField] private Vector2 direction;
     [SerializeField] private Vector2 Movement;
     [SerializeField] private Text InteractText;
@@ -21,6 +21,7 @@ public class Interaction : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
         PlayerMove = transform.GetComponentInParent<PlayerMove>();
         direction = transform.right;
         foreach(Transform transform in GameObject.FindGameObjectWithTag("Canvas").GetComponentsInChildren<Transform>())
@@ -29,24 +30,19 @@ public class Interaction : MonoBehaviour
             {
                 InteractText = transform.GetComponent<Text>();
             }
-        }
-        foreach(Transform transform in GameObject.FindGameObjectWithTag("Canvas").GetComponentsInChildren<Transform>())
-        {
-            if(transform.tag=="InventoryPanel")
+            else if (transform.tag == "InventoryPanel")
             {
                 inventory = transform.GetComponent<Inventory>();
             }
-        }
-        InteractText.gameObject.SetActive(false);
-        foreach (Transform transform in GameObject.FindGameObjectWithTag("Canvas").GetComponentsInChildren<Transform>())
-        {
-            if (transform.tag == "DialoguePanel")
+            else if (transform.tag == "DialoguePanel")
             {
 
                 DialoguePanel = transform.gameObject;
                 currentDialogue = transform.GetComponent<CurrentDialogue>();
             }
         }
+        
+        InteractText.gameObject.SetActive(false);
         DialoguePanel.SetActive(false);
     }
 
