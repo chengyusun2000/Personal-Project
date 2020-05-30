@@ -6,6 +6,6 @@ public class NormalDialogue : Dialogue
 {
     public void Awake()
     {
-        
+        Dtype = DialogueType.normal;
     }
 }

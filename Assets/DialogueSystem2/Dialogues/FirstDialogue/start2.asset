@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b91f484a55abac4f816aac549e63d4a, type: 3}
   m_Name: start2
   m_EditorClassIdentifier: 
-  dialogueText: fuck you
+  dialogueText: 
   ButtonText: no thank you
   NextID: -1
   PreviousID: -1
+  Dtype: 0
