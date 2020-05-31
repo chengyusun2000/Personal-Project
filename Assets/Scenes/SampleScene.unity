@@ -828,6 +828,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1177,6 +1178,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 310
   tile: {fileID: 11400000, guid: 93f97f72d49f72c419a2c66d40bff5d0, type: 2}
+  tiles: []
 --- !u!61 &1145370045
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1193,7 +1195,7 @@ BoxCollider2D:
   m_Offset: {x: -0.0027840734, y: 0.0032238811}
   m_SpriteTilingProperty:
     border: {x: 0.45, y: 0.21, z: 0.53, w: 0.34}
-    pivot: {x: 0.47077477, y: 0.4462633}
+    pivot: {x: 0.47223857, y: 0.44772723}
     oldSize: {x: 1.25, y: 1.25}
     newSize: {x: 1.25, y: 1.25}
     adaptiveTilingThreshold: 0.5
@@ -1297,9 +1299,7 @@ GameObject:
   - component: {fileID: 1165967314}
   - component: {fileID: 1165967313}
   - component: {fileID: 1165967311}
-  - component: {fileID: 1165967315}
   - component: {fileID: 1165967316}
-  - component: {fileID: 1165967317}
   m_Layer: 0
   m_Name: Tilemap
   m_TagString: tilemap
@@ -1453,30 +1453,6 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!114 &1165967315
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1165967309}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4fd993bdb81647541bf67952ce69ec3a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  load: {fileID: 1165967311}
-  PathTest: []
-  player: {fileID: 1145370047}
-  target: {fileID: 1274795203}
-  Test:
-    position: 
-    walkable: 0
-    type: 
-    Gcost: 0
-    Hcost: 0
-    weight: 0
-  PathFound: []
 --- !u!114 &1165967316
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1492,21 +1468,6 @@ MonoBehaviour:
   load: {fileID: 0}
   playerMovement: {fileID: 0}
   end: 0
---- !u!114 &1165967317
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1165967309}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b435345a5be7cbf4d8be0466cf65104a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  seeker: {fileID: 1145370047}
-  target: {fileID: 1274795203}
-  Test: []
 --- !u!1 &1274795197
 GameObject:
   m_ObjectHideFlags: 0
@@ -1616,6 +1577,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   tile: {fileID: 11400000, guid: 93f97f72d49f72c419a2c66d40bff5d0, type: 2}
+  tiles: []
 --- !u!61 &1274795201
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1632,7 +1594,7 @@ BoxCollider2D:
   m_Offset: {x: -0.03988719, y: -0.0682008}
   m_SpriteTilingProperty:
     border: {x: 0.45, y: 0.21, z: 0.53, w: 0.34}
-    pivot: {x: 0.47077477, y: 0.4462633}
+    pivot: {x: 0.47223857, y: 0.44772723}
     oldSize: {x: 1.25, y: 1.25}
     newSize: {x: 1.25, y: 1.25}
     adaptiveTilingThreshold: 0.5
@@ -1758,6 +1720,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -4309,7 +4272,7 @@ BoxCollider2D:
   m_Offset: {x: -0.03988719, y: -0.0682008}
   m_SpriteTilingProperty:
     border: {x: 0.45, y: 0.21, z: 0.53, w: 0.34}
-    pivot: {x: 0.47077477, y: 0.4462633}
+    pivot: {x: 0.47223857, y: 0.44772723}
     oldSize: {x: 1.25, y: 1.25}
     newSize: {x: 1.25, y: 1.25}
     adaptiveTilingThreshold: 0.5
