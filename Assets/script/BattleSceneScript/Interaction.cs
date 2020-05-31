@@ -18,7 +18,6 @@ public class Interaction : MonoBehaviour
     [SerializeField] private bool IsOutrange = true;
     [SerializeField] private bool StartCalculating = false;
     [SerializeField] private Transform NpcTransform;
-    [SerializeField] private bool DialoguePanelOpened = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -103,9 +102,8 @@ public class Interaction : MonoBehaviour
             {
                 InteractText.gameObject.SetActive(true);
                 InteractText.text = "Talk";
-                if(Input.GetKeyDown(KeyCode.E)&&!DialoguePanelOpened)
+                if(Input.GetKeyDown(KeyCode.E))
                 {
-                    SetPanelActive(true);
                     NpcTransform = Hit2D.transform;
                     StartCalculating = true;
                     DialoguePanel.SetActive(true);
@@ -127,7 +125,7 @@ public class Interaction : MonoBehaviour
             
             if(CalculateDistance(transform, NpcTransform)>2f)
             {
-               
+
                 QuitPanel();
             }
         }
@@ -144,16 +142,10 @@ public class Interaction : MonoBehaviour
 
     public void QuitPanel()
     {
-        SetPanelActive(false);
         StartCalculating = false;
         currentDialogue.CleanDialoguePanel();
         DialoguePanel.SetActive(false);
     }
 
-
-    public void SetPanelActive(bool b)
-    {
-        DialoguePanelOpened = b;
-    }
 
 }
