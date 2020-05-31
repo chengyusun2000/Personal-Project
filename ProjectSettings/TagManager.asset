@@ -18,6 +18,9 @@ TagManager:
   - DialogueText
   - InPos
   - OutPos
+  - QuestPanel
+  - QInPos
+  - QOutPos
   layers:
   - Default
   - TransparentFX

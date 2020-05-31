@@ -2,36 +2,33 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PositionSet : MonoBehaviour
+public class QuestPanelPos : MonoBehaviour
 {
-    [SerializeField] private RectTransform InPos;
-    [SerializeField] private RectTransform OutPos;
-    [SerializeField] private RectTransform Panel;
-    [SerializeField] private string PanelTag;
-    [SerializeField] private string InTag;
-    [SerializeField] private string OutlTag;
-    private bool InP = false;
-    private bool OutP = false;
+    public RectTransform InPos;
+    public RectTransform OutPos;
+    public RectTransform Panel;
+    [SerializeField] private bool InP = false;
+    [SerializeField] private bool OutP = false;
 
     // Start is called before the first frame update
     void Start()
     {
         foreach (Transform transform in GameObject.FindGameObjectWithTag("Canvas").GetComponentsInChildren<Transform>())
         {
-            
-            if (transform.tag == PanelTag)
+
+            if (transform.tag == "InventoryPanel")
             {
                 Panel = transform.GetComponent<RectTransform>();
             }
-            else if(transform.tag==InTag)
+            else if (transform.tag == "InPos")
             {
-                InPos= transform.GetComponent<RectTransform>();
+                InPos = transform.GetComponent<RectTransform>();
             }
-            else if(transform.tag == OutlTag)
+            else if (transform.tag == "OutPos")
             {
                 OutPos = transform.GetComponent<RectTransform>();
             }
-            
+
         }
         SetOutPos();
     }
@@ -39,7 +36,7 @@ public class PositionSet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
     public void SetInPos()
     {
@@ -57,11 +54,11 @@ public class PositionSet : MonoBehaviour
 
     public void SetPosition()
     {
-        if(InP==true&&OutP==false)
+        if (InP == true && OutP == false)
         {
             SetOutPos();
         }
-        else if(InP == false && OutP == true)
+        else if (InP == false && OutP == true)
         {
             SetInPos();
         }
