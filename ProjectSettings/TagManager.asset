@@ -16,8 +16,6 @@ TagManager:
   - NPC
   - DialoguePanel
   - DialogueText
-  - InventoryPosition
-  - OutPosition
   layers:
   - Default
   - TransparentFX
