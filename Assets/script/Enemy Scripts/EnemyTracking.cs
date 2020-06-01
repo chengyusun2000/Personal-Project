@@ -21,7 +21,7 @@ public class EnemyTracking : MonoBehaviour
     public List<Vector3Int> EnemyMoveRange;
     public List<node> EnemyToPlayer;
     public List<Vector3Int> Tem;
-
+    [SerializeField] private bool CheckInRange = true;
     public bool PlayerIsDetected=false;
 
     [Header("EnemyMoveCondition")]
@@ -90,18 +90,7 @@ public class EnemyTracking : MonoBehaviour
 
 
 
-        foreach(Vector3Int vector in EnemySight)// if player is in sight area, player is detected
-        {
-            if (tilemap.WorldToCell(Player.position)==vector)
-            {
-                PlayerIsDetected = true;
-                break;
-            }
-            else
-            {
-                PlayerIsDetected = false;
-            }
-        }
+        
         EnemyTurn();
     }
 
@@ -109,7 +98,25 @@ public class EnemyTracking : MonoBehaviour
     {
         if(NextTurn.EnemyTurn)
         {
-            if(PlayerIsDetected)
+            
+            if (CheckInRange)
+            {
+                foreach (Vector3Int vector in EnemySight)// if player is in sight area, player is detected
+                {
+                    if (tilemap.WorldToCell(Player.position) == vector)
+                    {
+                        PlayerIsDetected = true;
+                        break;
+                    }
+                    else
+                    {
+                        PlayerIsDetected = false;
+                    }
+                }
+                CheckInRange = false;
+            }
+            
+            if (PlayerIsDetected)
             {
                 if( !NextTurn.OnlyOnce)
                 {
@@ -201,6 +208,7 @@ public class EnemyTracking : MonoBehaviour
             PathFinished = true;
             NextTurn.EnemyTurn = false;
             NextTurn.OnlyOnce = false;
+            CheckInRange = true;
         }
     }
 
@@ -249,6 +257,7 @@ public class EnemyTracking : MonoBehaviour
             PathFinished = true;
             NextTurn.EnemyTurn = false;
             NextTurn.OnlyOnce = false;
+            CheckInRange = true;
             
         }
     }
