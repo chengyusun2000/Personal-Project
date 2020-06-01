@@ -69,9 +69,9 @@ public class EnemyTracking : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        EnemySight= FindPlayer(DetectRadius, EnemyMapPosition);
-        EnemyMoveRange = FindPlayer(MoveRadius, EnemyMapPosition);
-        if(PathFinished)
+        EnemySight= FindPlayer(DetectRadius, EnemyMapPosition);//get enemy sight
+        EnemyMoveRange = FindPlayer(MoveRadius, EnemyMapPosition);//get enemy move range
+        if(PathFinished)//when enenmy stop the movement, highlight tiles
         {
             foreach (Vector3Int vector in EnemyMoveRange)
             {
@@ -90,7 +90,7 @@ public class EnemyTracking : MonoBehaviour
 
 
 
-        foreach(Vector3Int vector in EnemySight)
+        foreach(Vector3Int vector in EnemySight)// if player is in sight area, player is detected
         {
             if (tilemap.WorldToCell(Player.position)==vector)
             {
@@ -105,7 +105,7 @@ public class EnemyTracking : MonoBehaviour
         EnemyTurn();
     }
 
-    public void EnemyTurn()
+    public void EnemyTurn()//all the steps enemy will do in enenmy turn
     {
         if(NextTurn.EnemyTurn)
         {
@@ -128,7 +128,7 @@ public class EnemyTracking : MonoBehaviour
                     NextTurn.OnlyOnce = true;
                     
                 }
-                EnemyMove();
+                EnemyMove();//enemy move towards player
             }
             else
             {
@@ -140,13 +140,13 @@ public class EnemyTracking : MonoBehaviour
 
 
 
-    public void EnemyWonder()
+    public void EnemyWonder()//enemy chooses a random position in the moveposition and move to it
     {
         
         if(!NextTurn.OnlyOnce)
         {
             RandonNumber = Random.Range(0, EnemyMoveRange.Count - 1);
-            Path = pathfinding.FinDAPath(tilemap.CellToWorld(EnemyMapPosition), tilemap.CellToWorld(EnemyMoveRange[RandonNumber]));
+            Path = pathfinding.FinDAPath(tilemap.CellToWorld(EnemyMapPosition), tilemap.CellToWorld(EnemyMoveRange[RandonNumber]));//use a* pathfinding to get a path
             NextTurn.OnlyOnce = true;
         }
 
@@ -256,7 +256,7 @@ public class EnemyTracking : MonoBehaviour
 
 
 
-    public List<Vector3Int> FindPlayer(int Radius,Vector3Int EnemyMapPosition)
+    public List<Vector3Int> FindPlayer(int Radius,Vector3Int EnemyMapPosition)//this function is used to get all the positions with a certain radius
     {
 
         List<Vector3Int> PositionsInRange = new List<Vector3Int>();
@@ -265,7 +265,7 @@ public class EnemyTracking : MonoBehaviour
         int DivisionNumUp = Radius / 2;
 
 
-        if (EnemyMapPosition.y % 2 == 0 || EnemyMapPosition.y == 0)
+        if (EnemyMapPosition.y % 2 == 0 || EnemyMapPosition.y == 0)//get all the positions in area
         {
             for (int y = -Radius; y <= 0; y++)
             {
