@@ -7,21 +7,8 @@ public class LoadScene : MonoBehaviour
 {
     private AsyncOperation asy;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void BtnLoadScene(string s)
     {
-        //Cursor.visible = true;
         if (asy == null)
         {
             asy = SceneManager.LoadSceneAsync(s);
