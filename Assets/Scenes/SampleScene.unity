@@ -1097,9 +1097,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1145370047}
   - component: {fileID: 1145370046}
+  - component: {fileID: 1145370048}
   - component: {fileID: 1145370045}
   - component: {fileID: 1145370044}
-  - component: {fileID: 1145370048}
   - component: {fileID: 1145370043}
   m_Layer: 0
   m_Name: player_test
@@ -1142,8 +1142,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  rg: {fileID: 1145370043}
-  PlayerMove: {x: 0, y: 0}
   tilemap: {fileID: 1165967314}
   HighlightTilemap: {fileID: 535178287}
   target: {fileID: 1274795203}
@@ -1178,7 +1176,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 310
   tile: {fileID: 11400000, guid: 93f97f72d49f72c419a2c66d40bff5d0, type: 2}
-  tiles: []
+  stats: {fileID: 0}
 --- !u!61 &1145370045
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1276,17 +1274,11 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1145370042}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d77225a22dd66244afc38aa395f643e, type: 3}
+  m_Script: {fileID: 11500000, guid: 4f4c39fc59859e446993e9fddc6a895d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pre: {fileID: 11400000, guid: 8b03d3313f5ed4b41b58576f8e7071f8, type: 2}
-  tilemap: {fileID: 1165967314}
-  vector: {x: 0, y: 0, z: 0}
-  weigth: 10
-  length: 10
-  player: {fileID: 1145370047}
 --- !u!1 &1165967309
 GameObject:
   m_ObjectHideFlags: 0
@@ -1541,8 +1533,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
-  rg: {fileID: 1274795198}
-  PlayerMove: {x: 0, y: 0}
   tilemap: {fileID: 1792919991}
   HighlightTilemap: {fileID: 1821047997}
   target: {fileID: 0}
@@ -1577,7 +1567,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   tile: {fileID: 11400000, guid: 93f97f72d49f72c419a2c66d40bff5d0, type: 2}
-  tiles: []
+  stats: {fileID: 0}
 --- !u!61 &1274795201
 BoxCollider2D:
   m_ObjectHideFlags: 0

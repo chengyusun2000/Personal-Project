@@ -5,19 +5,17 @@ using UnityEngine.Tilemaps;
 public class playerMovement : MonoBehaviour
 {
     public float speed = 1f;
-    public Rigidbody2D rg;
-    public Vector2 PlayerMove;
-    public Tilemap tilemap;
+    [SerializeField] private Tilemap tilemap;
     public Tilemap HighlightTilemap;
     public Transform target;
     public Vector3Int playerMapPosition;
     public Vector3 PlayerCenterPos;
 
 
-    public pathfinding pathfinding;
-    public Load load;
+    [SerializeField]private pathfinding pathfinding;
+    [SerializeField]private Load load;
 
-    public List<node> Path;
+    [SerializeField]private List<node> Path;
 
     [Header("the movement is finished")]
     public bool PathFinished=false;
@@ -40,13 +38,10 @@ public class playerMovement : MonoBehaviour
     public bool Pause = false;
     public bool ClickInRange = false;
     public bool NextTurn = false;
-
     public LayerMask lineMask;
-
     public Tile tile;
     //for player stats check 
-    [SerializeField] private Tile[] tiles;
-    private PlayerStat stats;
+    [SerializeField]private PlayerStat stats;
 
     // Start is called before the first frame update
     void Start()
@@ -64,12 +59,12 @@ public class playerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (PathFinished)
+        if (PathFinished)//check if in player turn
         {
             if (Input.GetMouseButtonDown(0))
             {
                 
-                foreach (Vector3Int vector in PositionsInRange)
+                foreach (Vector3Int vector in PositionsInRange)//check if the click is in movement range
                 {
                     if(tilemap.WorldToCell( Camera.main.ScreenToWorldPoint(Input.mousePosition)) == vector)
                     {
@@ -168,7 +163,7 @@ public class playerMovement : MonoBehaviour
        
        
     }
-    public void DisPlayMovementRange()
+    public void DisPlayMovementRange()//when player finishes movement, highlight tiles
     {
         if(PathFinished)
         {
@@ -186,7 +181,7 @@ public class playerMovement : MonoBehaviour
     }
 
 
-    public void GetMmovementDistance()
+    public void GetMmovementDistance()//get all the positions with a certain distance
     {
         Radius = MaxRadius - StepCount;
         PositionsInRange = new List<Vector3Int>();
@@ -345,17 +340,17 @@ public class playerMovement : MonoBehaviour
     private int StatConsumeCheck()
     {
         int consume = 1;
-        if (tilemap.GetTile(NextStepVector) == tiles[0])
+        if (tilemap.GetTile(NextStepVector) == load.tiles[0])
         {
             Debug.Log("moving Water");
             consume = 2;
         }
-        else if (tilemap.GetTile(NextStepVector) == tiles[1])
+        else if (tilemap.GetTile(NextStepVector) == load.tiles[1])
         {
             Debug.Log("moving Grass");
             consume = 2;
         }
-        else if (tilemap.GetTile(NextStepVector) == tiles[2])
+        else if (tilemap.GetTile(NextStepVector) == load.tiles[2])
         {
             Debug.Log("moving Mountain");
             consume = 10;

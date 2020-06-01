@@ -6,22 +6,10 @@ using Unity.Collections;
 public class pathfinding : MonoBehaviour
 {
     public Load load;
-
     
-
-
-
-    //public node Test;
-    //public node newnode;
-    //public int testnumber;
-    //public List<node> testlist;
-
-
-
     public playerMovement playerMovement;
     public bool end = false;
-    //List<node> openset = new List<node>();
-    //HashSet<node> Closed = new HashSet<node>();
+    
 
     // Start is called before the first frame update
     void Start()
@@ -36,34 +24,9 @@ public class pathfinding : MonoBehaviour
 
     void Update()
     {
-        //if(playerMovement.PathFinished)
-        //{
-        //    if (Input.GetMouseButtonDown(0))
-        //    {
-        //        foreach(Vector3 vector in playerMovement.PositionsInRange)
-        //        {
-                    
-        //        }
-        //        target.position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        //        FinDAPath(player.position, target.position);
-        //    }
-        //}
         
-       
-
-        
-        //Test = load.GetStartNode(PlayerMapPosition);
-
-
-        //for (int i = 0; i < Path.Count - 1; i++)
-        //{
-
-
-
-
-        //}
     }
-    public List<node> FinDAPath(Vector3 StartPoint, Vector3 EndPoint)
+    public List<node> FinDAPath(Vector3 StartPoint, Vector3 EndPoint)//a* pathfinding algrithm
     {
         node StartNode = load.GetStartNode(StartPoint);
         
