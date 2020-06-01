@@ -8,6 +8,7 @@ public class NextTurn : MonoBehaviour
     public Button NextTurnButton;
     public bool EnemyTurn = false;
     public bool OnlyOnce = false;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -24,8 +25,9 @@ public class NextTurn : MonoBehaviour
 
     public void PressNextTurnButton()
     {
-        EnemyTurn = true;
 
+        EnemyTurn = true;
+        
         playerMovement.StepCount = 0;
         
     }
