@@ -25,28 +25,33 @@ public class CurrentDialogue : MonoBehaviour
     public void StartDialogue()
     {
         DialogueText.text = Current.StartText;
-        SetUpButtons();
+        SetUpButtons(-1);
     }
-    public List<Dialogue> FindFirstChoices()
+    public List<Dialogue> FindChoices(int index)
     {
-        int index = -1;
+        
         List<Dialogue> Temp = new List<Dialogue>();
         foreach(Dialogue dialogue in Current.dialogues)
         {
-            if(dialogue.PreviousID==index)
+            if(dialogue!=null)
             {
-                Temp.Add(dialogue);
+                if (dialogue.PreviousID == index)
+                {
+                    Temp.Add(dialogue);
+                }
             }
+            
             
         }
         return Temp;
     }
-    public void SetUpButtons()
+    public void SetUpButtons(int index)
     {
-        foreach(Dialogue dialogue in FindFirstChoices())
+        foreach(Dialogue dialogue in FindChoices(index))
         {
             temp = Instantiate(button, Parent);
             temp.GetComponentInChildren<Text>().text = dialogue.ButtonText;
+            temp.GetComponent<ButtonTrigger>().dialogue = dialogue;
             TempButtons.Add(temp);
         }
     }

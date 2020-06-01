@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b91f484a55abac4f816aac549e63d4a, type: 3}
   m_Name: Dialogue 3
   m_EditorClassIdentifier: 
-  dialogueText: 
-  ButtonText: 
+  dialogueText: good luck sir
+  ButtonText: i will take that
   NextID: 2
   PreviousID: 1

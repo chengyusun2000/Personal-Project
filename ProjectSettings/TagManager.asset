@@ -15,6 +15,12 @@ TagManager:
   - InventoryPanel
   - NPC
   - DialoguePanel
+  - DialogueText
+  - InPos
+  - OutPos
+  - QuestPanel
+  - QInPos
+  - QOutPos
   layers:
   - Default
   - TransparentFX

@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48506c89ba1841d4eb6c13c4cbba2b1a, type: 3}
   m_Name: AddQuestDialogue
   m_EditorClassIdentifier: 
-  dialogueText: 
-  ButtonText: 
+  dialogueText: good luck sir
+  ButtonText: i will take that
   NextID: -1
-  PreviousID: 2
-  questIndex: 0
-  QuestName: 
+  PreviousID: 1
+  Dtype: 1
+  quest: {fileID: 11400000, guid: 320bbc7df923e2c41b4b675cb45bb0b5, type: 2}

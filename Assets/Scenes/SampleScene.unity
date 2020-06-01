@@ -1299,9 +1299,7 @@ GameObject:
   - component: {fileID: 1165967314}
   - component: {fileID: 1165967313}
   - component: {fileID: 1165967311}
-  - component: {fileID: 1165967315}
   - component: {fileID: 1165967316}
-  - component: {fileID: 1165967317}
   m_Layer: 0
   m_Name: Tilemap
   m_TagString: tilemap
@@ -1455,30 +1453,6 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!114 &1165967315
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1165967309}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4fd993bdb81647541bf67952ce69ec3a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  load: {fileID: 1165967311}
-  PathTest: []
-  player: {fileID: 1145370047}
-  target: {fileID: 1274795203}
-  Test:
-    position: 
-    walkable: 0
-    type: 
-    Gcost: 0
-    Hcost: 0
-    weight: 0
-  PathFound: []
 --- !u!114 &1165967316
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1494,21 +1468,6 @@ MonoBehaviour:
   load: {fileID: 0}
   playerMovement: {fileID: 0}
   end: 0
---- !u!114 &1165967317
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1165967309}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b435345a5be7cbf4d8be0466cf65104a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  seeker: {fileID: 1145370047}
-  target: {fileID: 1274795203}
-  Test: []
 --- !u!1 &1274795197
 GameObject:
   m_ObjectHideFlags: 0
