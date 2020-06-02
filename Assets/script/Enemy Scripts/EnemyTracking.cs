@@ -254,6 +254,7 @@ public class EnemyTracking : MonoBehaviour
         }
         else
         {
+            //vectorint vector=position,if(vector==player.position){debug.log(trigger)}
             PathFinished = true;
             NextTurn.EnemyTurn = false;
             NextTurn.OnlyOnce = false;

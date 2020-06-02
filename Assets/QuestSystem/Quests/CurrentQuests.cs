@@ -8,14 +8,14 @@ public class CurrentQuests : MonoBehaviour
     [SerializeField] private List<QuestBase> Finished;
     [SerializeField] private List<QuestEventBase> CurrentEvents;
     [SerializeField] private Button button;
-    [SerializeField] private QuestsList questsList;
+    //[SerializeField] private QuestsList questsList;
     
     public Transform QuestList;
     // Start is called before the first frame update
     void Start()
     {
         
-        AddQuestToQuestList();
+        //AddQuestToQuestList();
     }
 
     // Update is called once per frame
@@ -26,6 +26,7 @@ public class CurrentQuests : MonoBehaviour
     public void AddQuest(QuestBase NewQuest)
     {
         Current.Add(NewQuest);
+        AddQuestToQuestList();
     }
     public void MoveQuestToFinishend(QuestBase FinishedQuest)
     {
