@@ -39,6 +39,7 @@ public class Interaction : MonoBehaviour
 
                 DialoguePanel = transform.gameObject;
                 currentDialogue = transform.GetComponent<CurrentDialogue>();
+                
             }
         }
         

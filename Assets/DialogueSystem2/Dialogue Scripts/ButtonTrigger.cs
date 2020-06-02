@@ -39,6 +39,7 @@ public class ButtonTrigger : MonoBehaviour
             if(dialogue.quest!=null)
             {
                 currentQuests.AddQuest(dialogue.quest.quest);
+                currentDialogue.Current.dialogues.Remove(currentDialogue.FindPreviousDialogue(dialogue.PreviousID));
             }
             
            
