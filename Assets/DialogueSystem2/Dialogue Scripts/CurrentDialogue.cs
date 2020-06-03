@@ -24,6 +24,7 @@ public class CurrentDialogue : MonoBehaviour
     }
     public void StartDialogue()
     {
+        CleanDialoguePanel();
         DialogueText.text = Current.StartText;
         SetUpButtons(-1);
     }

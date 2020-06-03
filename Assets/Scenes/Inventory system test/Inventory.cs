@@ -19,7 +19,7 @@ public class Inventory : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        inventoryData = GameObject.FindGameObjectWithTag("Player").GetComponent<InventoryData>();
+        inventoryData = GameObject.FindGameObjectWithTag("GameData").GetComponent<InventoryData>();
         RectTransform = transform.GetComponent<RectTransform>();
         
         x = RectTransform.position.x - 440;
@@ -58,8 +58,9 @@ public class Inventory : MonoBehaviour
                 {
                     if (!slots[i, o].Occupied)
                     {
+                        
                         AddItem(i, o, item);
-                        inventoryData.AddItems(item);
+
 
                     }
                 }
@@ -132,6 +133,7 @@ public class Inventory : MonoBehaviour
             
             
             Instantiate(items.image, new Vector3(PositionX, PositionY, 0), Quaternion.identity, Parent.transform);
+            inventoryData.AddItems(items);
             PickedUp = true;
             Debug.Log(PositionX + " " + PositionY);
             for (int CheckX = x; CheckX < items.width + x; CheckX++)

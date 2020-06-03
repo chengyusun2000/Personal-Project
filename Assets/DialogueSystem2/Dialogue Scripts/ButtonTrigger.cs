@@ -15,7 +15,7 @@ public class ButtonTrigger : MonoBehaviour
         text = GameObject.FindGameObjectWithTag("Canvas").transform.Find("Dialogue Panel").Find("DialogueText").GetComponent<Text>();
         currentDialogue = GameObject.FindGameObjectWithTag("Canvas").transform.Find("Dialogue Panel").GetComponent<CurrentDialogue>();
         interaction = GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<Interaction>();
-        currentQuests = GameObject.FindGameObjectWithTag("Player").GetComponent<CurrentQuests>();
+        currentQuests = GameObject.FindGameObjectWithTag("GameData").GetComponent<CurrentQuests>();
 
     }
 
