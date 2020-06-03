@@ -63,4 +63,22 @@ public class CurrentDialogue : MonoBehaviour
             TempButtons.RemoveAt(0);
         }
     }
+    public Dialogue FindPreviousDialogue(int index)
+    {
+        List< Dialogue> temp=new List<Dialogue>();
+        foreach (Dialogue dialogue in Current.dialogues)
+        {
+            if (dialogue != null)
+            {
+                if (dialogue.NextID == index)
+                {
+
+                    temp.Add(dialogue);
+                }
+            }
+
+            
+        }
+        return temp[0];
+    }
 }

@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: QuitDialogue
   m_EditorClassIdentifier: 
   dialogueText: 
-  ButtonText: No thank you
+  ButtonText: i think i'd better leave
   NextID: -1
   PreviousID: -1
   Dtype: 2
+  quest: {fileID: 0}
+  item: {fileID: 0}
