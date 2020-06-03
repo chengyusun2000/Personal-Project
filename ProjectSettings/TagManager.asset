@@ -21,6 +21,7 @@ TagManager:
   - QuestPanel
   - QInPos
   - QOutPos
+  - GameData
   layers:
   - Default
   - TransparentFX

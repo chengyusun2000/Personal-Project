@@ -4216,6 +4216,7 @@ MonoBehaviour:
   EnemyMoveRange: []
   EnemyToPlayer: []
   Tem: []
+  CheckInRange: 1
   PlayerIsDetected: 0
   PathFinished: 1
   reach: 1
