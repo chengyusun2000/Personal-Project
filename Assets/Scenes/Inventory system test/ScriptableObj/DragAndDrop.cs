@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
-public class DragAndDrop : MonoBehaviour,IPointerDownHandler,IBeginDragHandler,IEndDragHandler,IDragHandler
+public class DragAndDrop : MonoBehaviour,IPointerDownHandler,IBeginDragHandler,IEndDragHandler,IDragHandler,IPointerUpHandler
 {
     [SerializeField] private RectTransform ObjTransform;
     private CanvasGroup canvasGroup;
@@ -33,14 +33,14 @@ public class DragAndDrop : MonoBehaviour,IPointerDownHandler,IBeginDragHandler,I
     {
 
         OriginalPosition = transform.position;
-        SetSlotsNoOccupied();
+        
         canvasGroup.alpha = 0.7f;
         canvasGroup.blocksRaycasts = false;
 
     }
     public void OnBeginDrag(PointerEventData eventData)
     {
-       
+        IfSetSlotsOccupied(false);
     }
     public void OnEndDrag(PointerEventData eventData)
     {
@@ -55,10 +55,19 @@ public class DragAndDrop : MonoBehaviour,IPointerDownHandler,IBeginDragHandler,I
         ObjTransform.anchoredPosition += eventData.delta/5;
 
     }
-    public void SetSlotsNoOccupied()
+    public void OnPointerUp(PointerEventData eventData)
+    {
+        //IfSetSlotsOccupied(true);
+        canvasGroup.alpha = 1f;
+        canvasGroup.blocksRaycasts = true;
+        
+        Debug.Log("mouse up");
+    }
+    public void IfSetSlotsOccupied(bool set)
     {
 
         ItemObj itemObj = transform.GetComponent<GetItemData>().GetItemObj();
+        Debug.Log(itemObj.name);
         float PositionX;
         float PositionY;
         float FloatWidth = itemObj.width;
@@ -93,11 +102,11 @@ public class DragAndDrop : MonoBehaviour,IPointerDownHandler,IBeginDragHandler,I
         {
             for (int CheckY = SlotY; CheckY < itemObj.height + SlotY; CheckY++)
             {
-                if (inventory.slots[CheckX, CheckY].Occupied)
-                {
-                    inventory.slots[CheckX, CheckY].Occupied = false;
+                //if (inventory.slots[CheckX, CheckY].Occupied)
+                //{
+                    inventory.slots[CheckX, CheckY].Occupied = set;
                     Debug.Log(CheckX + " " + CheckY + " " + inventory.slots[CheckX, CheckY].Occupied);
-                }
+                //}
 
                 
 
@@ -106,4 +115,8 @@ public class DragAndDrop : MonoBehaviour,IPointerDownHandler,IBeginDragHandler,I
 
         
     }
+    
+    
+
+   
 }
