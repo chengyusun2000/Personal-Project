@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: PiePumpkin
   m_EditorClassIdentifier: 
   image: {fileID: 3697316370037900237, guid: 5882ec94112950e49a8671130bbb8df0, type: 3}
+  SceneImage: {fileID: 7165794660424855914, guid: 13fbd4a3d357285488a3a414aa8ade75,
+    type: 3}
   type: 1
   height: 1
   width: 2

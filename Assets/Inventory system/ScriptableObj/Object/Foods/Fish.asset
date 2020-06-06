@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Fish
   m_EditorClassIdentifier: 
   image: {fileID: 8536528881566777207, guid: 85c50f4acfcd54c49a0de5ddf3f5c424, type: 3}
+  SceneImage: {fileID: 533494200040100856, guid: ce63d7662f5229d4c85927125cfe12a6,
+    type: 3}
   type: 1
   height: 2
   width: 2

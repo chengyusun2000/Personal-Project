@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Jerky
   m_EditorClassIdentifier: 
   image: {fileID: 4271638595134181024, guid: 642602bef342c3c4b9f5315fcec26932, type: 3}
+  SceneImage: {fileID: 2609637218416379696, guid: 07bd944e677977545bc793fd08dff839,
+    type: 3}
   type: 1
   height: 2
   width: 2

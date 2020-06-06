@@ -98,7 +98,7 @@ public class Inventory : MonoBehaviour
                     }
                     else
                     {
-                        Debug.Log("yes");
+                        //Debug.Log("yes");
                     }
 
                 }
@@ -128,21 +128,21 @@ public class Inventory : MonoBehaviour
 
             
             
-            Debug.Log("divide" + FloatWidth / 2);
+            //Debug.Log("divide" + FloatWidth / 2);
             
             
             
             Instantiate(items.image, new Vector3(PositionX, PositionY, 0), Quaternion.identity, Parent.transform);
             inventoryData.AddItems(items);
             PickedUp = true;
-            Debug.Log(PositionX + " " + PositionY);
+            //Debug.Log(PositionX + " " + PositionY);
             for (int CheckX = x; CheckX < items.width + x; CheckX++)
             {
                 for (int CheckY = y; CheckY < items.height + y; CheckY++)
                 {
                     
                     slots[CheckX, CheckY].Occupied = true;
-                    Debug.Log(CheckX + " " + CheckY + " " + slots[CheckX, CheckY].Occupied);
+                    //Debug.Log(CheckX + " " + CheckY + " " + slots[CheckX, CheckY].Occupied);
 
                 }
             }

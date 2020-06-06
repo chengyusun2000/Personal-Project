@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Whiskey
   m_EditorClassIdentifier: 
   image: {fileID: 8672414661693353630, guid: 135281927d4751d4087ebcea10d40a13, type: 3}
+  SceneImage: {fileID: 2188098319945863170, guid: ebdca81cc7c055f47874e7574dad7a05,
+    type: 3}
   type: 1
   height: 2
   width: 1

@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Stein
   m_EditorClassIdentifier: 
   image: {fileID: 4595234438250901154, guid: 062288f4e5fc65846ae0bc2b801cebdc, type: 3}
+  SceneImage: {fileID: 3493190984974961965, guid: 995b6d182b543864fa2cb96773cf753f,
+    type: 3}
   type: 1
   height: 1
   width: 1

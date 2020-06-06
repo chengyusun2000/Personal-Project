@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Peach
   m_EditorClassIdentifier: 
   image: {fileID: 620281729684953680, guid: 3f7b9c30c9ec78a4f8d1ceaa1ae66741, type: 3}
+  SceneImage: {fileID: 1326998326511719009, guid: c0dce194052cdf747aacdfdbee8f62b3,
+    type: 3}
   type: 1
   height: 1
   width: 1

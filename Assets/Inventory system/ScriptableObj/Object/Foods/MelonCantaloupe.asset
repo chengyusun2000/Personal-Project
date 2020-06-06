@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: MelonCantaloupe
   m_EditorClassIdentifier: 
   image: {fileID: 4051934262789811375, guid: 9f278f7a8a6b5ee44b7d973eaa601d74, type: 3}
+  SceneImage: {fileID: 1380364072959169298, guid: 43bf0a6149ec8184688211b0c34627ed,
+    type: 3}
   type: 1
   height: 1
   width: 2

@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Jam
   m_EditorClassIdentifier: 
   image: {fileID: 334688157030523441, guid: fcb11056bb9e35e448d917af8dac0884, type: 3}
+  SceneImage: {fileID: 3179507031490628264, guid: 82ee355ca98a06047b25e46c00eb30e5,
+    type: 3}
   type: 1
   height: 2
   width: 2

@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Chicken
   m_EditorClassIdentifier: 
   image: {fileID: 3717167698545836659, guid: 9e7ead75f16882141af396fdf88dd06e, type: 3}
+  SceneImage: {fileID: 7370640023581323504, guid: 1e593b132444edc47b05cc40ececf665,
+    type: 3}
   type: 1
   height: 2
   width: 2

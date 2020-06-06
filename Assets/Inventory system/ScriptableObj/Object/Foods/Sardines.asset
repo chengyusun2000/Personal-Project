@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Sardines
   m_EditorClassIdentifier: 
   image: {fileID: 8363314080211799969, guid: feca2f7687e9f7f4eb43fe565ffc4369, type: 3}
+  SceneImage: {fileID: 4577835167556677343, guid: 6d30265c05d73c749b79102852f27398,
+    type: 3}
   type: 1
   height: 1
   width: 1

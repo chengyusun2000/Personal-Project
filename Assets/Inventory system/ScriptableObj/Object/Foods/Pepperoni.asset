@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Pepperoni
   m_EditorClassIdentifier: 
   image: {fileID: 247451531711673290, guid: 5866b4dcd12967b4f85e04baeca360c1, type: 3}
+  SceneImage: {fileID: 3262897059928835800, guid: aea8649f0d3a60e48b9da58b1f4a69ed,
+    type: 3}
   type: 1
   height: 1
   width: 1

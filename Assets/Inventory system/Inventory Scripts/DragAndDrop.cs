@@ -12,17 +12,22 @@ public class DragAndDrop : MonoBehaviour,IPointerDownHandler,IBeginDragHandler,I
     [SerializeField] private int SlotX;
     [SerializeField] private int SlotY;
     [SerializeField] private Inventory inventory;
+    private InventoryData inventoryData;
     [SerializeField] private Image Background;
     [SerializeField]private Transform InventoryI;
+    private Transform PlayerTransform;
     public Vector2 OriginalPosition;
     private float MoveX;
     private float MoveY;
     private RectTransform BackRect;
-    
+    private ItemObj itemOnMOuse;
+
     [SerializeField] private List<Image> backgrounds;
 
     private void Awake()
     {
+        PlayerTransform = GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<Transform>();
+        inventoryData = GameObject.FindGameObjectWithTag("GameData").GetComponent<InventoryData>();
         foreach(Transform child in GameObject.FindGameObjectWithTag("Canvas").GetComponentsInChildren<Transform>())
         {
             if (child.tag=="InventoryPanel")
@@ -74,12 +79,15 @@ public class DragAndDrop : MonoBehaviour,IPointerDownHandler,IBeginDragHandler,I
         canvasGroup.alpha = 1f;
         canvasGroup.blocksRaycasts = true;
         RemoveBackgrounds();
-        Debug.Log("mouse up");
+        OutRange();
+        
+        
     }
     public void IfSetSlotsOccupied(bool set,bool IfSetBackground)
     {
 
         ItemObj itemObj = transform.GetComponent<GetItemData>().GetItemObj();
+        itemOnMOuse = itemObj;
         Debug.Log(itemObj.name);
         float PositionX;
         float PositionY;
@@ -95,7 +103,7 @@ public class DragAndDrop : MonoBehaviour,IPointerDownHandler,IBeginDragHandler,I
         else
         {
             PositionX = (float)(DropX - 80 * ((FloatWidth - 1) / 2) );
-            Debug.Log("sss" + PositionX);
+            //Debug.Log("sss" + PositionX);
         }
 
 
@@ -110,14 +118,14 @@ public class DragAndDrop : MonoBehaviour,IPointerDownHandler,IBeginDragHandler,I
 
         SlotX = (int)((PositionX - inventory.x ) / 80);
         SlotY = (int)((PositionY - inventory.y) / 80);
-        Debug.Log(SlotX + "," + SlotY + "bug");
+        //Debug.Log(SlotX + "," + SlotY + "bug");
         for (int CheckX = SlotX; CheckX < itemObj.width + SlotX; CheckX++)
         {
             for (int CheckY = SlotY; CheckY < itemObj.height + SlotY; CheckY++)
             {
                 
                 inventory.slots[CheckX, CheckY].Occupied = set;
-                Debug.Log(CheckX + " " + CheckY + " " + inventory.slots[CheckX, CheckY].Occupied);
+                //Debug.Log(CheckX + " " + CheckY + " " + inventory.slots[CheckX, CheckY].Occupied);
                 if(IfSetBackground==true)
                 {
                     PositionX = CheckX * 80 + inventory.x;
@@ -188,6 +196,20 @@ public class DragAndDrop : MonoBehaviour,IPointerDownHandler,IBeginDragHandler,I
         {
             Destroy(backgrounds[0].gameObject);
             backgrounds.RemoveAt(0);
+        }
+    }
+
+
+    public void OutRange()
+    {
+        SlotX = (int)((DropX - inventory.x) / 80);
+        SlotY = (int)((DropY - inventory.y) / 80);
+        Debug.Log(SlotX + "de" + SlotY);
+        if(SlotX<0||SlotY<0||SlotX>11||SlotY>7)
+        {
+            Instantiate(itemOnMOuse.SceneImage, PlayerTransform.position, Quaternion.identity);
+            inventoryData.RemoveItem(itemOnMOuse);
+            Destroy(gameObject);
         }
     }
 }

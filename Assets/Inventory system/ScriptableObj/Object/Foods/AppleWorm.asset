@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: AppleWorm
   m_EditorClassIdentifier: 
   image: {fileID: 8242490369089231528, guid: 98e3d04619577bd4da647b742c432ea5, type: 3}
+  SceneImage: {fileID: 301498701708112015, guid: 31d156a052bcf2e4680a8aafe4cfbc1e,
+    type: 3}
   type: 1
   height: 1
   width: 1

@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Roll
   m_EditorClassIdentifier: 
   image: {fileID: 5724026524415936400, guid: ddb45afe2739a5b44af73956caedd4d4, type: 3}
+  SceneImage: {fileID: 773672221592807275, guid: bdf9e235a407c5c488cb75d23d9a4360,
+    type: 3}
   type: 1
   height: 1
   width: 1

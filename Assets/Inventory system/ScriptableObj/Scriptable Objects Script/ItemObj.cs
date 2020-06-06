@@ -15,6 +15,7 @@ public abstract class ItemObj : ScriptableObject
 {
     
     public Image image;
+    public GameObject SceneImage;
     public ItemType type;
     public int height;
     public int width;

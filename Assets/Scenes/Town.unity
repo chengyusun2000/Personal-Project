@@ -295,7 +295,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &69318464
 MonoBehaviour:
@@ -12068,7 +12068,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &428471783
 GameObject:
@@ -12758,7 +12758,7 @@ MonoBehaviour:
   y: 0
   RectTransform: {fileID: 0}
   food: {fileID: 11400000, guid: 7bad7e48c094e4a44b5b2592679806d3, type: 2}
-  Potion: {fileID: 11400000, guid: 4bdcb51f6d91f274c933a750c18db16f, type: 2}
+  Potion: {fileID: 0}
   Width: 12
   length: 8
   PickedUp: 0
@@ -13579,7 +13579,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &885614964
 GameObject:
@@ -15385,7 +15385,7 @@ Transform:
   m_LocalScale: {x: 0.4, y: 0.4, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1703479970
 GameObject:
@@ -15437,7 +15437,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1751866311
 GameObject:
@@ -15876,7 +15876,7 @@ Transform:
   m_LocalScale: {x: 0.4, y: 0.4, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1931947341
 GameObject:
@@ -16579,7 +16579,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &2078097383
 CircleCollider2D:
@@ -16776,72 +16776,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   offset: 0
---- !u!1001 &5013315022752880805
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 5013315023295318882, guid: f785f720cd147084ea8e2cff9b4ef032,
-        type: 3}
-      propertyPath: m_Name
-      value: Wine
-      objectReference: {fileID: 0}
-    - target: {fileID: 5013315023295318895, guid: f785f720cd147084ea8e2cff9b4ef032,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 3.549
-      objectReference: {fileID: 0}
-    - target: {fileID: 5013315023295318895, guid: f785f720cd147084ea8e2cff9b4ef032,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.925
-      objectReference: {fileID: 0}
-    - target: {fileID: 5013315023295318895, guid: f785f720cd147084ea8e2cff9b4ef032,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -1.2030947
-      objectReference: {fileID: 0}
-    - target: {fileID: 5013315023295318895, guid: f785f720cd147084ea8e2cff9b4ef032,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5013315023295318895, guid: f785f720cd147084ea8e2cff9b4ef032,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5013315023295318895, guid: f785f720cd147084ea8e2cff9b4ef032,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5013315023295318895, guid: f785f720cd147084ea8e2cff9b4ef032,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5013315023295318895, guid: f785f720cd147084ea8e2cff9b4ef032,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 5013315023295318895, guid: f785f720cd147084ea8e2cff9b4ef032,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5013315023295318895, guid: f785f720cd147084ea8e2cff9b4ef032,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5013315023295318895, guid: f785f720cd147084ea8e2cff9b4ef032,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: f785f720cd147084ea8e2cff9b4ef032, type: 3}

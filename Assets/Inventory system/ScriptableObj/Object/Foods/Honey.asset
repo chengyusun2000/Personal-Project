@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Honey
   m_EditorClassIdentifier: 
   image: {fileID: 4020267896059565196, guid: e5f47ec42a078a1468c507f65b5f301c, type: 3}
+  SceneImage: {fileID: 852032335743248508, guid: d3cb980765aa16c43aa1ce22ac146b21,
+    type: 3}
   type: 1
   height: 1
   width: 1

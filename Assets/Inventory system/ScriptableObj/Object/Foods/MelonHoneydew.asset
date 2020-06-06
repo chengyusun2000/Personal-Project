@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: MelonHoneydew
   m_EditorClassIdentifier: 
   image: {fileID: 5819527947118059209, guid: e55f198321a6e8244ac413bdd2d4b379, type: 3}
+  SceneImage: {fileID: 2028087903974726143, guid: d9941921e87efd24d8b73a4749f95447,
+    type: 3}
   type: 1
   height: 1
   width: 2

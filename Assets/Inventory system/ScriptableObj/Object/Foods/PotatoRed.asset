@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: PotatoRed
   m_EditorClassIdentifier: 
   image: {fileID: 5849449596936044837, guid: ff44b5a67c665e744b98408508c63ee9, type: 3}
+  SceneImage: {fileID: 6255503347914509955, guid: fa996351cb747fb4f933e3b65d4bc491,
+    type: 3}
   type: 1
   height: 1
   width: 1

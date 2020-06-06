@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Wine
   m_EditorClassIdentifier: 
   image: {fileID: 3266627820743249566, guid: 43cdcda45f1ac9f468f6ee18dfae0435, type: 3}
+  SceneImage: {fileID: 5013315023295318882, guid: f785f720cd147084ea8e2cff9b4ef032,
+    type: 3}
   type: 1
   height: 2
   width: 1

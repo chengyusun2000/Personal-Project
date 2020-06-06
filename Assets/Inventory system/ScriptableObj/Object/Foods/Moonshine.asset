@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Moonshine
   m_EditorClassIdentifier: 
   image: {fileID: 6962834816274828247, guid: 10b54436627ddf64bb8fff03a4222429, type: 3}
+  SceneImage: {fileID: 5787817763562642828, guid: 3c6836ee097d8f247b234538514e8170,
+    type: 3}
   type: 1
   height: 2
   width: 2

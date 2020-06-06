@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Strawberry
   m_EditorClassIdentifier: 
   image: {fileID: 9127029478560868724, guid: db49f46a033cdb143b713b5f19e29fae, type: 3}
+  SceneImage: {fileID: 5051524213350559444, guid: 7b9f9f0abf645ac4291e96c7b74b4476,
+    type: 3}
   type: 1
   height: 1
   width: 1

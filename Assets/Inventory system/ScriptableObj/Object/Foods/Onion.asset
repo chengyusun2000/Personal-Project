@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Onion
   m_EditorClassIdentifier: 
   image: {fileID: 6736242453400735633, guid: d392742f2e52d0a48a2090dcde0ac416, type: 3}
+  SceneImage: {fileID: 8827769683115853, guid: 6e09860a150e7b54c8511d7dc87fb18a, type: 3}
   type: 1
   height: 1
   width: 1

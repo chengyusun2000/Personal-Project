@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Waffles
   m_EditorClassIdentifier: 
   image: {fileID: 1137002268329508417, guid: b53a51bcd17388f44a3ab2fc97c162e0, type: 3}
+  SceneImage: {fileID: 7057895850910702000, guid: d4f3b02f5c2b57d4e95b3aa9b96de0a9,
+    type: 3}
   type: 1
   height: 1
   width: 2

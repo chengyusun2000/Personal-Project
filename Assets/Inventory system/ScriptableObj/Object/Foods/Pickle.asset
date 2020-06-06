@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Pickle
   m_EditorClassIdentifier: 
   image: {fileID: 2774837369020451309, guid: 4abd494dddb882c4e97a3ff71c24ccf8, type: 3}
+  SceneImage: {fileID: 2671797452378080844, guid: 5b13328af4c72c844a1866c8d09839da,
+    type: 3}
   type: 1
   height: 1
   width: 1

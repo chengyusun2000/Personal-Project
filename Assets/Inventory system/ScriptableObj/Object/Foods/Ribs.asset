@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Ribs
   m_EditorClassIdentifier: 
   image: {fileID: 991248604705546799, guid: c0e2fdf3bee5fd147af3a12b0282ba36, type: 3}
+  SceneImage: {fileID: 4031622586083187731, guid: 7d3324128dda99a4691c456926554a1c,
+    type: 3}
   type: 1
   height: 2
   width: 2

@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: PepperGreen
   m_EditorClassIdentifier: 
   image: {fileID: 513754493173163824, guid: 6088bae43cecdd946acf7ade92487e08, type: 3}
+  SceneImage: {fileID: 6114344544570049716, guid: 83190acc8b2c1384e98dca084ed84a4f,
+    type: 3}
   type: 1
   height: 1
   width: 1

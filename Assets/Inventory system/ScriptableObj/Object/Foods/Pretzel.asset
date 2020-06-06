@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Pretzel
   m_EditorClassIdentifier: 
   image: {fileID: 3066311480564843804, guid: d73c27762dbddc341b31ac83fa34529e, type: 3}
+  SceneImage: {fileID: 1841068061334658167, guid: 56f1979568672824698b20e2ac896573,
+    type: 3}
   type: 1
   height: 0
   width: 0

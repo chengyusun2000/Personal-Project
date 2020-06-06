@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Boar
   m_EditorClassIdentifier: 
   image: {fileID: 1180545404247077906, guid: 3eab76ff94afc6d4e87ae37f6e0b72e3, type: 3}
+  SceneImage: {fileID: 7458823237593792039, guid: bf2a45452b50af041be59b466048e196,
+    type: 3}
   type: 1
   height: 2
   width: 2

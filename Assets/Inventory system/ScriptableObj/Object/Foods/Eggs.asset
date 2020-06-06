@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Eggs
   m_EditorClassIdentifier: 
   image: {fileID: 456759182260739505, guid: 5dc7d27f0282c7d48b4dbca01f0a80c0, type: 3}
+  SceneImage: {fileID: 4170726653391671163, guid: 35ecdede0a4fa4649a6add0737fb80d5,
+    type: 3}
   type: 1
   height: 1
   width: 1

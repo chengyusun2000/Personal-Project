@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Saki
   m_EditorClassIdentifier: 
   image: {fileID: 3141361633860211387, guid: 1fcea108afa123240baaa8e9a3e02e8a, type: 3}
+  SceneImage: {fileID: 5089342599680115370, guid: 071d9626e31c99d4ba2f864e66fa8ef8,
+    type: 3}
   type: 1
   height: 2
   width: 2
