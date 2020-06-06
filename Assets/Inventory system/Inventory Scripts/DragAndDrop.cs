@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 public class DragAndDrop : MonoBehaviour,IPointerDownHandler,IBeginDragHandler,IEndDragHandler,IDragHandler,IPointerUpHandler
 {
     [SerializeField] private RectTransform ObjTransform;
@@ -11,7 +12,14 @@ public class DragAndDrop : MonoBehaviour,IPointerDownHandler,IBeginDragHandler,I
     [SerializeField] private int SlotX;
     [SerializeField] private int SlotY;
     [SerializeField] private Inventory inventory;
+    [SerializeField] private Image Background;
+    [SerializeField]private Transform InventoryI;
     public Vector2 OriginalPosition;
+    private float MoveX;
+    private float MoveY;
+    private RectTransform BackRect;
+    
+    [SerializeField] private List<Image> backgrounds;
 
     private void Awake()
     {
@@ -20,6 +28,7 @@ public class DragAndDrop : MonoBehaviour,IPointerDownHandler,IBeginDragHandler,I
             if (child.tag=="InventoryPanel")
             {
                 inventory = child.GetComponent<Inventory>();
+                InventoryI = child.Find("Inventory").GetComponent<Transform>();
             }
         }
 
@@ -40,7 +49,9 @@ public class DragAndDrop : MonoBehaviour,IPointerDownHandler,IBeginDragHandler,I
     }
     public void OnBeginDrag(PointerEventData eventData)
     {
-        IfSetSlotsOccupied(false);
+        IfSetSlotsOccupied(false,true);
+        
+        SetChild();
     }
     public void OnEndDrag(PointerEventData eventData)
     {
@@ -52,18 +63,20 @@ public class DragAndDrop : MonoBehaviour,IPointerDownHandler,IBeginDragHandler,I
     public void OnDrag(PointerEventData eventData)
     {
 
+
+        MoveWithMouse(eventData);
         ObjTransform.anchoredPosition += eventData.delta/5;
 
     }
     public void OnPointerUp(PointerEventData eventData)
     {
-        //IfSetSlotsOccupied(true);
+        
         canvasGroup.alpha = 1f;
         canvasGroup.blocksRaycasts = true;
-        
+        RemoveBackgrounds();
         Debug.Log("mouse up");
     }
-    public void IfSetSlotsOccupied(bool set)
+    public void IfSetSlotsOccupied(bool set,bool IfSetBackground)
     {
 
         ItemObj itemObj = transform.GetComponent<GetItemData>().GetItemObj();
@@ -102,21 +115,79 @@ public class DragAndDrop : MonoBehaviour,IPointerDownHandler,IBeginDragHandler,I
         {
             for (int CheckY = SlotY; CheckY < itemObj.height + SlotY; CheckY++)
             {
-                //if (inventory.slots[CheckX, CheckY].Occupied)
-                //{
-                    inventory.slots[CheckX, CheckY].Occupied = set;
-                    Debug.Log(CheckX + " " + CheckY + " " + inventory.slots[CheckX, CheckY].Occupied);
-                //}
-
                 
+                inventory.slots[CheckX, CheckY].Occupied = set;
+                Debug.Log(CheckX + " " + CheckY + " " + inventory.slots[CheckX, CheckY].Occupied);
+                if(IfSetBackground==true)
+                {
+                    PositionX = CheckX * 80 + inventory.x;
+                    PositionY = CheckY * 80 + inventory.y;
+                    backgrounds.Add(Instantiate(Background, new Vector3(PositionX, PositionY, 0), Quaternion.identity, InventoryI));
+
+
+                }
+
+
 
             }
         }
 
         
     }
-    
-    
 
-   
+
+    
+    public void SetChild()
+    {
+        if (backgrounds.Count>1)
+        {
+            for (int i = 1; i < backgrounds.Count; i++)
+            {
+               
+                backgrounds[i].transform.SetParent(backgrounds[0].transform);
+            }
+        }
+        BackRect = backgrounds[0].rectTransform;
+    
+        
+    }
+
+
+    public void MoveWithMouse(PointerEventData eventData)
+    {
+
+        DropX = eventData.position.x;
+        DropY = eventData.position.y;
+        SlotX = (int)((DropX - inventory.x) / 80);
+        SlotY = (int)((DropY - inventory.y) / 80);
+        
+        if ((DropX - inventory.x - 80 * SlotX) % 80 >= 40)
+        {
+            SlotX++;
+        }
+        if ((DropY - inventory.y - 80 * SlotY) % 80 >= 40)
+        {
+            SlotY++;
+        }
+        MoveX = SlotX * 80 + inventory.x;
+        MoveY = SlotY * 80 + inventory.y;
+        //Debug.Log(SlotX + "," + SlotY + "setPos");
+        BackRect.position = new Vector3(MoveX, MoveY, 0);
+    }
+
+
+    public void RemoveBackgrounds()
+    {
+        for (int i = 1; i < backgrounds.Count; i++)
+        {
+
+            backgrounds[i].transform.SetParent(InventoryI);
+        }
+        int counts = backgrounds.Count;
+        for (int i=0;i<counts;i++)
+        {
+            Destroy(backgrounds[0].gameObject);
+            backgrounds.RemoveAt(0);
+        }
+    }
 }

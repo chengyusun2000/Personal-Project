@@ -5,16 +5,14 @@ using UnityEngine;
 public class Slots 
 {
     public bool Occupied = false;
-    //public float x;
-    //public float y;
+    //public bool Background = false;
     public int Width = 80;
     public int Length = 80;
     
-    public Slots(bool _occ/*float _x,float _y*/)
+    public Slots(bool _occ/*,bool _back*/)
     {
         Occupied = _occ;
-        //x = _x;
-        //y = _y;
+        //Background = _back;
         
     }
    
