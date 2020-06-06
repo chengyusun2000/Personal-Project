@@ -63,6 +63,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -93,6 +94,9 @@ MonoBehaviour:
   SlotX: 0
   SlotY: 0
   inventory: {fileID: 0}
+  Background: {fileID: 5034986090230937232, guid: 5b4a7269810834847abc62066e155a67,
+    type: 3}
+  OriginalPosition: {x: 0, y: 0}
 --- !u!225 &5272491191676068444
 CanvasGroup:
   m_ObjectHideFlags: 0

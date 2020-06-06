@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5744575220143847320}
   - component: {fileID: 9215992041491000805}
   m_Layer: 5
-  m_Name: Tumip
+  m_Name: Turnip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -93,6 +93,8 @@ MonoBehaviour:
   SlotX: 0
   SlotY: 0
   inventory: {fileID: 0}
+  Background: {fileID: 5034986090230937232, guid: 5b4a7269810834847abc62066e155a67,
+    type: 3}
   OriginalPosition: {x: 0, y: 0}
 --- !u!225 &5744575220143847320
 CanvasGroup:

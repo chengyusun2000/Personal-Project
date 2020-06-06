@@ -93,6 +93,8 @@ MonoBehaviour:
   SlotX: 0
   SlotY: 0
   inventory: {fileID: 0}
+  Background: {fileID: 5034986090230937232, guid: 5b4a7269810834847abc62066e155a67,
+    type: 3}
   OriginalPosition: {x: 0, y: 0}
 --- !u!225 &3256242506813874323
 CanvasGroup:
