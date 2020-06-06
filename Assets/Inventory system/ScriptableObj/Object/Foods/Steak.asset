@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Steak
   m_EditorClassIdentifier: 
   image: {fileID: 3867148670487426868, guid: ee78656b273caf4429d2501f9a6aba34, type: 3}
+  SceneImage: {fileID: 777387598620493545, guid: 918cef6eeb8f3ef42bcc5810122df646,
+    type: 3}
   type: 1
   height: 2
   width: 2

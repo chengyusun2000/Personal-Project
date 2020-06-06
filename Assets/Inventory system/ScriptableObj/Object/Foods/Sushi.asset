@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Sushi
   m_EditorClassIdentifier: 
   image: {fileID: 3279753487449725084, guid: 8bf1cbf9be1b37b49876c52c01aaea5a, type: 3}
+  SceneImage: {fileID: 8914887833270953795, guid: d5fef3e1f7e4932419b71cf26848639a,
+    type: 3}
   type: 1
   height: 1
   width: 1

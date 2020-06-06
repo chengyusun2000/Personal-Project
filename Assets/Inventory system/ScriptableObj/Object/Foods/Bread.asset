@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Bread
   m_EditorClassIdentifier: 
   image: {fileID: 4980588086595465519, guid: eaa24a7e40773c640b9b5faa3d3beb8d, type: 3}
+  SceneImage: {fileID: 4624940824480901875, guid: 969d2462c3536444eab6d003fa4df4b8,
+    type: 3}
   type: 1
   height: 1
   width: 2

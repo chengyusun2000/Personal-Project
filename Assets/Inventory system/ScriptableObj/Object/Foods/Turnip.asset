@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Turnip
   m_EditorClassIdentifier: 
   image: {fileID: 2852521896670717476, guid: 24dc01a125623a142afab0f42a6e7036, type: 3}
+  SceneImage: {fileID: 5122673359119178207, guid: 6e0fb8b66ced932448b3cad89b5ddbef,
+    type: 3}
   type: 1
   height: 1
   width: 1

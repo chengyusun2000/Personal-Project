@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Marmalade
   m_EditorClassIdentifier: 
   image: {fileID: 2393431344986401545, guid: 709945e4eb4d5c849b3aa439eccd48c4, type: 3}
+  SceneImage: {fileID: 3170345634600132085, guid: 207fedd52f6dbfc47803f9dd361669f4,
+    type: 3}
   type: 1
   height: 2
   width: 2

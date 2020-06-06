@@ -20,6 +20,11 @@ public class SlotDrop : MonoBehaviour, IDropHandler
             DropY = eventData.position.y;
             SlotX = (int)((DropX - inventory.x) / 80);
             SlotY = (int)((DropY - inventory.y) / 80);
+            //if(DropX - inventory.x<0)
+            //{
+            //    Debug.Log("delete");
+            //}
+            
             //Debug.Log(SlotX + "," + SlotY);
             if ((DropX - inventory.x - 80 * SlotX) % 80 >= 40)
             {
@@ -30,8 +35,9 @@ public class SlotDrop : MonoBehaviour, IDropHandler
                 SlotY++;
             }
 
-            Debug.Log(SlotX + "," + SlotY + "setPos");
+            //Debug.Log(SlotX + "," + SlotY + "setPos");
 
+            
 
             if ((inventory.Width - SlotX < itemObj.width) || (inventory.length - SlotY < itemObj.height))
             {
@@ -63,8 +69,8 @@ public class SlotDrop : MonoBehaviour, IDropHandler
                 float FloatHeight = itemObj.height;
                 float PositionX;
                 float PositionY;
-                Debug.Log(FloatWidth / 4);
-                Debug.Log("www" + (FloatWidth - 1) / 2);
+                //Debug.Log(FloatWidth / 4);
+                //Debug.Log("www" + (FloatWidth - 1) / 2);
                 if (inventory.OddOrEven(itemObj.width) == 0)
                 {
                     PositionX = (float)(inventory.x + 80 * (FloatWidth / 4) + 80 * SlotX);
@@ -94,7 +100,7 @@ public class SlotDrop : MonoBehaviour, IDropHandler
                     for (int CheckY = SlotY; CheckY < itemObj.height + SlotY; CheckY++)
                     {
                         inventory.slots[CheckX, CheckY].Occupied = true;
-                        Debug.Log(CheckX + " " + CheckY + " " + inventory.slots[CheckX, CheckY].Occupied);
+                        //Debug.Log(CheckX + " " + CheckY + " " + inventory.slots[CheckX, CheckY].Occupied);
 
                     }
                 }

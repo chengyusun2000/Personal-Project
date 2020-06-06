@@ -96,6 +96,7 @@ public class Interaction : MonoBehaviour
                 {
                     
                     inventory.PickUpObject(getItemData.GetItemObj());
+                    Destroy(Hit2D.transform.gameObject);
                 }
 
             }

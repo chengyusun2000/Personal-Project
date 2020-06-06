@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: DragonFruit
   m_EditorClassIdentifier: 
   image: {fileID: 7101297321555587307, guid: 426966507c22c8e41926d847b287c3bb, type: 3}
+  SceneImage: {fileID: 6719552519142547286, guid: b63039d36b15e724bb6b50d7817dd7e3,
+    type: 3}
   type: 1
   height: 1
   width: 1

@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Grubs
   m_EditorClassIdentifier: 
   image: {fileID: 7933332278407362780, guid: fa2fec74e8f4d5341be153f9b710be94, type: 3}
+  SceneImage: {fileID: 628047487986814077, guid: 3572fcb76f4f97247ab0912a84ea4c91,
+    type: 3}
   type: 1
   height: 1
   width: 1

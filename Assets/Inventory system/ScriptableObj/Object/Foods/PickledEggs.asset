@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: PickledEggs
   m_EditorClassIdentifier: 
   image: {fileID: 4974569018357847155, guid: 9d1f87863d7917f43a9a71ff0e1473de, type: 3}
+  SceneImage: {fileID: 8732369920535129711, guid: 50b7e66c84b75bb44b93d4c948d7c84e,
+    type: 3}
   type: 1
   height: 2
   width: 2

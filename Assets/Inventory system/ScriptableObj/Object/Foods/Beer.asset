@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Beer
   m_EditorClassIdentifier: 
   image: {fileID: 5538062358819101758, guid: 9368bcc55c8450e41903b4356fde2e49, type: 3}
+  SceneImage: {fileID: 9021857015652493965, guid: 4c291ae6e69c33645a4cb9ad827731b4,
+    type: 3}
   type: 1
   height: 2
   width: 2

@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Sashimi
   m_EditorClassIdentifier: 
   image: {fileID: 1883751074977864356, guid: 41ca66b88ad053f40be33be93c7ddada, type: 3}
+  SceneImage: {fileID: 2876323986861255172, guid: 188829e2c8de8a64bb72443b221b1195,
+    type: 3}
   type: 1
   height: 1
   width: 1

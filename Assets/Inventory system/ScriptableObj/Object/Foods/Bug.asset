@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Bug
   m_EditorClassIdentifier: 
   image: {fileID: 5990721322395125960, guid: 084175fec3ee6a04e8cbde1ed0cdd16e, type: 3}
+  SceneImage: {fileID: 2372619406167964475, guid: 3503f120be639e143877a795708624ca,
+    type: 3}
   type: 1
   height: 1
   width: 1

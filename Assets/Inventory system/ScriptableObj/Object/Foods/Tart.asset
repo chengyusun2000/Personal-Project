@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Tart
   m_EditorClassIdentifier: 
   image: {fileID: 191786547296219424, guid: 091afabeacde2c847947a258f199d916, type: 3}
+  SceneImage: {fileID: 7492190956151315001, guid: 6aedaec2b9ffdb243aa757fb49ca5abe,
+    type: 3}
   type: 1
   height: 1
   width: 1

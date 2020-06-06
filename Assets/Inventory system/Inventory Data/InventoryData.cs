@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class InventoryData : MonoBehaviour
 {
-    public List<ItemObj> items;
+    [SerializeField]private List<ItemObj> items;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,5 +19,9 @@ public class InventoryData : MonoBehaviour
     public void AddItems(ItemObj item)
     {
         items.Add(item);
+    }
+    public void RemoveItem(ItemObj item)
+    {
+        items.Remove(item);
     }
 }

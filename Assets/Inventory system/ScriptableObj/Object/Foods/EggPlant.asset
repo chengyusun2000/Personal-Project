@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: EggPlant
   m_EditorClassIdentifier: 
   image: {fileID: 5854862993138595466, guid: 6ed5a749cb53aeb47b08be8d4c920068, type: 3}
+  SceneImage: {fileID: 4727540095226495029, guid: 2d87d92a456ee2149a2a005a71ec74d5,
+    type: 3}
   type: 1
   height: 2
   width: 1

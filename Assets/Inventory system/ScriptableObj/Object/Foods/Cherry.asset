@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Cherry
   m_EditorClassIdentifier: 
   image: {fileID: 2889311036619225155, guid: 5b6d04f6c1854a349b311c6d1fcfc8d0, type: 3}
+  SceneImage: {fileID: 6817864068943379543, guid: 73d0eb87a740e0f4abe7f5c60c33d6b4,
+    type: 3}
   type: 1
   height: 1
   width: 1

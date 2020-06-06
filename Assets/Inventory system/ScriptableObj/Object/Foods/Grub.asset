@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Grub
   m_EditorClassIdentifier: 
   image: {fileID: 2206587586277739150, guid: 187715ed097e6d249b3d206713f10a56, type: 3}
+  SceneImage: {fileID: 4206684704982263757, guid: d883a06f9760eb74c935d0d550c33cc2,
+    type: 3}
   type: 1
   height: 1
   width: 1

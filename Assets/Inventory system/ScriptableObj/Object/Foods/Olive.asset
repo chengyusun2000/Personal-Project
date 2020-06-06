@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Olive
   m_EditorClassIdentifier: 
   image: {fileID: 7497119520016629128, guid: decb7dc6347ef9b43abd239d750ae3f5, type: 3}
+  SceneImage: {fileID: 6138083259100894463, guid: a5da2bf98a8a86047bd2e2d8b8553658,
+    type: 3}
   type: 1
   height: 1
   width: 1

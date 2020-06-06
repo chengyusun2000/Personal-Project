@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Tomato
   m_EditorClassIdentifier: 
   image: {fileID: 5500560308817650802, guid: f563f7cbe84f78f4ba7b8667fd13e3dc, type: 3}
+  SceneImage: {fileID: 2970837816234032451, guid: 67a495f4c8e80b24387c26c7c8533df9,
+    type: 3}
   type: 1
   height: 1
   width: 1

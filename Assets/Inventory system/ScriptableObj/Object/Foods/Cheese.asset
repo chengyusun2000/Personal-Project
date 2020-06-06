@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Cheese
   m_EditorClassIdentifier: 
   image: {fileID: 9079766407984329484, guid: b710c5f32bfd4d441a98517139907b58, type: 3}
+  SceneImage: {fileID: 2775769203698096018, guid: e5becf9b928ab874188a5bd326eb1bbf,
+    type: 3}
   type: 1
   height: 2
   width: 2

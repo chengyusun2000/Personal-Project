@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Bacon
   m_EditorClassIdentifier: 
   image: {fileID: 7687300270547884426, guid: 0b86e526099f5fc4ebf5bd6553c1cce3, type: 3}
+  SceneImage: {fileID: 6097747800602257000, guid: 6c3740718eb75e44a8aaa89039928f51,
+    type: 3}
   type: 1
   height: 1
   width: 2

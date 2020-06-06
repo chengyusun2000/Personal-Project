@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: WaterMelon
   m_EditorClassIdentifier: 
   image: {fileID: 5728833498686040426, guid: f1f8e6a48751031488eac872e594f53c, type: 3}
+  SceneImage: {fileID: 8269894097833292593, guid: b918b9b10c5991c48b1619ab38252507,
+    type: 3}
   type: 1
   height: 1
   width: 2

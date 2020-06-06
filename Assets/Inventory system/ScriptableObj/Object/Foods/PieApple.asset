@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: PieApple
   m_EditorClassIdentifier: 
   image: {fileID: 8188680159745358036, guid: e57bb394546d02346bd1f6e93246002c, type: 3}
+  SceneImage: {fileID: 8010783786790910299, guid: 8475de2c713b764428cbd4354fbd03e3,
+    type: 3}
   type: 1
   height: 1
   width: 2

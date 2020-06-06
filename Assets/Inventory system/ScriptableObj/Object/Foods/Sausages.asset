@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Sausages
   m_EditorClassIdentifier: 
   image: {fileID: 8303961318245816390, guid: 4863d7acf18bb58409dc3c99adfb15f7, type: 3}
+  SceneImage: {fileID: 8243781221278905931, guid: fdc51f10f3dd644469df83f9f4e5ce37,
+    type: 3}
   type: 1
   height: 2
   width: 2

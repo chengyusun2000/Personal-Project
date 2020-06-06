@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Shrimp
   m_EditorClassIdentifier: 
   image: {fileID: 9091860947431735910, guid: 327ecb60a33671b45a6b502d99eeb987, type: 3}
+  SceneImage: {fileID: 8096652233357038259, guid: d0bd4073b2d4cce4f85cc1ba7b5ac125,
+    type: 3}
   type: 1
   height: 1
   width: 1

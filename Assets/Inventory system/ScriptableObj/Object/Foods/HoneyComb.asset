@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: HoneyComb
   m_EditorClassIdentifier: 
   image: {fileID: 6149137637764225866, guid: 901afaa81b6ff7c44a9cb01b858f7a1c, type: 3}
+  SceneImage: {fileID: 5726924009543099678, guid: 4f059fffcb613ee468e66cb01b529d75,
+    type: 3}
   type: 1
   height: 2
   width: 2

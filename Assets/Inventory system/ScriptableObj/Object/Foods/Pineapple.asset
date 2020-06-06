@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Pineapple
   m_EditorClassIdentifier: 
   image: {fileID: 2499738531318078726, guid: a692a5a3d808eef4d9e59a3bd5195f92, type: 3}
+  SceneImage: {fileID: 4971088683936956126, guid: 945b52e49ab156a4d8d065af43cfeb2d,
+    type: 3}
   type: 1
   height: 2
   width: 1
