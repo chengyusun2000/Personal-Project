@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 31a9fa1b1d9a7b142b81f9607c0c5cf9, type: 3}
-  m_Name: Tumip
+  m_Name: Turnip
   m_EditorClassIdentifier: 
   image: {fileID: 2852521896670717476, guid: 24dc01a125623a142afab0f42a6e7036, type: 3}
   type: 1
