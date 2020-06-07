@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
-public class DragAndDrop : MonoBehaviour,IPointerDownHandler,IBeginDragHandler,IEndDragHandler,IDragHandler,IPointerUpHandler
+public class DragAndDrop : MonoBehaviour,IPointerDownHandler,IBeginDragHandler,IEndDragHandler,IDragHandler,IPointerUpHandler,IPointerEnterHandler,IPointerExitHandler
 {
     private Canvas canvas;
     [SerializeField] private RectTransform ObjTransform;
@@ -24,6 +24,13 @@ public class DragAndDrop : MonoBehaviour,IPointerDownHandler,IBeginDragHandler,I
     private ItemObj itemOnMOuse;
 
     [SerializeField] private List<Image> backgrounds;
+    [SerializeField] private Image Panel;
+    private bool OnlyOnce = false;
+    private bool Quit = true;
+    [SerializeField]private Image temp;
+    private float time = 0f;
+    private float Wait = 0.5f;
+    private PointerEventData currentData;
 
     private void Awake()
     {
@@ -44,6 +51,61 @@ public class DragAndDrop : MonoBehaviour,IPointerDownHandler,IBeginDragHandler,I
        
     }
 
+    private void Update()
+    {
+        if(!Quit)
+        {
+            time = time + Time.deltaTime;
+            if(time>Wait&&!OnlyOnce)
+            {
+                
+                temp = Instantiate(Panel,currentData.position,Quaternion.identity, InventoryI);
+                OnlyOnce = true;
+            }
+        }
+        else
+        {
+            time = 0;
+        }
+    }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+
+        currentData = eventData;
+        Quit = false;
+        Debug.Log("Enter");
+        
+        
+        
+            
+        
+        
+
+
+    }
+
+
+
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        Quit = true;
+        if(temp!=null)
+        {
+            Destroy(temp.gameObject);
+            
+            OnlyOnce = false;
+        }
+        else
+        {
+            OnlyOnce = false;
+        }
+        
+    }
+
+
+
 
     public void OnPointerDown(PointerEventData eventData)
     {
@@ -61,6 +123,10 @@ public class DragAndDrop : MonoBehaviour,IPointerDownHandler,IBeginDragHandler,I
         
 
     }
+
+
+
+
     public void OnBeginDrag(PointerEventData eventData)
     {
         if (eventData.button == PointerEventData.InputButton.Left)
@@ -70,6 +136,10 @@ public class DragAndDrop : MonoBehaviour,IPointerDownHandler,IBeginDragHandler,I
             SetChild();
         }
     }
+
+
+
+
     public void OnEndDrag(PointerEventData eventData)
     {
         if (eventData.button == PointerEventData.InputButton.Left)
@@ -79,6 +149,9 @@ public class DragAndDrop : MonoBehaviour,IPointerDownHandler,IBeginDragHandler,I
         }
         
     }
+
+
+
 
     public void OnDrag(PointerEventData eventData)
     {
@@ -90,6 +163,10 @@ public class DragAndDrop : MonoBehaviour,IPointerDownHandler,IBeginDragHandler,I
         }
 
     }
+
+
+
+
     public void OnPointerUp(PointerEventData eventData)
     {
         if (eventData.button == PointerEventData.InputButton.Left)
@@ -102,6 +179,10 @@ public class DragAndDrop : MonoBehaviour,IPointerDownHandler,IBeginDragHandler,I
         
         
     }
+
+
+
+
     public void IfSetSlotsOccupied(bool set,bool IfSetBackground)
     {
 
@@ -219,6 +300,12 @@ public class DragAndDrop : MonoBehaviour,IPointerDownHandler,IBeginDragHandler,I
     }
 
 
+
+    
+
+
+
+
     public void OutRange(PointerEventData eventData)
     {
         DropX = eventData.position.x;
@@ -241,4 +328,6 @@ public class DragAndDrop : MonoBehaviour,IPointerDownHandler,IBeginDragHandler,I
             Destroy(gameObject);
         }
     }
+
+    
 }
