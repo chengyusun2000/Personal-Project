@@ -25,9 +25,12 @@ public class DragAndDrop : MonoBehaviour,IPointerDownHandler,IBeginDragHandler,I
 
     [SerializeField] private List<Image> backgrounds;
     [SerializeField] private Image Panel;
+    [SerializeField] private Image RightClick;
+    private Transform InsPosition;
     private bool OnlyOnce = false;
     private bool Quit = true;
-    [SerializeField]private Image temp;
+    private Image temp;
+    public Image TempRight;
     private float time = 0f;
     private float Wait = 0.5f;
     private PointerEventData currentData;
@@ -45,7 +48,7 @@ public class DragAndDrop : MonoBehaviour,IPointerDownHandler,IBeginDragHandler,I
                 InventoryI = child.Find("Inventory").GetComponent<Transform>();
             }
         }
-
+        InsPosition = InventoryI.Find("Ins").GetComponent<Transform>();
         ObjTransform = transform.GetComponent<RectTransform>();
         canvasGroup = transform.GetComponent<CanvasGroup>();
        
@@ -59,7 +62,7 @@ public class DragAndDrop : MonoBehaviour,IPointerDownHandler,IBeginDragHandler,I
             if(time>Wait&&!OnlyOnce)
             {
                 
-                temp = Instantiate(Panel,currentData.position,Quaternion.identity, InventoryI);
+                temp = Instantiate(Panel,InsPosition.position,Quaternion.identity, InventoryI);
                 OnlyOnce = true;
             }
         }
@@ -67,7 +70,12 @@ public class DragAndDrop : MonoBehaviour,IPointerDownHandler,IBeginDragHandler,I
         {
             time = 0;
         }
+
+        //RemoveRightClick();
+
     }
+
+
 
     public void OnPointerEnter(PointerEventData eventData)
     {
@@ -111,10 +119,11 @@ public class DragAndDrop : MonoBehaviour,IPointerDownHandler,IBeginDragHandler,I
     {
         if(eventData.button == PointerEventData.InputButton.Right)
         {
-            Debug.Log("right");
+            TempRight= Instantiate(RightClick, eventData.position, Quaternion.identity, InventoryI);
         }
         else
         {
+            
             OriginalPosition = transform.position;
 
             canvasGroup.alpha = 0.7f;
@@ -329,5 +338,17 @@ public class DragAndDrop : MonoBehaviour,IPointerDownHandler,IBeginDragHandler,I
         }
     }
 
+    public void RemoveRightClick()
+    {
+        if(TempRight!=null)
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                Destroy(TempRight.gameObject);
+            }
+        
+        }
+        
+    }
     
 }
