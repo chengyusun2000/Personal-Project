@@ -95,7 +95,13 @@ MonoBehaviour:
   inventory: {fileID: 0}
   Background: {fileID: 5034986090230937232, guid: 5b4a7269810834847abc62066e155a67,
     type: 3}
+  InventoryI: {fileID: 0}
   OriginalPosition: {x: 0, y: 0}
+  backgrounds: []
+  Panel: {fileID: 2350047618437870055, guid: dde314fae2a010045a591533dccf0241, type: 3}
+  RightClick: {fileID: 528978962418326336, guid: c82941697ed48474c97432fdfc833e9d,
+    type: 3}
+  temp: {fileID: 0}
 --- !u!225 &4102208487488327541
 CanvasGroup:
   m_ObjectHideFlags: 0

@@ -143,6 +143,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7d26f3782a1db8418872cb092aaba8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interaction: {fileID: 0}
+  currentQuests: {fileID: 0}
   dialogue: {fileID: 0}
   text: {fileID: 0}
   currentDialogue: {fileID: 0}
@@ -211,7 +213,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: d8ff21fa9a383424ba299252954fb68a, type: 3}
     m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 0
