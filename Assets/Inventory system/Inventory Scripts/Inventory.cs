@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class Inventory : MonoBehaviour
 {
     [SerializeField] private InventoryData inventoryData;
+    
     public List<Slots> Sslots;
     public Slots[,] slots;
     public Image Parent;
@@ -19,6 +20,7 @@ public class Inventory : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
         inventoryData = GameObject.FindGameObjectWithTag("GameData").GetComponent<InventoryData>();
         RectTransform = transform.GetComponent<RectTransform>();
         
@@ -113,17 +115,17 @@ public class Inventory : MonoBehaviour
             }
             else
             {
-                PositionX = (float)(RectTransform.position.x- 440+ 80 * ((FloatWidth-1) / 2) + 80 * x);
+                PositionX = (float)(RectTransform.position.x- 440+ 80 * ((FloatWidth-1) / 2) + 80 * x) ;
             }
 
 
             if(OddOrEven(items.height)==0)
             {
-                 PositionY = (float)(RectTransform.position.y - 280 + 80 * (FloatHeight / 4) + 80 * y);
+                 PositionY = (float)(RectTransform.position.y - 280 + 80 * (FloatHeight / 4) + 80 * y) ;
             }
             else
             {
-                 PositionY = (float)(RectTransform.position.y - 280+80 * ((FloatHeight-1) / 2) + 80 * y);
+                 PositionY = (float)(RectTransform.position.y - 280+80 * ((FloatHeight-1) / 2) + 80 * y) ;
             }
 
             

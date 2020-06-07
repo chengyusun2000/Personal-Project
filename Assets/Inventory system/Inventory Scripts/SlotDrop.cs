@@ -12,7 +12,7 @@ public class SlotDrop : MonoBehaviour, IDropHandler
     [SerializeField] bool SetToOriginal = true;
     public void OnDrop(PointerEventData eventData)
     {
-        if (eventData.pointerDrag.tag != "InventoryPanel")
+        if (eventData.button == PointerEventData.InputButton.Left)
         {
             ItemObj itemObj = eventData.pointerDrag.GetComponent<GetItemData>().GetItemObj();
             DragAndDrop dragAndDrop = eventData.pointerDrag.GetComponent<DragAndDrop>();
