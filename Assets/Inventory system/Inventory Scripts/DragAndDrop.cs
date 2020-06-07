@@ -47,41 +47,58 @@ public class DragAndDrop : MonoBehaviour,IPointerDownHandler,IBeginDragHandler,I
 
     public void OnPointerDown(PointerEventData eventData)
     {
+        if(eventData.button == PointerEventData.InputButton.Right)
+        {
+            Debug.Log("right");
+        }
+        else
+        {
+            OriginalPosition = transform.position;
 
-        OriginalPosition = transform.position;
+            canvasGroup.alpha = 0.7f;
+            canvasGroup.blocksRaycasts = false;
+        }
         
-        canvasGroup.alpha = 0.7f;
-        canvasGroup.blocksRaycasts = false;
 
     }
     public void OnBeginDrag(PointerEventData eventData)
     {
-        IfSetSlotsOccupied(false,true);
-        
-        SetChild();
+        if (eventData.button == PointerEventData.InputButton.Left)
+        {
+            IfSetSlotsOccupied(false, true);
+
+            SetChild();
+        }
     }
     public void OnEndDrag(PointerEventData eventData)
     {
-        canvasGroup.alpha = 1f;
-        canvasGroup.blocksRaycasts = true;
+        if (eventData.button == PointerEventData.InputButton.Left)
+        {
+            canvasGroup.alpha = 1f;
+            canvasGroup.blocksRaycasts = true;
+        }
         
     }
 
     public void OnDrag(PointerEventData eventData)
     {
 
-
-        MoveWithMouse(eventData);
-        ObjTransform.anchoredPosition += eventData.delta/(5*canvas.scaleFactor);
+        if (eventData.button == PointerEventData.InputButton.Left)
+        {
+            MoveWithMouse(eventData);
+            ObjTransform.anchoredPosition += eventData.delta / (5 * canvas.scaleFactor);
+        }
 
     }
     public void OnPointerUp(PointerEventData eventData)
     {
-        
-        canvasGroup.alpha = 1f;
-        canvasGroup.blocksRaycasts = true;
-        RemoveBackgrounds();
-        OutRange();
+        if (eventData.button == PointerEventData.InputButton.Left)
+        {
+            canvasGroup.alpha = 1f;
+            canvasGroup.blocksRaycasts = true;
+            RemoveBackgrounds();
+            OutRange(eventData);
+        }
         
         
     }
@@ -202,10 +219,20 @@ public class DragAndDrop : MonoBehaviour,IPointerDownHandler,IBeginDragHandler,I
     }
 
 
-    public void OutRange()
+    public void OutRange(PointerEventData eventData)
     {
+        DropX = eventData.position.x;
+        DropY = eventData.position.y;
         SlotX = (int)((DropX - inventory.x) / 80);
         SlotY = (int)((DropY - inventory.y) / 80);
+        if ((DropX - inventory.x - 80 * SlotX) % 80 >= 40)
+        {
+            SlotX++;
+        }
+        if ((DropY - inventory.y - 80 * SlotY) % 80 >= 40)
+        {
+            SlotY++;
+        }
         Debug.Log(SlotX + "de" + SlotY);
         if(SlotX<0||SlotY<0||SlotX>11||SlotY>7)
         {

@@ -13,9 +13,9 @@ public class Interaction : MonoBehaviour
     [SerializeField] private Inventory inventory;
     [SerializeField] private CurrentDialogue currentDialogue;
     [SerializeField] private GameObject DialoguePanel;
+    private RaycastHit2D Hit2D;
 
 
-    [SerializeField] private bool IsOutrange = true;
     [SerializeField] private bool StartCalculating = false;
     [SerializeField] private Transform NpcTransform;
     [SerializeField] private List<GameObject> itemObjs;
@@ -75,21 +75,23 @@ public class Interaction : MonoBehaviour
         }
 
 
-        RaycastHit2D Hit2D = Physics2D.Raycast(transform.position, direction,1f, rayMask);
+         Hit2D = Physics2D.Raycast(transform.position, direction,1f, rayMask);
         
         Debug.DrawRay(transform.position, direction,Color.black);
-        if(Hit2D.collider != null)
-        {
+        
             
-            if (Hit2D.transform.tag == "Box")
+            if (Hit2D.collider != null&&Hit2D.transform.tag == "Box")
             {
                 InteractText.gameObject.SetActive(true);
                 InteractText.text = "Open box";
 
             }
-            else if(itemObjs!=null)
+            else if(itemObjs.Count!=0)
             {
                 InteractText.gameObject.SetActive(true);
+            InteractText.text = "Pick Up" + " " + itemObjs[0].GetComponent<GetItemData>().GetItemObj().name;
+
+            
                 if (Input.GetKeyDown(KeyCode.E))
                 {
                     picking = true;
@@ -113,7 +115,7 @@ public class Interaction : MonoBehaviour
             //    }
 
             //}
-            else if(Hit2D.transform.tag=="NPC")
+            else if(Hit2D.collider != null&&Hit2D.transform.tag=="NPC")
             {
                 InteractText.gameObject.SetActive(true);
                 InteractText.text = "Talk";
@@ -128,7 +130,7 @@ public class Interaction : MonoBehaviour
 
             }
 
-        }
+
         else
         {
             InteractText.gameObject.SetActive(false);
@@ -161,7 +163,7 @@ public class Interaction : MonoBehaviour
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        Debug.Log("2333");
+        
         if (collision.tag == "Item")
         {
             if(!picking)
