@@ -5,6 +5,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 public class DragAndDrop : MonoBehaviour,IPointerDownHandler,IBeginDragHandler,IEndDragHandler,IDragHandler,IPointerUpHandler
 {
+    private Canvas canvas;
     [SerializeField] private RectTransform ObjTransform;
     private CanvasGroup canvasGroup;
     private float DropX;
@@ -26,6 +27,7 @@ public class DragAndDrop : MonoBehaviour,IPointerDownHandler,IBeginDragHandler,I
 
     private void Awake()
     {
+        canvas = GameObject.FindGameObjectWithTag("Canvas").GetComponent<Canvas>();
         PlayerTransform = GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<Transform>();
         inventoryData = GameObject.FindGameObjectWithTag("GameData").GetComponent<InventoryData>();
         foreach(Transform child in GameObject.FindGameObjectWithTag("Canvas").GetComponentsInChildren<Transform>())
@@ -70,7 +72,7 @@ public class DragAndDrop : MonoBehaviour,IPointerDownHandler,IBeginDragHandler,I
 
 
         MoveWithMouse(eventData);
-        ObjTransform.anchoredPosition += eventData.delta/5;
+        ObjTransform.anchoredPosition += eventData.delta/(5*canvas.scaleFactor);
 
     }
     public void OnPointerUp(PointerEventData eventData)
