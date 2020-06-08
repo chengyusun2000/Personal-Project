@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31a9fa1b1d9a7b142b81f9607c0c5cf9, type: 3}
+  m_Name: PotatoRed
+  m_EditorClassIdentifier: 
+  image: {fileID: 5849449596936044837, guid: ff44b5a67c665e744b98408508c63ee9, type: 3}
+  SceneImage: {fileID: 6255503347914509955, guid: fa996351cb747fb4f933e3b65d4bc491,
+    type: 3}
+  type: 1
+  height: 1
+  width: 1
+  discription: 
+  HealthRestore: 0
+  ManaRestore: 0
+  HungerRestore: 0

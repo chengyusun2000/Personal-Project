@@ -1,0 +1,27 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class InventoryData : MonoBehaviour
+{
+    [SerializeField]private List<ItemObj> items;
+    // Start is called before the first frame update
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+    public void AddItems(ItemObj item)
+    {
+        items.Add(item);
+    }
+    public void RemoveItem(ItemObj item)
+    {
+        items.Remove(item);
+    }
+}

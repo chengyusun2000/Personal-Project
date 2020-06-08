@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31a9fa1b1d9a7b142b81f9607c0c5cf9, type: 3}
+  m_Name: Fish
+  m_EditorClassIdentifier: 
+  image: {fileID: 8536528881566777207, guid: 85c50f4acfcd54c49a0de5ddf3f5c424, type: 3}
+  SceneImage: {fileID: 533494200040100856, guid: ce63d7662f5229d4c85927125cfe12a6,
+    type: 3}
+  type: 1
+  height: 2
+  width: 2
+  discription: 
+  HealthRestore: 0
+  ManaRestore: 0
+  HungerRestore: 0

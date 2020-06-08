@@ -13,11 +13,13 @@ public class Interaction : MonoBehaviour
     [SerializeField] private Inventory inventory;
     [SerializeField] private CurrentDialogue currentDialogue;
     [SerializeField] private GameObject DialoguePanel;
+    private RaycastHit2D Hit2D;
 
 
-    [SerializeField] private bool IsOutrange = true;
     [SerializeField] private bool StartCalculating = false;
     [SerializeField] private Transform NpcTransform;
+    [SerializeField] private List<GameObject> itemObjs;
+    private bool picking = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -73,33 +75,47 @@ public class Interaction : MonoBehaviour
         }
 
 
-        RaycastHit2D Hit2D = Physics2D.Raycast(transform.position, direction,1f, rayMask);
+         Hit2D = Physics2D.Raycast(transform.position, direction,1f, rayMask);
         
         Debug.DrawRay(transform.position, direction,Color.black);
-        if(Hit2D.collider != null)
-        {
+        
             
-            if (Hit2D.transform.tag == "Box")
+            if (Hit2D.collider != null&&Hit2D.transform.tag == "Box")
             {
                 InteractText.gameObject.SetActive(true);
                 InteractText.text = "Open box";
 
             }
-            else if (Hit2D.transform.tag == "Item")
+            else if(itemObjs.Count!=0)
             {
-                GetItemData getItemData = Hit2D.transform.GetComponent<GetItemData>();
-
                 InteractText.gameObject.SetActive(true);
-                InteractText.text = "PickUp Item";
-                
+            InteractText.text = "Pick Up" + " " + itemObjs[0].GetComponent<GetItemData>().GetItemObj().name;
+
+            
                 if (Input.GetKeyDown(KeyCode.E))
                 {
-                    
-                    inventory.PickUpObject(getItemData.GetItemObj());
+                    picking = true;
+                    inventory.PickUpObject(itemObjs[0].GetComponent<GetItemData>().GetItemObj());
+                    Destroy(itemObjs[0]);
+                    itemObjs.Remove(itemObjs[0]);
                 }
-
             }
-            else if(Hit2D.transform.tag=="NPC")
+            //else if (Hit2D.transform.tag == "Item")
+            //{
+            //    GetItemData getItemData = Hit2D.transform.GetComponent<GetItemData>();
+
+            //    InteractText.gameObject.SetActive(true);
+            //    InteractText.text = "PickUp Item";
+
+            //    if (Input.GetKeyDown(KeyCode.E))
+            //    {
+
+            //        inventory.PickUpObject(getItemData.GetItemObj());
+            //        Destroy(Hit2D.transform.gameObject);
+            //    }
+
+            //}
+            else if(Hit2D.collider != null&&Hit2D.transform.tag=="NPC")
             {
                 InteractText.gameObject.SetActive(true);
                 InteractText.text = "Talk";
@@ -114,7 +130,7 @@ public class Interaction : MonoBehaviour
 
             }
 
-        }
+
         else
         {
             InteractText.gameObject.SetActive(false);
@@ -134,6 +150,33 @@ public class Interaction : MonoBehaviour
     }
 
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        
+        if(collision.tag=="Item")
+        {
+           
+            itemObjs.Add(collision.gameObject);
+            
+        }
+        
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        
+        if (collision.tag == "Item")
+        {
+            if(!picking)
+            {
+                itemObjs.Remove(collision.gameObject);
+            }
+            
+            picking = false;
+            
+            
+            
+        }
+    }
 
     private float CalculateDistance(Transform start,Transform end)
     {
