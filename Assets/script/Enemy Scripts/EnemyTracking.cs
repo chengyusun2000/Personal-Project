@@ -47,7 +47,7 @@ public class EnemyTracking : MonoBehaviour
         load = tilemap.GetComponent<Load>();
         pathfinding = tilemap.GetComponent<pathfinding>();
         Player = GameObject.FindGameObjectWithTag("Player").transform;
-        NextTurn = GameObject.FindObjectOfType<Canvas>().GetComponent<NextTurn>();
+        NextTurn = GameObject.FindGameObjectWithTag("Canvas").GetComponent<NextTurn>();
         Tilemap[] tilemaps;
         tilemaps= GameObject.FindObjectsOfType<Tilemap>();
         for (int i = 0; i < tilemaps.Length; i++)
