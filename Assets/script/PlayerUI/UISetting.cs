@@ -43,7 +43,7 @@ public class UISetting : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        foodAmount.value = playerInfo.GetStamina();
     }
 
     public void GetExp()

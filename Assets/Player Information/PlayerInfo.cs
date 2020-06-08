@@ -17,6 +17,7 @@ public class PlayerInfo : MonoBehaviour
         MaxHP = 100;
         MaxMana = 100;
         MaxStamina = 100;
+        Stamina = 100;
 }
 
     // Update is called once per frame

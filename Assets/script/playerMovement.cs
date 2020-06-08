@@ -41,7 +41,7 @@ public class playerMovement : MonoBehaviour
     public LayerMask lineMask;
     public Tile tile;
     //for player stats check 
-    [SerializeField]private PlayerStat stats;
+    [SerializeField]private PlayerInfo playerInfo;
 
     // Start is called before the first frame update
     void Start()
@@ -52,7 +52,7 @@ public class playerMovement : MonoBehaviour
         transform.position = PlayerCenterPos;
 
 
-        stats = GetComponent<PlayerStat>();
+        playerInfo = GameObject.FindGameObjectWithTag("GameData").GetComponent<PlayerInfo>();
 
     }
 
@@ -127,7 +127,7 @@ public class playerMovement : MonoBehaviour
 
                 TargetMovement = tilemap.CellToWorld(NextStepVector);
                 reach = false;
-                stats.StaConsume(StatConsumeCheck());
+                playerInfo.AddStanima(StatConsumeCheck());
                 
             }
 
@@ -339,21 +339,17 @@ public class playerMovement : MonoBehaviour
 
     private int StatConsumeCheck()
     {
-        int consume = 1;
-        if (tilemap.GetTile(NextStepVector) == load.tiles[0])
-        {
-            Debug.Log("moving Water");
-            consume = 2;
-        }
-        else if (tilemap.GetTile(NextStepVector) == load.tiles[1])
+        int consume = 0;
+        
+        if (tilemap.GetTile(NextStepVector) == load.tiles[1])
         {
             Debug.Log("moving Grass");
-            consume = 2;
+            consume = -2;
         }
         else if (tilemap.GetTile(NextStepVector) == load.tiles[2])
         {
             Debug.Log("moving Mountain");
-            consume = 10;
+            consume = -10;
         }
         return consume;
     }

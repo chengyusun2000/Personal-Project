@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerStat : MonoBehaviour
 {
-    private int stamina = 100;
+    [SerializeField]private int stamina = 100;
     // Start is called before the first frame update
     void Start()
     {
