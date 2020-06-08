@@ -76,4 +76,15 @@ public class RightClickSet : MonoBehaviour,IPointerEnterHandler,IPointerExitHand
             
         }
     }
+
+
+    public void Drop()
+    {
+        dragAndDrop = ItemUI.gameObject.GetComponent<DragAndDrop>();
+        dragAndDrop.IfSetSlotsOccupied(false, false);
+        Instantiate(item.SceneImage, dragAndDrop.GetPlayerTransform().position, Quaternion.identity);
+        inventoryData.RemoveItem(item);
+        Destroy(ItemUI.gameObject);
+        Destroy(gameObject);
+    }
 }
