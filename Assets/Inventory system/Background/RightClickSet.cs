@@ -5,10 +5,12 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 public class RightClickSet : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler
 {
-    bool InPanel = false;
-    
-    
-
+    private bool InPanel = false;
+    private ItemObj item;
+    private Image ItemUI;
+    private PlayerInfo playerInfo;
+    private DragAndDrop dragAndDrop;
+    private InventoryData inventoryData;
 
     public void OnPointerEnter(PointerEventData eventData)
     {
@@ -20,7 +22,15 @@ public class RightClickSet : MonoBehaviour,IPointerEnterHandler,IPointerExitHand
         InPanel = false;
     }
 
-    
+
+
+    private void Start()
+    {
+        inventoryData= GameObject.FindGameObjectWithTag("GameData").GetComponent<InventoryData>();
+        playerInfo = GameObject.FindGameObjectWithTag("GameData").GetComponent<PlayerInfo>();
+        
+    }
+
 
     // Update is called once per frame
     void Update()
@@ -31,6 +41,39 @@ public class RightClickSet : MonoBehaviour,IPointerEnterHandler,IPointerExitHand
             {
                 Destroy(gameObject);
             }
+        }
+    }
+
+
+
+    public void SetItem(ItemObj itemObj)
+    {
+        item = itemObj;
+    }
+
+
+    public void SetItemUI(Image image)
+    {
+        ItemUI = image;
+    }
+
+
+
+    public void Use()
+    {
+        dragAndDrop = ItemUI.gameObject.GetComponent<DragAndDrop>();
+        if (item.type==ItemType.Food)
+        {
+            FoodObject food = (FoodObject)item;
+            playerInfo.AddHp(food.HealthRestore);
+            playerInfo.AddMana(food.ManaRestore);
+            playerInfo.AddStanima(food.HungerRestore);
+            dragAndDrop.IfSetSlotsOccupied(false, false);
+            inventoryData.RemoveItem(item);
+            Destroy(ItemUI.gameObject);
+            Debug.Log("Used");
+            Destroy(gameObject);
+            
         }
     }
 }
