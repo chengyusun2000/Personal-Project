@@ -361,4 +361,10 @@ public class DragAndDrop : MonoBehaviour,IPointerDownHandler,IBeginDragHandler,I
         
     }
     
+
+
+    public Transform GetPlayerTransform()
+    {
+        return PlayerTransform;
+    }
 }
