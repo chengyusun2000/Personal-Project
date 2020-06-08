@@ -130,8 +130,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 24634640}
+  - component: {fileID: 24634641}
   m_Layer: 5
-  m_Name: Position HP&&MANA
+  m_Name: PlayerUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -150,6 +151,8 @@ RectTransform:
   m_Children:
   - {fileID: 298543438}
   - {fileID: 1865772248}
+  - {fileID: 997789860}
+  - {fileID: 62993985}
   m_Father: {fileID: 1775374448}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -158,6 +161,25 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0, y: 1}
+--- !u!114 &24634641
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 24634639}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb87a2f38afab2f40b3d41274f03239b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerInfo: {fileID: 0}
+  hpAmount: {fileID: 298543440}
+  manaAmount: {fileID: 1865772249}
+  expAmount: {fileID: 997789861}
+  expText: {fileID: 1961084237}
+  level: 0
+  foodAmount: {fileID: 62993986}
 --- !u!1 &62993984
 GameObject:
   m_ObjectHideFlags: 0
@@ -168,7 +190,6 @@ GameObject:
   m_Component:
   - component: {fileID: 62993985}
   - component: {fileID: 62993986}
-  - component: {fileID: 62993987}
   m_Layer: 5
   m_Name: Stamina(Food)
   m_TagString: Untagged
@@ -183,13 +204,13 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 62993984}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 470191864}
   - {fileID: 1661751306}
-  m_Father: {fileID: 1775374448}
+  m_Father: {fileID: 24634640}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
@@ -247,19 +268,6 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &62993987
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 62993984}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62c87429e1470b54ab9ef8238d06825b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  foodAmount: {fileID: 62993986}
 --- !u!1 &229938612
 GameObject:
   m_ObjectHideFlags: 0
@@ -869,7 +877,6 @@ GameObject:
   m_Component:
   - component: {fileID: 298543438}
   - component: {fileID: 298543440}
-  - component: {fileID: 298543439}
   m_Layer: 5
   m_Name: HP
   m_TagString: Untagged
@@ -898,19 +905,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 472.12097, y: 137.24445}
   m_Pivot: {x: 0, y: 1}
---- !u!114 &298543439
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 298543437}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 252f0a5c193792840ab54f75424755bc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hpAmount: {fileID: 298543440}
 --- !u!114 &298543440
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1640,7 +1634,6 @@ GameObject:
   m_Component:
   - component: {fileID: 997789860}
   - component: {fileID: 997789861}
-  - component: {fileID: 997789862}
   m_Layer: 5
   m_Name: EXP
   m_TagString: Untagged
@@ -1655,13 +1648,13 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 997789859}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2071487622}
   - {fileID: 421606065}
-  m_Father: {fileID: 1775374448}
+  m_Father: {fileID: 24634640}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
@@ -1719,21 +1712,6 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &997789862
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 997789859}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ab99905c97bb9745a3386377fccd33c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  expText: {fileID: 1961084237}
-  level: 10
-  expAmount: {fileID: 997789861}
 --- !u!1 &1145370042
 GameObject:
   m_ObjectHideFlags: 0
@@ -2857,8 +2835,6 @@ RectTransform:
   m_Children:
   - {fileID: 402171057}
   - {fileID: 24634640}
-  - {fileID: 997789860}
-  - {fileID: 62993985}
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4396,7 +4372,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1865772248}
   - component: {fileID: 1865772249}
-  - component: {fileID: 1865772250}
   m_Layer: 5
   m_Name: Mana
   m_TagString: Untagged
@@ -4475,19 +4450,6 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &1865772250
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1865772247}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61ad25ab7fb924c47808456e0d239f89, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  manaAmount: {fileID: 1865772249}
 --- !u!1 &1926742130
 GameObject:
   m_ObjectHideFlags: 0
