@@ -37,10 +37,10 @@ public class DragAndDrop : MonoBehaviour,IPointerDownHandler,IBeginDragHandler,I
 
     private void Awake()
     {
-        canvas = GameObject.FindGameObjectWithTag("Canvas").GetComponent<Canvas>();
+        canvas = GameObject.FindGameObjectWithTag("DontDestroyCanvas").GetComponent<Canvas>();
         PlayerTransform = GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<Transform>();
         inventoryData = GameObject.FindGameObjectWithTag("GameData").GetComponent<InventoryData>();
-        foreach(Transform child in GameObject.FindGameObjectWithTag("Canvas").GetComponentsInChildren<Transform>())
+        foreach(Transform child in GameObject.FindGameObjectWithTag("DontDestroyCanvas").GetComponentsInChildren<Transform>())
         {
             if (child.tag=="InventoryPanel")
             {
