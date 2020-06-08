@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2350047618309248190}
   - component: {fileID: 2350047618309248185}
   m_Layer: 5
-  m_Name: Text (1)
+  m_Name: Type
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -87,11 +87,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2350047618437870054}
+  - component: {fileID: 7726397654567943656}
   - component: {fileID: 2350047618437870053}
   - component: {fileID: 2350047618437870052}
   - component: {fileID: 2350047618437870055}
   m_Layer: 5
-  m_Name: GameObject
+  m_Name: Discription
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -119,6 +120,19 @@ RectTransform:
   m_AnchoredPosition: {x: 948.3212, y: -43.5}
   m_SizeDelta: {x: 45.24243, y: 50.762367}
   m_Pivot: {x: 1, y: 0.5}
+--- !u!114 &7726397654567943656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2350047618437870049}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 493f0830177490f48af12cf010e8dfa4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: {fileID: 0}
 --- !u!114 &2350047618437870053
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -193,7 +207,7 @@ GameObject:
   - component: {fileID: 2350047620042324986}
   - component: {fileID: 2350047620042324965}
   m_Layer: 5
-  m_Name: Text
+  m_Name: Name
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -271,7 +285,7 @@ GameObject:
   - component: {fileID: 921868057049443787}
   - component: {fileID: 1584466154978738937}
   m_Layer: 5
-  m_Name: Text (2)
+  m_Name: Discription
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -63,6 +63,7 @@ public class DragAndDrop : MonoBehaviour,IPointerDownHandler,IBeginDragHandler,I
             {
                 
                 temp = Instantiate(Panel,InsPosition.position,Quaternion.identity, InventoryI);
+                temp.GetComponent<Discription>().SetItem(currentData.pointerEnter.GetComponent<GetItemData>().GetItemObj());
                 OnlyOnce = true;
             }
         }
@@ -119,7 +120,10 @@ public class DragAndDrop : MonoBehaviour,IPointerDownHandler,IBeginDragHandler,I
     {
         if(eventData.button == PointerEventData.InputButton.Right)
         {
-            TempRight= Instantiate(RightClick, eventData.position, Quaternion.identity, InventoryI);
+           
+            TempRight = Instantiate(RightClick, eventData.position, Quaternion.identity, InventoryI);
+            
+            
         }
         else
         {
@@ -178,6 +182,12 @@ public class DragAndDrop : MonoBehaviour,IPointerDownHandler,IBeginDragHandler,I
 
     public void OnPointerUp(PointerEventData eventData)
     {
+        if(TempRight!=null)
+        {
+            TempRight.GetComponent<RightClickSet>().SetItem(eventData.pointerPress.GetComponent<GetItemData>().GetItemObj());
+            TempRight.GetComponent<RightClickSet>().SetItemUI(eventData.pointerPress.GetComponent<Image>());
+        }
+        
         if (eventData.button == PointerEventData.InputButton.Left)
         {
             canvasGroup.alpha = 1f;
@@ -351,4 +361,10 @@ public class DragAndDrop : MonoBehaviour,IPointerDownHandler,IBeginDragHandler,I
         
     }
     
+
+
+    public Transform GetPlayerTransform()
+    {
+        return PlayerTransform;
+    }
 }
