@@ -16,7 +16,7 @@ public class PositionSet : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        foreach (Transform transform in GameObject.FindGameObjectWithTag("Canvas").GetComponentsInChildren<Transform>())
+        foreach (Transform transform in GameObject.FindGameObjectWithTag("DontDestroyCanvas").GetComponentsInChildren<Transform>())
         {
             
             if (transform.tag == PanelTag)

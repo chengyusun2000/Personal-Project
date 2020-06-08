@@ -9,7 +9,7 @@ public class GetDiscription : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        text = GameObject.FindGameObjectWithTag("Canvas").transform.Find("Quests").Find("Discription").Find("Viewport").Find("Content").GetComponent<Text>();
+        text = GameObject.FindGameObjectWithTag("DontDestroyCanvas").transform.Find("Quests").Find("Discription").Find("Viewport").Find("Content").GetComponent<Text>();
     }
 
     // Update is called once per frame
