@@ -32,10 +32,7 @@ public class Interaction : MonoBehaviour
             {
                 InteractText = transform.GetComponent<Text>();
             }
-            else if (transform.tag == "InventoryPanel")
-            {
-                inventory = transform.GetComponent<Inventory>();
-            }
+            
             else if (transform.tag == "DialoguePanel")
             {
 
@@ -44,7 +41,15 @@ public class Interaction : MonoBehaviour
                 
             }
         }
+        foreach (Transform transform in GameObject.FindGameObjectWithTag("DontDestroyCanvas").GetComponentsInChildren<Transform>())
+        {
+             if (transform.tag == "InventoryPanel")
+            {
+                inventory = transform.GetComponent<Inventory>();
+            }
+        }
         
+
         InteractText.gameObject.SetActive(false);
         DialoguePanel.SetActive(false);
     }
