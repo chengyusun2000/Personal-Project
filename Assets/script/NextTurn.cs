@@ -10,11 +10,15 @@ public class NextTurn : MonoBehaviour
     private EnemyTracking enemyTracking;
     [SerializeField]private bool EnemyStart = false;
     [SerializeField]private int Number = 0;
+    [SerializeField] private bool Pause = false;
+    private Image Panel;
     // Start is called before the first frame update
     void Start()
     {
         playerMovement = GameObject.FindGameObjectWithTag("Player").GetComponent<playerMovement>();
         NextTurnButton = transform.GetComponentInChildren<Button>();
+        Panel = GameObject.FindGameObjectWithTag("EventPanel").GetComponent<Image>();
+        Panel.gameObject.SetActive(false);
 
     }
 
@@ -31,7 +35,7 @@ public class NextTurn : MonoBehaviour
                 enemyTracking.SetEnemyTurn();
                 
             }
-            else if (Number < EnemiesAndOthers.Count && enemyTracking.GetTurnFinished())
+            else if (Number < EnemiesAndOthers.Count && enemyTracking.GetTurnFinished()&&!Pause)
             {
                 enemyTracking.SetTurnFinished();
                 Number++;
@@ -46,6 +50,11 @@ public class NextTurn : MonoBehaviour
             }
             
 
+            if(Pause)
+            {
+                Panel.gameObject.SetActive(true);
+            }
+
         }
     }
 
@@ -57,5 +66,18 @@ public class NextTurn : MonoBehaviour
         
         
         
+    }
+
+
+
+    public void SetPause(bool IfPause)
+    {
+        Pause = IfPause;
+    }
+
+    public void ClosePanel()
+    {
+        Panel.gameObject.SetActive(false);
+        Pause = false;
     }
 }

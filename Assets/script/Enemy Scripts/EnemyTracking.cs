@@ -33,7 +33,9 @@ public class EnemyTracking : MonoBehaviour
     [Header("NextTurn")]
     private bool NextTurn = false;
     private bool OnlyOnce = false;
-    [SerializeField]private bool TurnFinished = false;
+    private bool TurnFinished = false;
+    private playerMovement playerMovement;
+    private NextTurn nextTurn;
     // Start is called before the first frame update
     void Start()
     {
@@ -64,7 +66,8 @@ public class EnemyTracking : MonoBehaviour
         EnemyMapPosition = tilemap.WorldToCell(transform.position);
 
         transform.position = tilemap.CellToWorld(EnemyMapPosition);
-        
+        playerMovement = GameObject.FindGameObjectWithTag("Player").GetComponent<playerMovement>();
+        nextTurn = GameObject.FindGameObjectWithTag("Canvas").GetComponent<NextTurn>();
 
     }
 
@@ -207,6 +210,11 @@ public class EnemyTracking : MonoBehaviour
         }
         else
         {
+            //Debug.Log(EnemyMapPosition + "," + playerMovement.playerMapPosition);
+            if(EnemyMapPosition==playerMovement.playerMapPosition)
+            {
+                Debug.Log("Same Position");
+            }
             TurnFinished = true;
             PathFinished = true;
             NextTurn = false;
@@ -258,6 +266,11 @@ public class EnemyTracking : MonoBehaviour
         else
         {
             //vectorint vector=position,if(vector==player.position){debug.log(trigger)}
+            if (EnemyMapPosition == playerMovement.playerMapPosition)
+            {
+                nextTurn.SetPause(true);
+                Debug.Log("Same Position");
+            }
             TurnFinished = true;
             PathFinished = true;
             NextTurn = false;
