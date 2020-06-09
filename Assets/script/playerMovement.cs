@@ -135,7 +135,7 @@ public class playerMovement : MonoBehaviour
             if (PlayerCenterPos != TargetMovement && reach == false)
             {
                 //transform.position = Vector3.Lerp(PlayerCenterPos, TargetMovement, Time.deltaTime * speed);
-                transform.position = Vector3.MoveTowards(PlayerCenterPos, TargetMovement, 0.03f);
+                transform.position = Vector3.MoveTowards(PlayerCenterPos, TargetMovement, 1.3f*Time.deltaTime);
                 
             }
             
