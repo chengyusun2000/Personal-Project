@@ -28,10 +28,20 @@ public class ButtonTrigger : MonoBehaviour
     {
         if(dialogue.Dtype==Dialogue.DialogueType.normal)
         {
+            if(dialogue.FinishEvent!=null)
+            {
+                
+                currentQuests.RemoveQuestEvent(dialogue.FinishEvent);
+            }
             MoveToNextDialogue();
         }
         else if(dialogue.Dtype == Dialogue.DialogueType.Quit)
         {
+            if (dialogue.FinishEvent != null)
+            {
+                
+                currentQuests.RemoveQuestEvent(dialogue.FinishEvent);
+            }
             interaction.QuitPanel();
         }
         else if(dialogue.Dtype == Dialogue.DialogueType.Quest)
@@ -39,11 +49,19 @@ public class ButtonTrigger : MonoBehaviour
             if(dialogue.quest!=null)
             {
                 currentQuests.AddQuest(dialogue.quest.quest);
-                currentDialogue.Current.dialogues.Remove(currentDialogue.FindPreviousDialogue(dialogue.PreviousID));
+
+                //currentDialogue.Current.dialogues.Remove(currentDialogue.FindPreviousDialogue(dialogue.PreviousID));
+                
             }
-            
-           
+
+            if (dialogue.FinishEvent != null)
+            {
+                
+                currentQuests.RemoveQuestEvent(dialogue.FinishEvent);
+            }
+            currentDialogue.Current.dialogues.Remove(currentDialogue.FindRootDialogue(dialogue)[0]);
             MoveToNextDialogue();
+
         }
         
     }
