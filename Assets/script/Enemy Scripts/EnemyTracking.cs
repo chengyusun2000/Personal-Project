@@ -8,7 +8,6 @@ public class EnemyTracking : MonoBehaviour
     public Tilemap tilemap;
     public pathfinding pathfinding;
     public Transform Player;
-    public NextTurn NextTurn;
     public Tilemap HighLight;
     public Tile tile;
     public Load load;
@@ -25,12 +24,16 @@ public class EnemyTracking : MonoBehaviour
     public bool PlayerIsDetected=false;
 
     [Header("EnemyMoveCondition")]
-    public  bool PathFinished = true;
+    private  bool PathFinished = true;
     public  bool reach = true;
-    public Vector3Int NextStep;
-    public int RandonNumber;
+    private Vector3Int NextStep;
+    private int RandonNumber;
     public LayerMask linemask;
-    public List<node> Path;
+    private List<node> Path;
+    [Header("NextTurn")]
+    private bool NextTurn = false;
+    private bool OnlyOnce = false;
+    [SerializeField]private bool TurnFinished = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -47,7 +50,6 @@ public class EnemyTracking : MonoBehaviour
         load = tilemap.GetComponent<Load>();
         pathfinding = tilemap.GetComponent<pathfinding>();
         Player = GameObject.FindGameObjectWithTag("Player").transform;
-        NextTurn = GameObject.FindGameObjectWithTag("Canvas").GetComponent<NextTurn>();
         Tilemap[] tilemaps;
         tilemaps= GameObject.FindObjectsOfType<Tilemap>();
         for (int i = 0; i < tilemaps.Length; i++)
@@ -96,7 +98,7 @@ public class EnemyTracking : MonoBehaviour
 
     public void EnemyTurn()//all the steps enemy will do in enenmy turn
     {
-        if(NextTurn.EnemyTurn)
+        if(NextTurn)
         {
             
             if (CheckInRange)
@@ -118,7 +120,7 @@ public class EnemyTracking : MonoBehaviour
             
             if (PlayerIsDetected)
             {
-                if( !NextTurn.OnlyOnce)
+                if( !OnlyOnce)
                 {
                     EnemyToPlayer = pathfinding.FinDAPath(tilemap.CellToWorld(EnemyMapPosition), Player.position);
                     for (int i = 0; i < EnemyToPlayer.Count; i++)
@@ -132,7 +134,7 @@ public class EnemyTracking : MonoBehaviour
                         }
                     }
 
-                    NextTurn.OnlyOnce = true;
+                    OnlyOnce = true;
                     
                 }
                 EnemyMove();//enemy move towards player
@@ -150,11 +152,11 @@ public class EnemyTracking : MonoBehaviour
     public void EnemyWonder()//enemy chooses a random position in the moveposition and move to it
     {
         
-        if(!NextTurn.OnlyOnce)
+        if(!OnlyOnce)
         {
             RandonNumber = Random.Range(0, EnemyMoveRange.Count - 1);
             Path = pathfinding.FinDAPath(tilemap.CellToWorld(EnemyMapPosition), tilemap.CellToWorld(EnemyMoveRange[RandonNumber]));//use a* pathfinding to get a path
-            NextTurn.OnlyOnce = true;
+            OnlyOnce = true;
         }
 
         //NextStep = new Vector3Int(Path[0].position[0], Path[0].position[1], Path[0].position[2]);
@@ -183,7 +185,7 @@ public class EnemyTracking : MonoBehaviour
             if (transform.position != tilemap.CellToWorld(NextStep) && reach == false)
             {
                 //transform.position = Vector3.Lerp(PlayerCenterPos, TargetMovement, Time.deltaTime * speed);
-                transform.position = Vector3.MoveTowards(transform.position, tilemap.CellToWorld(NextStep), 0.03f);
+                transform.position = Vector3.MoveTowards(transform.position, tilemap.CellToWorld(NextStep), 1.3f*Time.deltaTime);
 
             }
 
@@ -205,9 +207,10 @@ public class EnemyTracking : MonoBehaviour
         }
         else
         {
+            TurnFinished = true;
             PathFinished = true;
-            NextTurn.EnemyTurn = false;
-            NextTurn.OnlyOnce = false;
+            NextTurn = false;
+            OnlyOnce = false;
             CheckInRange = true;
         }
     }
@@ -233,7 +236,7 @@ public class EnemyTracking : MonoBehaviour
             if (transform.position != tilemap.CellToWorld(NextStep) && reach == false)
             {
                 //transform.position = Vector3.Lerp(PlayerCenterPos, TargetMovement, Time.deltaTime * speed);
-                transform.position = Vector3.MoveTowards(transform.position, tilemap.CellToWorld(NextStep), 0.03f);
+                transform.position = Vector3.MoveTowards(transform.position, tilemap.CellToWorld(NextStep), 1.3f*Time.deltaTime);
 
             }
 
@@ -255,9 +258,10 @@ public class EnemyTracking : MonoBehaviour
         else
         {
             //vectorint vector=position,if(vector==player.position){debug.log(trigger)}
+            TurnFinished = true;
             PathFinished = true;
-            NextTurn.EnemyTurn = false;
-            NextTurn.OnlyOnce = false;
+            NextTurn = false;
+            OnlyOnce = false;
             CheckInRange = true;
             
         }
@@ -462,4 +466,22 @@ public class EnemyTracking : MonoBehaviour
         return PositionsInRange;
     }
 
+
+
+    public void SetEnemyTurn()
+    {
+        NextTurn = true;
+       
+    }
+
+    public bool GetTurnFinished()
+    {
+        return TurnFinished;
+    }
+
+
+    public void SetTurnFinished()
+    {
+        TurnFinished = false;
+    }
 }
