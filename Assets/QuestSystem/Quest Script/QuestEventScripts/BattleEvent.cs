@@ -17,9 +17,7 @@ public class BattleEvent : QuestEventBase
         eventType = EventType.Combat;
     }
     public int Number;
-    public int FinishedNumber;
     public MonsterType monsterType;
 
-    
 }
 

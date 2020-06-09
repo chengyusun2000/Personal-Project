@@ -21,18 +21,8 @@ public class GetDiscription : MonoBehaviour
     {
         text.text = Quest.GetCurrentEvent(Quest.FindFirstEvent())[0].Discription;
     }
-    public void SetQuest(QuestBase quest)
+    public void GetQuest(QuestBase quest)
     {
         Quest = quest;
-    }
-
-    public QuestBase GetQuest()
-    {
-        return Quest;
-    }
-
-    public Text GetText()
-    {
-        return text;
     }
 }

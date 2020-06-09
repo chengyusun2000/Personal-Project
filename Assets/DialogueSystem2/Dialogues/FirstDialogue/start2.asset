@@ -9,14 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 48506c89ba1841d4eb6c13c4cbba2b1a, type: 3}
-  m_Name: Test second
+  m_Script: {fileID: 11500000, guid: 2b91f484a55abac4f816aac549e63d4a, type: 3}
+  m_Name: start2
   m_EditorClassIdentifier: 
-  dialogueText: you deserve this
-  ButtonText: thank you
+  dialogueText: 
+  ButtonText: no thank you
   NextID: -1
-  PreviousID: 4
-  Dtype: 1
-  quest: {fileID: 0}
-  FinishEvent: {fileID: 11400000, guid: 6464af11f240f684eba554dd2831b291, type: 2}
-  item: {fileID: 0}
+  PreviousID: -1
+  Dtype: 0

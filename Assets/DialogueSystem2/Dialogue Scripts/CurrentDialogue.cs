@@ -10,8 +10,7 @@ public class CurrentDialogue : MonoBehaviour
     public Button button;
     public Button temp;
     public List<Button> TempButtons;
-    public List<Dialogue> Previous;
-    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -65,42 +64,22 @@ public class CurrentDialogue : MonoBehaviour
             TempButtons.RemoveAt(0);
         }
     }
-    
-
-
-    public List<Dialogue> FindRootDialogue(Dialogue Inputdialogue)
+    public Dialogue FindPreviousDialogue(int index)
     {
-        List<Dialogue> Temp = new List<Dialogue>();
-
-        
-
+        List< Dialogue> temp=new List<Dialogue>();
         foreach (Dialogue dialogue in Current.dialogues)
         {
             if (dialogue != null)
             {
-                if (dialogue.NextID == Inputdialogue.PreviousID)
+                if (dialogue.NextID == index)
                 {
 
-                    Temp.Add(dialogue);
+                    temp.Add(dialogue);
                 }
             }
 
-
+            
         }
-        foreach(Dialogue dialogue in Temp)
-        {
-            if (dialogue.Dtype == Dialogue.DialogueType.normal)
-            {
-                NormalDialogue normalDialogue = (NormalDialogue)dialogue;
-                if (!normalDialogue.IfStartAQuest)
-                {
-                    FindRootDialogue(normalDialogue);
-                }
-
-            }
-        }
-
-        return Temp;
+        return temp[0];
     }
-
 }
