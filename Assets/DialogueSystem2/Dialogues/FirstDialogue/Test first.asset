@@ -10,13 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2b91f484a55abac4f816aac549e63d4a, type: 3}
-  m_Name: Start1
+  m_Name: Test first
   m_EditorClassIdentifier: 
-  dialogueText: yes, you need to kill 3 slimes
-  ButtonText: 'i heard you have a job for me '
-  NextID: 1
+  dialogueText: oh really, good job, here's your reward
+  ButtonText: there's no more slimes
+  NextID: 4
   PreviousID: -1
   Dtype: 0
-  quest: {fileID: 0}
+  quest: {fileID: 11400000, guid: 320bbc7df923e2c41b4b675cb45bb0b5, type: 2}
+  FinishEvent: {fileID: 0}
   item: {fileID: 0}
   IfStartAQuest: 1
