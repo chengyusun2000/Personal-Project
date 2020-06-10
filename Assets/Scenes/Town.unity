@@ -318,6 +318,7 @@ MonoBehaviour:
   Finished: []
   CurrentEvents: []
   button: {fileID: 5785765127765014461, guid: e63ee98d6208695428c2a6f344e942b3, type: 3}
+  Buttons: []
   QuestList: {fileID: 13345305}
 --- !u!4 &69318463
 Transform:
@@ -12007,7 +12008,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 10.48, y: 54.01}
+  m_AnchoredPosition: {x: 637, y: 357}
   m_SizeDelta: {x: 442.12128, y: 138.01208}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &257226436
@@ -13842,6 +13843,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23b37f19de5dcc1439bf7ccf2a4f2bf3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scene:
+    m_Handle: 3
 --- !u!61 &835875756
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -15310,6 +15313,7 @@ MonoBehaviour:
   Finished: []
   CurrentEvents: []
   button: {fileID: 5785765127765014461, guid: e63ee98d6208695428c2a6f344e942b3, type: 3}
+  Buttons: []
   QuestList: {fileID: 13345305}
 --- !u!114 &1366442785
 MonoBehaviour:
