@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class TestScene : MonoBehaviour
 {
+    public bool Done = false;
     private void Awake()
     {
         if (SceneManager.GetSceneByName("MainMap").isLoaded)
@@ -18,6 +19,8 @@ public class TestScene : MonoBehaviour
             }
         }
         StartCoroutine(SetActive(SceneManager.GetSceneByName("TestInsScene")));
+        StartCoroutine(SetDone());
+        
     }
     private void OnEnable()
     {
@@ -43,6 +46,19 @@ public class TestScene : MonoBehaviour
             yield return null;
         }
         SceneManager.SetActiveScene(scene);
+        yield break;
+    }
+
+
+    public IEnumerator SetDone()
+    {
+        int i = 0;
+        while (i == 0)
+        {
+            i++;
+            yield return null;
+        }
+        Done = true;
         yield break;
     }
 

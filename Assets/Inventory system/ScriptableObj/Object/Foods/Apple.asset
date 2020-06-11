@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31a9fa1b1d9a7b142b81f9607c0c5cf9, type: 3}
   m_Name: Apple
   m_EditorClassIdentifier: 
+  ItemName: Apple
   image: {fileID: 1274039315320251662, guid: 9fa8d11afcdc3f042825e2125537a43d, type: 3}
   SceneImage: {fileID: 3781241188025002434, guid: 3b88908a059ad34449e9b0cc5085e4e4,
     type: 3}

@@ -166,6 +166,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Prefab:
   - {fileID: 7261157299066357931, guid: 03a4e6a786ada994d98d72d5ace77619, type: 3}
+  testScene: {fileID: 0}
 --- !u!1 &80963075
 GameObject:
   m_ObjectHideFlags: 0
@@ -289,6 +290,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Prefab:
   - {fileID: 7261157299066357931, guid: 03a4e6a786ada994d98d72d5ace77619, type: 3}
+  testScene: {fileID: 0}
 --- !u!1 &225976238
 GameObject:
   m_ObjectHideFlags: 0
@@ -334,6 +336,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Prefab:
   - {fileID: 7261157299066357931, guid: 03a4e6a786ada994d98d72d5ace77619, type: 3}
+  testScene: {fileID: 0}
 --- !u!1 &428683085
 GameObject:
   m_ObjectHideFlags: 0
@@ -349,7 +352,7 @@ GameObject:
   m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &428683087
 Transform:
   m_ObjectHideFlags: 0
@@ -117618,7 +117621,7 @@ GameObject:
   - component: {fileID: 1095385333}
   m_Layer: 5
   m_Name: Canvas
-  m_TagString: Untagged
+  m_TagString: Canvas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -117715,6 +117718,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d854c5156199c948bc8c087bfa97cff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Done: 0
 --- !u!1 &1140558531
 GameObject:
   m_ObjectHideFlags: 0
@@ -117760,6 +117764,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Prefab:
   - {fileID: 7261157299066357931, guid: 03a4e6a786ada994d98d72d5ace77619, type: 3}
+  testScene: {fileID: 0}
 --- !u!1 &1263568201
 GameObject:
   m_ObjectHideFlags: 0
@@ -117805,6 +117810,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Prefab:
   - {fileID: 7261157299066357931, guid: 03a4e6a786ada994d98d72d5ace77619, type: 3}
+  testScene: {fileID: 0}
 --- !u!1 &1412882657
 GameObject:
   m_ObjectHideFlags: 0
@@ -118063,3 +118069,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Prefab:
   - {fileID: 7261157299066357931, guid: 03a4e6a786ada994d98d72d5ace77619, type: 3}
+  testScene: {fileID: 0}
