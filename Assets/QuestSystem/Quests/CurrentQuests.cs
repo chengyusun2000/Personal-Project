@@ -10,13 +10,14 @@ public class CurrentQuests : MonoBehaviour
     [SerializeField] private Button button;
     private QuestBase Temp;
     [SerializeField]private List<Button> Buttons;
+    private InventoryData inventoryData;
     //[SerializeField] private QuestsList questsList;
     
     public Transform QuestList;
     // Start is called before the first frame update
     void Start()
     {
-        
+        inventoryData = transform.GetComponent<InventoryData>();
         //AddQuestToQuestList();
     }
 
@@ -34,6 +35,9 @@ public class CurrentQuests : MonoBehaviour
         }
         AddQuestToQuestList();
     }
+
+
+
     public void MoveQuestToFinishend(QuestBase FinishedQuest)
     {
         int Index = new int();
@@ -50,6 +54,9 @@ public class CurrentQuests : MonoBehaviour
         Destroy(Buttons[Index].gameObject);
         Buttons.RemoveAt(Index);
     }
+
+
+
     public void AddQuestToQuestList()
     {
         
@@ -84,7 +91,34 @@ public class CurrentQuests : MonoBehaviour
 
                     if (!CurrentEvents.Contains(questEvent))
                     {
-                        CurrentEvents.Add(questEvent);
+                        if(questEvent.eventType==EventType.FindObject)
+                        {
+                            FindObjectEvent findObjectEvent = (FindObjectEvent)questEvent;
+                            foreach(ItemObj item in inventoryData.GetItems())
+                            {
+                                if(item.ItemName==findObjectEvent.ItemName)
+                                {
+                                    findObjectEvent.FinishedAmount++;
+                                }
+                            }
+
+                            if(findObjectEvent.FinishedAmount>=findObjectEvent.Amount)
+                            {
+                                
+                                RemoveQuestEvent(findObjectEvent);
+                            }
+                            else
+                            {
+                                CurrentEvents.Add(questEvent);
+                            }
+                        }
+                        else
+                        {
+                            CurrentEvents.Add(questEvent);
+                        }
+
+                        
+
                     }
 
                 }

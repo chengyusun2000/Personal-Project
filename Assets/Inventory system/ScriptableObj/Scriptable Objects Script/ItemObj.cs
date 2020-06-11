@@ -13,7 +13,7 @@ public enum ItemType
 }
 public abstract class ItemObj : ScriptableObject
 {
-    
+    public string ItemName;
     public Image image;
     public GameObject SceneImage;
     public ItemType type;
