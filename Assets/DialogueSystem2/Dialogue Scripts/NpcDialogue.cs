@@ -5,4 +5,7 @@ using UnityEngine;
 public class NpcDialogue : MonoBehaviour
 {
     public DialogueCombinationBase dialogue;
+
+
+    
 }

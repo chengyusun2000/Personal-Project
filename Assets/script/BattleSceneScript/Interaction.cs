@@ -20,6 +20,7 @@ public class Interaction : MonoBehaviour
     [SerializeField] private Transform NpcTransform;
     [SerializeField] private List<GameObject> itemObjs;
     private bool picking = false;
+    private CurrentQuests currentQuests;
     // Start is called before the first frame update
     void Start()
     {
@@ -48,7 +49,8 @@ public class Interaction : MonoBehaviour
                 inventory = transform.GetComponent<Inventory>();
             }
         }
-        
+
+        currentQuests = GameObject.FindGameObjectWithTag("GameData").GetComponent<CurrentQuests>();
 
         InteractText.gameObject.SetActive(false);
         DialoguePanel.SetActive(false);
@@ -126,10 +128,28 @@ public class Interaction : MonoBehaviour
                 InteractText.text = "Talk";
                 if(Input.GetKeyDown(KeyCode.E))
                 {
-                    NpcTransform = Hit2D.transform;
-                    StartCalculating = true;
+                NpcTransform = Hit2D.transform;
+
+                StartCalculating = true;
                     DialoguePanel.SetActive(true);
-                    currentDialogue.Current = Hit2D.transform.GetComponent<NpcDialogue>().dialogue;
+                foreach(QuestEventBase questEvent in currentQuests.GetEvents())
+                {
+                    if(questEvent.eventType==EventType.Dialogue)
+                    {
+                        DialogueEvent dialogueEvent = (DialogueEvent)questEvent;
+                        if(dialogueEvent.Name== NpcTransform.GetComponent<NpcDialogue>().dialogue.Name&&!dialogueEvent.AddDialogues)
+                        {
+                            foreach(Dialogue dialogue in dialogueEvent.dialogue)
+                            {
+                                NpcTransform.GetComponent<NpcDialogue>().dialogue.dialogues.Add(dialogue);
+                            }
+                            dialogueEvent.AddDialogues = true;
+                            
+                        }
+                    }
+                        
+                }
+                    currentDialogue.Current = NpcTransform.GetComponent<NpcDialogue>().dialogue;
                     currentDialogue.StartDialogue();
                 }
 

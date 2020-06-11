@@ -16,3 +16,7 @@ MonoBehaviour:
   ButtonText: 'i heard you have a job for me '
   NextID: 1
   PreviousID: -1
+  Dtype: 0
+  quest: {fileID: 0}
+  item: {fileID: 0}
+  IfStartAQuest: 1

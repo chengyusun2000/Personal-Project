@@ -14,4 +14,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/EncounterTestScene/GrassEncounter2.unity
     guid: 6e5b79c2c5e09374b8eae5ce58a406e1
+  - enabled: 1
+    path: Assets/Scenes/Town.unity
+    guid: a9a92a193adc86641afc41327f7ba3e6
+  - enabled: 1
+    path: Assets/Scenes/TestInsScene.unity
+    guid: 7bebba4920f81374bb4932f86cff6bd5
   m_configObjects: {}

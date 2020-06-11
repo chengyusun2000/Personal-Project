@@ -23,6 +23,8 @@ TagManager:
   - QOutPos
   - GameData
   - DontDestroyCanvas
+  - EventPanel
+  - DontEnable
   layers:
   - Default
   - TransparentFX

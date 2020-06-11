@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
 public enum EventType
 {
     Dialogue,
@@ -10,6 +11,7 @@ public enum EventType
 }
 public abstract class QuestEventBase :ScriptableObject// this script is used to define elements that a quest event needs
 {
+    
     public int Index;
     public bool Finished=false;
     public EventType eventType;
