@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 public class NextTurn : MonoBehaviour
 {
     public playerMovement playerMovement;
@@ -21,7 +22,10 @@ public class NextTurn : MonoBehaviour
         Panel.gameObject.SetActive(false);
 
     }
-
+    private void OnEnable()
+    {
+        Time.timeScale = 1;
+    }
     // Update is called once per frame
     void Update()
     {
@@ -79,5 +83,11 @@ public class NextTurn : MonoBehaviour
     {
         Panel.gameObject.SetActive(false);
         Pause = false;
+        Time.timeScale = 0;
+        SceneManager.LoadScene("TestInsScene",LoadSceneMode.Additive);
+        
+
     }
+    
+   
 }
