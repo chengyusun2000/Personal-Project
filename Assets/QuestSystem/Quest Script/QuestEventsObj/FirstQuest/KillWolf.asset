@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: KillWolf
   m_EditorClassIdentifier: 
   Index: 1
-  Finished: 0
+  Finished: 1
   eventType: 1
   QuestDestination: {x: 0, y: 0, z: 0}
   Discription: You need to kill 3 wolfs

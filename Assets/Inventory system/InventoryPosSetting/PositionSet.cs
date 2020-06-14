@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class PositionSet : MonoBehaviour
 {
     [SerializeField] private RectTransform InPos;
@@ -12,6 +12,7 @@ public class PositionSet : MonoBehaviour
     [SerializeField] private string OutlTag;
     private bool InP = false;
     private bool OutP = false;
+    private Text EventDescription;
 
     // Start is called before the first frame update
     void Start()
@@ -33,6 +34,7 @@ public class PositionSet : MonoBehaviour
             }
             
         }
+        EventDescription = GameObject.FindGameObjectWithTag("DontDestroyCanvas").transform.Find("Quests").Find("Description").Find("Viewport").Find("Content").GetComponent<Text>();
         SetOutPos();
     }
 
@@ -46,6 +48,7 @@ public class PositionSet : MonoBehaviour
         Panel.position = InPos.position;
         InP = true;
         OutP = false;
+        EventDescription.text = "";
     }
 
     public void SetOutPos()

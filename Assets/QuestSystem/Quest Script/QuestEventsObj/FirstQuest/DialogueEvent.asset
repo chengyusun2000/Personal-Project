@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: DialogueEvent
   m_EditorClassIdentifier: 
   Index: 0
-  Finished: 0
+  Finished: 1
   eventType: 0
   QuestDestination: {x: 0, y: 0, z: 0}
   Discription: You need to talk with xxx
@@ -22,4 +22,4 @@ MonoBehaviour:
   dialogue:
   - {fileID: 11400000, guid: 1ffe2f752baa59c41a63ca910628df3f, type: 2}
   - {fileID: 11400000, guid: 621013bcd77dbad4e9a2b4bc052047aa, type: 2}
-  AddDialogues: 0
+  AddDialogues: 1
