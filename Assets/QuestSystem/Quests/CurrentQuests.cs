@@ -9,6 +9,7 @@ public class CurrentQuests : MonoBehaviour
     [SerializeField] private List<QuestEventBase> CurrentEvents;
     [SerializeField] private Button button;
     private QuestBase Temp;
+    private QuestEventBase TempEvent;
     [SerializeField]private List<Button> Buttons;
     private InventoryData inventoryData;
     //[SerializeField] private QuestsList questsList;
@@ -76,6 +77,7 @@ public class CurrentQuests : MonoBehaviour
     public void SetCurrentEvents()
     {
         bool IfMove = false;
+        bool IfAlreadyFinished = false;
         foreach (QuestBase quest in Current)
         {
 
@@ -101,16 +103,15 @@ public class CurrentQuests : MonoBehaviour
                                     findObjectEvent.FinishedAmount++;
                                 }
                             }
-
-                            if(findObjectEvent.FinishedAmount>=findObjectEvent.Amount)
+                            CurrentEvents.Add(questEvent);
+                            if (findObjectEvent.FinishedAmount >= findObjectEvent.Amount)
                             {
+                                IfAlreadyFinished = true;
+                                TempEvent = findObjectEvent;
                                 
-                                RemoveQuestEvent(findObjectEvent);
                             }
-                            else
-                            {
-                                CurrentEvents.Add(questEvent);
-                            }
+                            
+                            
                         }
                         else
                         {
@@ -125,11 +126,20 @@ public class CurrentQuests : MonoBehaviour
             }
             
         }
+
+
         if(IfMove)
         {
             MoveQuestToFinishend(Temp);
             
         }
+
+
+        if(IfAlreadyFinished )
+        {
+            RemoveQuestEvent(TempEvent);
+        }
+
     }
 
 

@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: FindApples
   m_EditorClassIdentifier: 
   Index: 2
-  Finished: 0
+  Finished: 1
   eventType: 2
   QuestDestination: {x: 0, y: 0, z: 0}
   Discription: 
   ItemName: Apple
   Amount: 3
-  FinishedAmount: 0
+  FinishedAmount: 3
