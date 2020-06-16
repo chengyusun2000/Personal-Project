@@ -19,7 +19,7 @@ public class GetDiscription : MonoBehaviour
     }
     public void DisPlayDiscription()
     {
-        text.text = Quest.GetCurrentEvent(Quest.FindFirstEvent())[0].Discription;
+        text.text = Quest.GetCurrentEvent(Quest.FindFirstEvent())[0].Description;
     }
     public void SetQuest(QuestBase quest)
     {

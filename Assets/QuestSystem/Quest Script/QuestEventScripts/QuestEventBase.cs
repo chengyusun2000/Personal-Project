@@ -17,6 +17,6 @@ public abstract class QuestEventBase :ScriptableObject// this script is used to 
     public EventType eventType;
     public Vector3 QuestDestination;
     [TextArea(10,10)]
-    public string Discription;
+    public string Description;
 
 }
