@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: KillSlime
   m_EditorClassIdentifier: 
   Index: 1
-  Finished: 1
+  Finished: 0
   eventType: 1
   QuestDestination: {x: 0, y: 0, z: 0}
-  Discription: You need to kill 3 Slimes
+  Description: 
   Number: 3
-  FinishedNumber: 3
+  FinishedNumber: 0
   monsterType: 0

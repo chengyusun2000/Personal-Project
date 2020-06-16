@@ -107,21 +107,7 @@ public class Interaction : MonoBehaviour
                     itemObjs.Remove(itemObjs[0]);
                 }
             }
-            //else if (Hit2D.transform.tag == "Item")
-            //{
-            //    GetItemData getItemData = Hit2D.transform.GetComponent<GetItemData>();
-
-            //    InteractText.gameObject.SetActive(true);
-            //    InteractText.text = "PickUp Item";
-
-            //    if (Input.GetKeyDown(KeyCode.E))
-            //    {
-
-            //        inventory.PickUpObject(getItemData.GetItemObj());
-            //        Destroy(Hit2D.transform.gameObject);
-            //    }
-
-            //}
+            
             else if(Hit2D.collider != null&&Hit2D.transform.tag=="NPC")
             {
                 InteractText.gameObject.SetActive(true);
@@ -216,5 +202,7 @@ public class Interaction : MonoBehaviour
         DialoguePanel.SetActive(false);
     }
 
+
+    
 
 }
