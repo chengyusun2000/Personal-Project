@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
 {
-    public float speed = 5f;
+    private float speed = 0.1f;
     [SerializeField]private Vector2 Movement;
     private Rigidbody2D PlayerRigi;
     private Animator PlayerAnimator;
@@ -33,14 +33,21 @@ public class PlayerMove : MonoBehaviour
        if(Movement.x>0)
         {
             PlayerAnimator.SetBool("Walk", true);
-            transform.localScale = vector;
+            if (!PlayerAnimator.GetBool("StartAttack") && !PlayerAnimator.GetBool("Attack"))
+            {
+                transform.localScale = vector;
+            }
+            
 
         }
-       else if(Movement.x<0)
+       else if(Movement.x<0 )
         {
             PlayerAnimator.SetBool("Walk", true);
-
-            transform.localScale = new Vector3(vector.x * -1, vector.y, vector.z);
+            if (!PlayerAnimator.GetBool("StartAttack") && !PlayerAnimator.GetBool("Attack"))
+            {
+                transform.localScale = new Vector3(vector.x * -1, vector.y, vector.z);
+            }
+            
 
         }
         else
@@ -53,6 +60,7 @@ public class PlayerMove : MonoBehaviour
        
        if(Input.GetMouseButtonDown(0))
         {
+            Facing();
             PlayerAnimator.SetBool("StartAttack", true);
             //StartCoroutine(Wait());
         }
@@ -61,7 +69,17 @@ public class PlayerMove : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        PlayerRigi.MovePosition(Movement * speed + PlayerRigi.position);
+        if(!PlayerAnimator.GetBool("StartAttack") && !PlayerAnimator.GetBool("Attack"))
+        {
+            speed = 0.1f;
+            PlayerRigi.MovePosition(Movement * speed + PlayerRigi.position);
+        }
+        else if(!PlayerAnimator.GetBool("StartAttack")&& PlayerAnimator.GetBool("Attack"))
+        {
+            speed = 0.05f;
+            PlayerRigi.MovePosition(Movement * speed + PlayerRigi.position);
+        }
+        
 
 
    
