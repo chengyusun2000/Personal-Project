@@ -25,6 +25,7 @@ TagManager:
   - DontDestroyCanvas
   - EventPanel
   - DontEnable
+  - AttackCollision
   layers:
   - Default
   - TransparentFX

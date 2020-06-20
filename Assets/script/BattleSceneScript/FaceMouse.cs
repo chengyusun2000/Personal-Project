@@ -30,7 +30,7 @@ public class FaceMouse : MonoBehaviour
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
-        testattack(collision.transform);
+        //testattack(collision.transform);
     }
 
 
@@ -41,10 +41,11 @@ public class FaceMouse : MonoBehaviour
         {
             if (playeranimator.GetBool("Attack") && !OnlyOnce&&Enemy.tag=="Enemy")
             {
+                OnlyOnce = true;
                 Debug.Log("att");
                 TestEnemyHP testEnemyHP = Enemy.GetComponent<TestEnemyHP>();
                 testEnemyHP.Hp--;
-                OnlyOnce = true;
+                
             }
         }
         
