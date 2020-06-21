@@ -5,11 +5,13 @@ using UnityEngine;
 public class EnemyOnHit : StateMachineBehaviour
 {
     TestEnemyHP testEnemyHP;
+    private PlayerInfo playerInfo;
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        playerInfo = GameObject.FindGameObjectWithTag("GameData").GetComponent<PlayerInfo>();
         testEnemyHP = animator.transform.GetComponent<TestEnemyHP>();
-        testEnemyHP.Hp--;
+        testEnemyHP.Hp = testEnemyHP.Hp - playerInfo.GetDamage();
     }
 
     //OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks

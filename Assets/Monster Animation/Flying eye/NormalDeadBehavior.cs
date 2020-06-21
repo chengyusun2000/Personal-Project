@@ -2,28 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MonsterBasicAttack : StateMachineBehaviour
+public class NormalDeadBehavior : StateMachineBehaviour
 {
-    private PlayerInfo playerInfo;
-    private AttackPlayer attackPlayer;
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
-    override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    {
-        playerInfo = GameObject.FindGameObjectWithTag("GameData").GetComponent<PlayerInfo>();
-        animator.SetBool("Attack", true);
-        attackPlayer = animator.GetComponent<AttackPlayer>();
-        
-    }
+    //override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    //{
+    //    
+    //}
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        
-        if(stateInfo.normalizedTime>=0.98f)
+        if(stateInfo.normalizedTime>0.98)
         {
-
-            animator.SetBool("Attack", false);
-            attackPlayer.OnlyOnce = false;
+            Destroy(animator.transform.gameObject, 2f);
         }
     }
 
@@ -44,4 +36,5 @@ public class MonsterBasicAttack : StateMachineBehaviour
     //{
     //    // Implement code that sets up animation IK (inverse kinematics)
     //}
+    
 }

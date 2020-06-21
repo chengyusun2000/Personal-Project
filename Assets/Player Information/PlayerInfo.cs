@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerInfo : MonoBehaviour
 {
-     private int HP;
+     [SerializeField]private int HP;
      private int Mana;
      private int Stamina;
      private int MaxHP;
@@ -65,6 +65,10 @@ public class PlayerInfo : MonoBehaviour
             Stamina = MaxStamina;
         }
     }
+    public void AddDamage(int amount)
+    {
+        Damage = Damage + amount;
+    }
 
 
     public int GetMaxHp()
@@ -79,7 +83,10 @@ public class PlayerInfo : MonoBehaviour
     {
         return MaxStamina;
     }
-
+    public int GetDamage()
+    {
+        return Damage;
+    }
 
     public void AddMaxHp(int amount)
     {
@@ -96,4 +103,5 @@ public class PlayerInfo : MonoBehaviour
         MaxStamina = MaxStamina + amount;
         
     }
+    
 }
