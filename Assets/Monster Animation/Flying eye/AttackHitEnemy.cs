@@ -34,11 +34,12 @@ public class AttackHitEnemy : MonoBehaviour
         {
             if (playeranimator.GetBool("Attack") && !OnlyOnce && AttackCollision.tag == "AttackCollision")
             {
+                Debug.Log("att");
                 OnlyOnce = true;
                 EnemyAnimator.SetBool("OnHit", true);
-                Debug.Log("att");
                 
-                testEnemyHP.Hp--;
+                
+                
 
             }
         }

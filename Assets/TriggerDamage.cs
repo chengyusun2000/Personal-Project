@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class TriggerDamage : StateMachineBehaviour
 {
-    FaceMouse faceMouse;
+    
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        faceMouse = GameObject.FindGameObjectWithTag("Player").transform.Find("AttackCollision").GetComponent<FaceMouse>();
-        faceMouse.OnlyOnce = false;
+        
+        
         animator.SetBool("StartAttack", false);
     }
 
