@@ -11,15 +11,15 @@ public class MonsterBasicAttack : StateMachineBehaviour
     {
         playerInfo = GameObject.FindGameObjectWithTag("GameData").GetComponent<PlayerInfo>();
         animator.SetBool("Attack", true);
-        attackPlayer = animator.GetComponent<AttackPlayer>();
-        
+        attackPlayer = animator.GetComponentInChildren<AttackPlayer>();
+
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        
-        if(stateInfo.normalizedTime>=0.98f)
+
+        if (stateInfo.normalizedTime >= 0.99f)
         {
 
             animator.SetBool("Attack", false);

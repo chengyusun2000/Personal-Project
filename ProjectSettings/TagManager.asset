@@ -26,6 +26,7 @@ TagManager:
   - EventPanel
   - DontEnable
   - AttackCollision
+  - PlayerDamageCollision
   layers:
   - Default
   - TransparentFX

@@ -44,9 +44,13 @@ public class PlayerInfo : MonoBehaviour
     public void AddHp(int amount)
     {
         HP = HP + amount;
-        if(HP>MaxHP)
+        if (HP > MaxHP)
         {
             HP = MaxHP;
+        }
+        else if (HP <= 0)
+        {
+            HP = 0;
         }
     }
     public void AddMana(int amount)
