@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.EventSystems;
 public class PlayerMove : MonoBehaviour
 {
     private float speed = 0.1f;
@@ -60,8 +60,12 @@ public class PlayerMove : MonoBehaviour
        
        if(Input.GetMouseButtonDown(0))
         {
-            Facing();
-            PlayerAnimator.SetBool("StartAttack", true);
+            if (!EventSystem.current.IsPointerOverGameObject())
+            {
+                Facing();
+                PlayerAnimator.SetBool("StartAttack", true);
+            }
+               
             //StartCoroutine(Wait());
         }
 
