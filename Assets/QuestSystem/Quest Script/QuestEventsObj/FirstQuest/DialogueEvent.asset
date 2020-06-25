@@ -16,7 +16,7 @@ MonoBehaviour:
   Finished: 0
   eventType: 0
   QuestDestination: {x: 0, y: 0, z: 0}
-  Description: 
+  Description: you need to talk with smith
   Name: Smith
   Location: Village
   dialogue:
