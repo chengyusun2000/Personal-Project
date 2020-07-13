@@ -22,8 +22,8 @@ public class PlayerMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Movement.x = Input.GetAxis("Horizontal");
-        Movement.y = Input.GetAxis("Vertical");
+        //Movement.x = Input.GetAxis("Horizontal");
+        //Movement.y = Input.GetAxis("Vertical");
 
         SetWalkingDirection();
 
@@ -55,12 +55,12 @@ public class PlayerMove : MonoBehaviour
     {
         if(!PlayerAnimator.GetBool("StartAttack") && !PlayerAnimator.GetBool("Attack"))
         {
-            speed = 0.1f;
+            speed = 0.075f;
             PlayerRigi.MovePosition(Movement * speed + PlayerRigi.position);
         }
         else if(!PlayerAnimator.GetBool("StartAttack")&& PlayerAnimator.GetBool("Attack"))
         {
-            speed = 0.05f;
+            speed = 0.025f;
             PlayerRigi.MovePosition(Movement * speed + PlayerRigi.position);
         }
         
@@ -102,19 +102,48 @@ public class PlayerMove : MonoBehaviour
     public void SetWalkingDirection()
     {
         PlayerAnimator.SetFloat("UpOrDown", Movement.y);
-        if(/*Movement.x!=0*/Input.GetKeyDown(KeyCode.A)|| Input.GetKeyDown(KeyCode.D))
+        if (Input.GetKey(KeyCode.A)|| Input.GetKey(KeyCode.D))
         {
+            if(Input.GetKey(KeyCode.A))
+            {
+                Movement.x = -1;
+            }
+            else
+            {
+                Movement.x = 1;
+            }
             PlayerAnimator.SetBool("WalkLeftOrRight", true);
             
         }
-        else if(Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.D))
+        //else if (Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.D))
+        else
         {
+            Movement.x = 0;
             PlayerAnimator.SetBool("WalkLeftOrRight", false);
         }
 
 
+        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S))
+        {
+            if(Input.GetKey(KeyCode.W))
+            {
+                Movement.y = 1;
+            }
+            else
+            {
+                Movement.y = -1;
+            }
+        }
+        //else if (Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.S))
+        else
+        {
+            Movement.y = 0;
+        }
 
-        if (Movement.x > 0)
+
+
+
+            if (Movement.x > 0)
         {
             PlayerAnimator.SetBool("Walk", true);
             if (!PlayerAnimator.GetBool("StartAttack") && !PlayerAnimator.GetBool("Attack"))
