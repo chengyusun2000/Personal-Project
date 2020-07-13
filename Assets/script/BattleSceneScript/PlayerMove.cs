@@ -24,37 +24,15 @@ public class PlayerMove : MonoBehaviour
     {
         Movement.x = Input.GetAxis("Horizontal");
         Movement.y = Input.GetAxis("Vertical");
-        PlayerAnimator.SetFloat("LeftOrRight", Movement.x);
+
+        SetWalkingDirection();
+
         if (Input.GetButtonDown("Jump"))
         {
             PlayerRigi.AddForce(Movement);
         }
 
-       if(Movement.x>0)
-        {
-            PlayerAnimator.SetBool("Walk", true);
-            if (!PlayerAnimator.GetBool("StartAttack") && !PlayerAnimator.GetBool("Attack"))
-            {
-                transform.localScale = vector;
-            }
-            
-
-        }
-       else if(Movement.x<0 )
-        {
-            PlayerAnimator.SetBool("Walk", true);
-            if (!PlayerAnimator.GetBool("StartAttack") && !PlayerAnimator.GetBool("Attack"))
-            {
-                transform.localScale = new Vector3(vector.x * -1, vector.y, vector.z);
-            }
-            
-
-        }
-        else
-        {
-            PlayerAnimator.SetBool("Walk", false);
-            Facing();
-        }
+       
 
 
        
@@ -71,6 +49,8 @@ public class PlayerMove : MonoBehaviour
 
         
     }
+
+
     private void FixedUpdate()
     {
         if(!PlayerAnimator.GetBool("StartAttack") && !PlayerAnimator.GetBool("Attack"))
@@ -88,6 +68,9 @@ public class PlayerMove : MonoBehaviour
 
    
     }
+
+
+
     public Vector2 OutputMovement()
     {
         return Movement;
@@ -100,6 +83,7 @@ public class PlayerMove : MonoBehaviour
         PlayerAnimator.SetBool("Attack", false);
     }
 
+
     public void Facing()
     {
         
@@ -111,6 +95,53 @@ public class PlayerMove : MonoBehaviour
         {
             transform.localScale = vector;
             
+        }
+    }
+
+
+    public void SetWalkingDirection()
+    {
+        PlayerAnimator.SetFloat("UpOrDown", Movement.y);
+        if(/*Movement.x!=0*/Input.GetKeyDown(KeyCode.A)|| Input.GetKeyDown(KeyCode.D))
+        {
+            PlayerAnimator.SetBool("WalkLeftOrRight", true);
+            
+        }
+        else if(Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.D))
+        {
+            PlayerAnimator.SetBool("WalkLeftOrRight", false);
+        }
+
+
+
+        if (Movement.x > 0)
+        {
+            PlayerAnimator.SetBool("Walk", true);
+            if (!PlayerAnimator.GetBool("StartAttack") && !PlayerAnimator.GetBool("Attack"))
+            {
+                transform.localScale = vector;
+            }
+
+
+        }
+        else if (Movement.x < 0)
+        {
+            PlayerAnimator.SetBool("Walk", true);
+            if (!PlayerAnimator.GetBool("StartAttack") && !PlayerAnimator.GetBool("Attack"))
+            {
+                transform.localScale = new Vector3(vector.x * -1, vector.y, vector.z);
+            }
+
+
+        }
+        else if(Movement.y!=0)
+        {
+            PlayerAnimator.SetBool("Walk", true);
+        }
+        else
+        {
+            PlayerAnimator.SetBool("Walk", false);
+            Facing();
         }
     }
     
