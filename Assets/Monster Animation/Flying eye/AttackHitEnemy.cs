@@ -8,7 +8,7 @@ public class AttackHitEnemy : MonoBehaviour
     private Animator EnemyAnimator;
     public bool OnlyOnce = false;
     private TestEnemyHP testEnemyHP;
-    private float MaxTime = 0.6f;
+    private float MaxTime = 0.8f;
     private float time;
     // Start is called before the first frame update
     void Start()

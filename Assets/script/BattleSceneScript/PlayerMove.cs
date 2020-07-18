@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 public class PlayerMove : MonoBehaviour
 {
-    private float speed = 0.1f;
+    private float speed = 0.3f;
     [SerializeField]private Vector2 Movement;
     private Rigidbody2D PlayerRigi;
     private Animator PlayerAnimator;
@@ -55,12 +55,12 @@ public class PlayerMove : MonoBehaviour
     {
         if(!PlayerAnimator.GetBool("StartAttack") && !PlayerAnimator.GetBool("Attack"))
         {
-            speed = 0.075f;
+            speed = 0.1f;
             PlayerRigi.MovePosition(Movement * speed + PlayerRigi.position);
         }
         else if(!PlayerAnimator.GetBool("StartAttack")&& PlayerAnimator.GetBool("Attack"))
         {
-            speed = 0.025f;
+            speed = 0.05f;
             PlayerRigi.MovePosition(Movement * speed + PlayerRigi.position);
         }
         
